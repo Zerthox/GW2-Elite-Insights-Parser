@@ -3507,6 +3507,7 @@
         public const long AspectOfExposureNoTetherBuff = 69440; // prevents aspect from tethering?
         public const long AspectOfDeathBaseBuff = 69441; // applied on spawn, base aspect buff?
         public const long AspectOfLethargyBaseBuff = 69442;
+        public const long POV_SandShadeCountBuff = 69446; // pov only?
         public const long AspectOfFearNoTetherBuff = 69449;
         public const long AspectOfFearBaseBuff = 69451;
         public const long AspectOfDeathNoTetherBuff = 69453;
@@ -3516,10 +3517,12 @@
         public const long AspectOfTormentNoTetherBuff = 69468;
         public const long EmpoweredEnvy = 69479;
         public const long EmpoweredCerus = 69550;
+        public const long EnviousGaze = 69601;
         public const long RelicOfTheHerald = 69606;
         public const long MabonsStrength = 69620;
         public const long KryptisPossessed = 69647;
         public const long InvulnerabilityCerus = 69722;
+        public const long InsatiableHunger = 69728;
         public const long RelicOfTheAristocracy = 69795;
         public const long RelicTargetToPlayerBuff = 69813; // Same for Dragonhunter, Isgarren and Peitha
         public const long RelicOfTheNightmare = 69849;
@@ -3532,6 +3535,7 @@
         public const long SkyscaleFireballDamage = 70087;
         public const long EmpoweredRage = 70181;
         public const long RelicOfTheAfflicted = 70223;
+        public const long CerusMaliciousIntentTargetSpawnBuff = 70245;
         public const long Insatiable = 70253;
         public const long RelicOfTheDeadeye = 70282;
         public const long ResidualAnxiety = 70283;
@@ -3539,6 +3543,7 @@
         public const long RelicOfTheDragonhunterTargetBuff = 70350;
         public const long RelicOfLyhr = 70353;
         public const long RelicOfTheWeaver = 70390;
+        public const long MaliciousIntent = 70427;
         public const long SkyscaleFireballSkill = 70431;
         public const long RelicOfTheZephyrite = 70460;
         public const long RelicOfTheWizardsTower = 70491;
@@ -3550,11 +3555,14 @@
         public const long RelicOfTheSunless = 70617;
         public const long EmpoweredMalice = 70621;
         public const long RelicOfTheMirage = 70622;
+        public const long WailOfDespair = 70633;
+        public const long CryOfRage = 70668;
         public const long EmpoweredGluttony = 70687;
         public const long RelicOfTheFlock = 70765;
         public const long RelicOfTheThief = 70767;
         public const long RelicOfIsgarrenTargetBuff = 70806;
         public const long RelicOfTheDaredevil = 70839;
+        public const long Petrify = 70909;
         public const long RelicOfTheBrawler = 70913;
         public const long EmpoweredEnvyCerus = 70974;
         public const long RelicOfTheScourge = 70975;
@@ -3563,6 +3571,7 @@
         public const long RelicOfTheMonk = 71132;
         public const long RelicOfTheAstralWard = 71134;
         public const long RelicOfDagdaBuff = 71139;
+        public const long CrushingRegret = 71142;
         public const long RelicOfTheCitadel = 71166;
         public const long RelicOfDagdaHit = 71202;
         public const long RelicOfTheFirebrand = 71217;
