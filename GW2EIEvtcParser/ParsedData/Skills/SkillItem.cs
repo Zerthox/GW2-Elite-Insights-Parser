@@ -271,6 +271,7 @@ namespace GW2EIEvtcParser.ParsedData
             // Dhuum
             { MajorSoulSplit, "Major Soul Split" },
             { ExpelEnergySAK, "Expel Energy" },
+            { DeathMarkKnockback, "Death Mark (Knockback)" },
             // Keep Construct
             { MagicBlastCharge, "Magic Blast Charge" },
             // Conjured Amalgamate
@@ -1020,6 +1021,7 @@ namespace GW2EIEvtcParser.ParsedData
             { Flare, "https://wiki.guildwars2.com/images/5/54/Flare.png" },
             // - Dhuum
             { ExpelEnergySAK, "https://wiki.guildwars2.com/images/c/c1/Core_Capture.png" },
+            { DeathMarkKnockback, "https://wiki.guildwars2.com/images/4/45/Reveal_the_Depths.png" },
             // - Conjured Amalgamate
             { ConjuredSlashPlayer, "https://wiki.guildwars2.com/images/5/59/Conjured_Slash.png" },
             { ConjuredProtection, "https://wiki.guildwars2.com/images/0/02/Conjured_Protection.png" },

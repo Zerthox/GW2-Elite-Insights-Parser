@@ -2617,6 +2617,7 @@
         public const long SuperiorSigilOfTheStars = 46953;
         public const long MushroomKingsBlessing = 46970;
         public const long AchievementEligibilityNecroDancer = 46994;
+        public const long DeathMarkKnockback = 47002;
         public const long KingsWrathConeAoE = 47005;
         public const long Hailstorm = 47013;
         public const long Glaciate = 47022;
