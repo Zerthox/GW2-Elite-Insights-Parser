@@ -4796,7 +4796,11 @@ public static class SkillIDs
     public const long DeployBallista_InfiniteSiegeTool = 75372;
     public const long DeployCatapult_InfiniteSiegeTool = 75374;
     public const long DeployTrebuchet_InfiniteSiegeTool = 75375;
+    public const long DeployJadeSphereFireSphereSpecialist = 75391;
     public const long TasteForBlood = 75397;
+    public const long DeployJadeSphereAirSphereSpecialist = 75399;
+    public const long DeployJadeSphereEarthSphereSpecialist = 75405;
+    public const long DeployJadeSphereWaterSphereSpecialist = 75406;
     public const long EruptionOfRot4 = 75414;
     public const long LinkedDecimaAdd1 = 75420;
     public const long SeismicCrashDamageCM = 75422;
@@ -4893,4 +4897,3 @@ public static class SkillIDs
     //
     #endregion
 }
-
