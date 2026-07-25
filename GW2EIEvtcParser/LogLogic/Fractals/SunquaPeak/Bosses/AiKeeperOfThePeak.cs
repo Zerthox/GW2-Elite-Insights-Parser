@@ -900,19 +900,4 @@ internal class AiKeeperOfThePeak : SunquaPeak
             base.ComputeAchievementEligibilityEvents(log, p, achievementEligibilityEvents);
         }
     }
-
-    static internal void AddReflectableMissileDecorations(ParsedEvtcLog log, CombatReplayDecorationContainer decorations, long skill, Color color, double opacity, uint radius)
-    {
-        var missiles = log.CombatData.GetMissileEventsBySkillID(skill);
-        foreach (var missile in missiles)
-        {
-            CombatReplayDecorationContainer.AddNonHomingMissile(log, missile, (launch, lifespan, connector) =>
-            {
-                var decoration = launch.MaybeReflected
-                    ? new CircleDecoration(radius, lifespan, Colors.Grey, 0.3, connector)
-                    : new CircleDecoration(radius, lifespan, color, opacity, connector);
-                decorations.Add(decoration);
-            });
-        }
-    }
 }
