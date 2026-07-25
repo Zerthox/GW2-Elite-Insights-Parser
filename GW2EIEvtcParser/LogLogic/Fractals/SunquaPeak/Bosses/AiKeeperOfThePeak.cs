@@ -798,7 +798,7 @@ internal class AiKeeperOfThePeak : SunquaPeak
 
         // roiling flames (fire missiles)
         var roilingFlames = log.CombatData.GetMissileEventsBySkillID(RoilingFlames);
-        var roilingFlamesReflectable = log.CombatData.GetMissileEventsBySkillID(RoilingFlames);
+        var roilingFlamesReflectable = log.CombatData.GetMissileEventsBySkillID(RoilingFlamesDash);
         environmentDecorations.AddNonHomingMissiles(log, roilingFlames, Colors.Red, 0.3, 50);
         environmentDecorations.AddReflectableNonHomingMissiles(log, roilingFlamesReflectable, Colors.Red, 0.3, Colors.Grey, 0.3, 50);
 
