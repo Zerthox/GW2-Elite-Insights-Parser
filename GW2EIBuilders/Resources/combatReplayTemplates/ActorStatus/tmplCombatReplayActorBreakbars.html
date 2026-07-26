@@ -12,6 +12,7 @@
 
 <script>
     Vue.component("combat-replay-actor-breakbars-component", {
+        mixins: [encounterPhaseComponent, numberComponent],
         props: ["actorIndex", "isTarget"],
         template: `${template}`,
         methods: {
@@ -22,15 +23,24 @@
                 var target = logData.targets[this.actorIndex];
                 var phaseId = logData.phases.indexOf(phase);
                 var breakbarTaken = target.details.dmgDistributionsTaken[phaseId].contributedBreakbarDamage;
-                return phase.durationS + ' seconds <br /> Start: ' + phase.start + '<br /> End: ' + phase.end +
-                    '<br /> Breakbar Active at: ' + phase.breakbarStart +
-                    '<br /> Breakbar Damage: ' + numberFormater(breakbarTaken) +
-                    '<br /> Breakbar Recovered (Regeneration + Soft CC): ' + numberFormater(phase.breakbarRecovered, 1, 1);
+                return this.numberFormater3(phase.durationS) + ' seconds <br /> Start: ' + this.numberFormater3(phase.start) + 's<br /> End: ' + this.numberFormater3(phase.end) +
+                    's<br /> Breakbar Active at: ' + this.numberFormater3(phase.breakbarStart) +
+                    '<br /> Breakbar Damage: ' + this.numberFormater1(breakbarTaken) +
+                    '<br /> Breakbar Recovered (Regeneration + Soft CC): ' + this.numberFormater1(phase.breakbarRecovered);
             },
         },
         computed: {
+            actorPhaseTargetIndex: function() {
+                if (this.isTarget) {
+                    return this.encounterPhase.targets.indexOf(this.actorIndex);
+                }
+                return -1;
+            },
             breakbar: function () {
                 if (this.isTarget) {
+                    if (this.actorPhaseTargetIndex > -1) {
+                        return graphData.phases[this.encounterPhase.id].targets[this.actorPhaseTargetIndex].breakbarPercentStates;
+                    }
                     return graphData.phases[0].targetsBreakbarPercentStatesForCR[this.actorIndex];
                 }
 

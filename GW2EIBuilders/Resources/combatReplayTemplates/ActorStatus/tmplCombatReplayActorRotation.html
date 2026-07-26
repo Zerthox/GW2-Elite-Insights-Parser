@@ -14,6 +14,7 @@
 
 <script>
     Vue.component("combat-replay-actor-rotation-component", {
+    mixins: [encounterPhaseComponent],
         props: ["time", "actorindex", "isTarget"],
         template: `${template}`,
         methods: {
@@ -39,7 +40,7 @@
                 return this.isTarget ? logData.targets[this.actorindex] : logData.players[this.actorindex];
             },
             actorRotation: function () {
-                return this.actor.details.rotation[0].map(skill => ({
+                return this.actor.details.rotation[this.encounterPhase.id].map(skill => ({
                     time: skill[0],
                     skill: findSkill(false, skill[1]),
                     duration: skill[2],
