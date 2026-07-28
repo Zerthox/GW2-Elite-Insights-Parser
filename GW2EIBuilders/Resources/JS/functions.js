@@ -1216,3 +1216,38 @@ function playerIsRunningHealingExtension(playerData) {
     }
     return false;
 }
+
+/**
+ * Binary search over an array of objects sorted according to evalFn.
+ *
+ * @param {Array<Object>} arr - array sorted ascending by whatever evalFn measures
+ * @param {Function} evalFn
+ *   Contract:
+ *     negative -> item is "too low" (target is further right)
+ *     zero     -> exact match
+ *     positive -> item is "too high" (target is further left)
+ */
+function binarySearchIndex(arr, predicate) {
+    if (!arr || arr.length === 0) {
+        return null;
+    }
+
+    let low = 0;
+    let high = arr.length - 1;
+
+    while (low < high) {
+        const mid = (low + high) >>> 1;
+        const cmp = predicate(arr[mid]);
+
+        if (cmp === 0) {
+            return mid;
+        }
+        if (cmp > 0) {
+            high = mid - 1;
+        } else {
+            low = mid + 1;
+        }
+    }
+
+    return low;
+}

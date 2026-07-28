@@ -33,6 +33,11 @@
                 } else {
                     return tooltip + ` for ${cast.duration}ms`;
                 }
+            },
+            isSkillCasting: function (skill) {
+                if (skill.time > this.time / 1000.0) return 1;
+                if (skill.time + skill.duration / 1000.0 <= this.time / 1000.0) return -1;
+                return 0;
             }
         },
         computed: {
@@ -48,10 +53,12 @@
                 }));
             },
             castingSkill: function () {
-                return this.actorRotation.find(skill => skill.time <= this.time / 1000.0 && skill.time + skill.duration / 1000.0 > this.time / 1000.0);
+                const searchResult = binarySearchIndex(this.actorRotation, this.isSkillCasting);
+                return this.isSkillCasting(this.actorRotation[searchResult]) === 0 ? this.actorRotation[searchResult] : undefined;
             },
             nextSkills: function () {
-                const nextSkillIndex = this.actorRotation.findIndex(skill => skill.time > this.time / 1000.0);
+                const searchResult = binarySearchIndex(this.actorRotation, this.isSkillCasting);
+                const nextSkillIndex = this.isSkillCasting(this.actorRotation[searchResult]) === 0 ? searchResult + 1 : searchResult;
                 return this.actorRotation.slice(nextSkillIndex, nextSkillIndex + 7);
             }
         }

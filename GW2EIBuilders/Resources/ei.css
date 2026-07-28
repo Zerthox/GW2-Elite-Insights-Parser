@@ -133,10 +133,6 @@
     user-select: none;
 }
 
-.actor-rotation {
-    width: 208px;
-}
-
 .cr-breakbar-phase-display {
     font-size: 0.65rem;
     width: 100%;
@@ -745,7 +741,7 @@ canvas {
 
 .combat-actor-status-container {
     max-height: 830px;
-    width: 220px;
+    width: 225px;
     overflow-y: auto;
     scrollbar-width: thin;
 }
