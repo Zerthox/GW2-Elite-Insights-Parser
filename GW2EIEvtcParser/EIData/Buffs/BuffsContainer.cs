@@ -207,7 +207,7 @@ public class BuffsContainer
                         var buffs = group.ToList();
                         var appliesPerInstanceID = buffs.OfType<BuffApplyEvent>().GroupBy(x => x.BuffInstance).ToDictionary(x => x.Key, x => x.ToList());
                         var extensionsPerInstanceID = buffs.OfType<BuffExtensionEvent>().GroupBy(x => x.BuffInstance).ToDictionary(x => x.Key, x => x.ToList());
-                        var removeSinglesPerInstanceID = buffs.OfType<BuffRemoveSingleEvent>().Where(x => !x.OverstackOrNaturalEnd).GroupBy(x => x.BuffInstance);
+                        var removeSinglesPerInstanceID = buffs.OfType<BuffRemoveSingleEvent>().Where(x => !x.OverstackOrNaturalEnd && (buff.StackType == BuffStackType.StackingConditionalLoss || x.RemovedDuration == int.MaxValue)).GroupBy(x => x.BuffInstance);
                         foreach (var removePair in removeSinglesPerInstanceID)
                         {
                             if (appliesPerInstanceID.TryGetValue(removePair.Key, out var applyList))
