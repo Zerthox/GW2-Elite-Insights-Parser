@@ -147,6 +147,38 @@ public static class MechanicIDs
     public static readonly int Mech_ViciousSlam = IBSMask | ++_ibsCount;
     #endregion IBS
 
+    #region VOE
+    private static int _voeCount = 0;
+    public static readonly int Mech_KelaStomp = VoEMask | ++_voeCount;
+    public static readonly int Mech_KelaStompCC = VoEMask | ++_voeCount;
+    public static readonly int Mech_KelaClawSlam = VoEMask | ++_voeCount;
+    public static readonly int Mech_KelaClawSlamCC = VoEMask | ++_voeCount;
+    public static readonly int Mech_KelaLightningStrike = VoEMask | ++_voeCount;
+    public static readonly int Mech_KelaLightningStrikeCC = VoEMask | ++_voeCount;
+    public static readonly int Mech_KelaCrocTackle = VoEMask | ++_voeCount;
+    public static readonly int Mech_KelaCrocTackleCC = VoEMask | ++_voeCount;
+    public static readonly int Mech_KelaTornado = VoEMask | ++_voeCount;
+    public static readonly int Mech_KelaTornadoCC = VoEMask | ++_voeCount;
+    public static readonly int Mech_KelaAmbush = VoEMask | ++_voeCount;
+    public static readonly int Mech_KelaTantrum = VoEMask | ++_voeCount;
+    public static readonly int Mech_ScaldingWave = VoEMask | ++_voeCount;
+    public static readonly int Mech_KelaFixated = VoEMask | ++_voeCount;
+    public static readonly int Mech_Hunted = VoEMask | ++_voeCount;
+    public static readonly int Mech_ShreddedArmor = VoEMask | ++_voeCount;
+    public static readonly int Mech_LooseSand = VoEMask | ++_voeCount;
+    public static readonly int Mech_AchSurefootedLost = VoEMask | ++_voeCount;
+    public static readonly int Mech_AchSurefootedKept = VoEMask | ++_voeCount;
+    public static readonly int Mech_BittingSwarm = VoEMask | ++_voeCount;
+    public static readonly int Mech_BittingSwarmFirst = VoEMask | ++_voeCount;
+    public static readonly int Mech_BittingSwarmContaminated = VoEMask | ++_voeCount;
+    public static readonly int Mech_RelentlessSpeed = VoEMask | ++_voeCount;
+    public static readonly int Mech_AteCroc = VoEMask | ++_voeCount;
+    public static readonly int Mech_AteArtifact = VoEMask | ++_voeCount;
+    public static readonly int Mech_AtePlayer = VoEMask | ++_voeCount;
+    public static readonly int Mech_PlayerEaten = VoEMask | ++_voeCount;
+    public static readonly int Mech_TankEaten = VoEMask | ++_voeCount;
+    #endregion VOE
+
     #endregion RAID ENCOUNTERS
 
     #region FRACTALS
