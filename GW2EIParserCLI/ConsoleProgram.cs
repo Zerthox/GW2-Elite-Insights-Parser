@@ -12,10 +12,12 @@ static class ConsoleProgram
 {
 
     /// <returns>0 on success, other value on error</returns>
-    public static int ParseAll(List<string> logFiles, ProgramHelper programHelper)
+    public static int ParseAll(List<string> logFiles, ProgramHelper programHelper, bool batchToDiscord)
     {
         using var _t = new AutoTrace("ParseAll");
         programHelper.ExecuteMemoryCheckTask();
+        var operations = new List<ConsoleOperationController>(logFiles.Count);
+        logFiles.ForEach(logFile => operations.Add(new ConsoleOperationController(logFile)));
         if (programHelper.ParseMultipleLogs())
         {
             var state = new ThreadingState()
@@ -26,15 +28,15 @@ static class ConsoleProgram
             };
 
             var parallelism = programHelper.GetMaxParallelRunning();
-            for(int i = 0; i < parallelism - 1; i++)
+            for (int i = 0; i < parallelism - 1; i++)
             {
                 var t = new Thread(EnterParserThread);
                 t.Start(state);
             }
 
-            foreach(var file in logFiles)
+            foreach (var operation in operations)
             {
-                state.FileQueue.Enqueue(file);
+                state.FileQueue.Enqueue(operation);
             }
 
             state.NoMoreFiles = true;
@@ -42,10 +44,17 @@ static class ConsoleProgram
         }
         else
         {
-            foreach (string file in logFiles)
+            foreach (var operation in operations)
             {
-                ParseLog(file, programHelper);
+                ParseLog(operation, programHelper);
             }
+        }
+        if (batchToDiscord)
+        {
+            Console.WriteLine("Discord: Preparing batch for discord");
+            programHelper.HandleBatchedDiscordEmbed([], operations, (message) => {
+                Console.WriteLine(message);
+            });
         }
         return 0;
     }
@@ -54,7 +63,7 @@ static class ConsoleProgram
     {
         public ProgramHelper ProgramHelper;
         public volatile bool NoMoreFiles;
-        public ConcurrentQueue<string> FileQueue;
+        public ConcurrentQueue<ConsoleOperationController> FileQueue;
     }
 
     static void EnterParserThread(object state_)
@@ -62,23 +71,23 @@ static class ConsoleProgram
         var state = (ThreadingState)state_;
         while (true)
         {
-            string logFile;
-            while(!state.FileQueue.TryDequeue(out logFile)) {
-                if(state.NoMoreFiles && state.FileQueue.IsEmpty) { return; }
+            ConsoleOperationController operation;
+            while (!state.FileQueue.TryDequeue(out operation))
+            {
+                if (state.NoMoreFiles && state.FileQueue.IsEmpty) { return; }
                 //NOTE(Rennorb): Don't even bother with synchronizing. Just wait a bit.
                 Thread.Sleep(10);
             }
 
-            if(string.IsNullOrWhiteSpace(logFile)) { Debugger.Break(); }
+            if (string.IsNullOrWhiteSpace(operation.InputFile)) { Debugger.Break(); }
 
-            ParseLog(logFile, state.ProgramHelper);
+            ParseLog(operation, state.ProgramHelper);
         }
     }
 
-    private static void ParseLog(string logFile, ProgramHelper programHelper)
+    private static void ParseLog(ConsoleOperationController operation, ProgramHelper programHelper)
     {
         using var _t = new AutoTrace("Parse One");
-        var operation = new ConsoleOperationController(logFile);
         try
         {
             programHelper.DoWork(operation);

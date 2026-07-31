@@ -27,6 +27,7 @@ internal static class Program
 
         var logFiles = new List<string>();
         CultureInfo.CurrentCulture = CultureInfo.DefaultThreadCurrentCulture = CultureInfo.CreateSpecificCulture("en-US");
+        bool batchDiscord = false;
         if (args.Length > 0)
         {
             int parserArgOffset = 0;
@@ -78,6 +79,12 @@ internal static class Program
                 parserArgOffset += 1;
             }
 
+            if (args.Contains("-discord_batch"))
+            {
+                batchDiscord = true;
+                parserArgOffset += 1;
+            }
+
             if (args.Contains("-c"))
             {
                 if (args.Length - parserArgOffset >= 2)
@@ -108,7 +115,7 @@ internal static class Program
         using var programHelper = new ProgramHelper(thisAssembly.GetName().Version, settings);
         if (logFiles.Count > 0)
         {
-            return ConsoleProgram.ParseAll(logFiles, programHelper);
+            return ConsoleProgram.ParseAll(logFiles, programHelper, batchDiscord);
         }
         else
         {
@@ -123,6 +130,7 @@ internal static class Program
         Console.WriteLine("");
         Console.WriteLine("-c [config path] : use another config file");
         Console.WriteLine("-h : help");
+        Console.WriteLine("-discord_batch : will upload logs uploaded to dps.report to the provided discord webhook. Will do nothing without a webhook or no dps.report urls");
         Console.WriteLine("-cache : will update the API caches");
     }
 }

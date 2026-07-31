@@ -674,126 +674,12 @@ internal sealed partial class MainForm : Form
     private string DiscordBatch(out List<ulong> ids)
     {
         ids = [];
-        AddTraceMessage("Discord: Sending batch to Discord");
-        if (_programHelper.Settings.WebhookURL == null)
-        {
-            AddTraceMessage("Discord: No webhook url given");
-            return "Set a discord webhook url in settings first";
-        }
-        var fullDpsReportLogs = new List<FormOperationController>();
+        var operations = new List<FormOperationController>(OperatorBindingSource.Count);
         foreach (FormOperationController operation in OperatorBindingSource)
         {
-            if (operation.DPSReportLink != null && operation.DPSReportLink.Contains("https"))
-            {
-                fullDpsReportLogs.Add(operation);
-            }
+            operations.Add(operation);
         }
-        if (fullDpsReportLogs.Count == 0)
-        {
-            AddTraceMessage("Discord: Nothing to send");
-            return "Nothing to send";
-        }
-        // first sort by time
-        AddTraceMessage("Discord: Sorting logs by time");
-        fullDpsReportLogs.Sort((x, y) =>
-        {
-            return DateTime.Parse(x.BasicMetaData.LogStart).CompareTo(DateTime.Parse(y.BasicMetaData.LogStart));
-        });
-        AddTraceMessage("Discord: Splitting logs by start day");
-        var fullDpsReportsLogsByDate = fullDpsReportLogs.GroupBy(x => DateTime.Parse(x.BasicMetaData.LogStart).Date);
-        // split the logs so that a single embed does not reach the discord embed limit and also keep a reasonable size by embed
-        string message = "";
-        bool start = true;
-        foreach (var group in fullDpsReportsLogsByDate)
-        {
-            if (!start)
-            {
-                message += "\r\n";
-            }
-            start = false;
-            var splitDpsReportLogs = new List<List<FormOperationController>>() { new() };
-            message += group.Key.ToString("yyyy-MM-dd") + " - ";
-            List<FormOperationController> curListToFill = splitDpsReportLogs.First();
-            AddTraceMessage("Discord: Splitting message to avoid reaching discord's character limit");
-            foreach (FormOperationController controller in group)
-            {
-                if (curListToFill.Count < 40)
-                {
-                    curListToFill.Add(controller);
-                }
-                else
-                {
-                    curListToFill =
-                    [
-                        controller
-                    ];
-                    splitDpsReportLogs.Add(curListToFill);
-                }
-            }
-            foreach (List<FormOperationController> dpsReportLogs in splitDpsReportLogs)
-            {
-                EmbedBuilder embedBuilder = _programHelper.GetEmbedBuilder();
-                AddTraceMessage("Discord: Creating embed for " + dpsReportLogs.Count + " logs");
-                var first = DateTime.Parse(dpsReportLogs.First().BasicMetaData.LogStart);
-                var last = DateTime.Parse(dpsReportLogs.Last().BasicMetaData.LogEnd);
-                embedBuilder.WithFooter(group.Key.ToString("dd/MM/yyyy") + " - " + first.ToString("T") + " - " + last.ToString("T"));
-                AddTraceMessage("Discord: Sorting logs by category");
-                dpsReportLogs.Sort((x, y) =>
-                {
-                    int categoryCompare = x.BasicMetaData.LogCategory.CompareTo(y.BasicMetaData.LogCategory);
-                    if (categoryCompare == 0)
-                    {
-                        return DateTime.Parse(x.BasicMetaData.LogStart).CompareTo(DateTime.Parse(y.BasicMetaData.LogStart));
-                    }
-                    return categoryCompare;
-                });
-                string currentSubCategory = "";
-                var embedFieldBuilder = new EmbedFieldBuilder();
-                string fieldValue = "I can not be empty";
-                AddTraceMessage("Discord: Building embed body");
-                foreach (FormOperationController controller in dpsReportLogs)
-                {
-                    string subCategory = controller.BasicMetaData.LogCategory.GetSubCategoryName();
-                    string toAdd = "[" + controller.BasicMetaData.LogName + "](" + controller.DPSReportLink + ") " + (controller.BasicMetaData.Success ? " :white_check_mark: " : " :x: ") + ": " + controller.BasicMetaData.LogDuration;
-                    if (subCategory != currentSubCategory)
-                    {
-                        embedFieldBuilder.WithValue(fieldValue);
-                        embedFieldBuilder = new EmbedFieldBuilder();
-                        fieldValue = "";
-                        embedBuilder.AddField(embedFieldBuilder);
-                        embedFieldBuilder.WithName(subCategory);
-                        currentSubCategory = subCategory;
-                    }
-                    else if (fieldValue.Length + toAdd.Length > 1024)
-                    {
-                        embedFieldBuilder.WithValue(fieldValue);
-                        embedFieldBuilder = new EmbedFieldBuilder();
-                        fieldValue = "";
-                        embedBuilder.AddField(embedFieldBuilder);
-                        embedFieldBuilder.WithName(subCategory);
-                    }
-                    else
-                    {
-                        fieldValue += "\r\n";
-                    }
-                    fieldValue += toAdd;
-                }
-                embedFieldBuilder.WithValue(fieldValue);
-                AddTraceMessage("Discord: Sending embed");
-                try
-                {
-                    ids.Add(WebhookController.SendMessage(_programHelper.Settings.WebhookURL, embedBuilder.Build(), out string curMessage));
-                    AddTraceMessage("Discord: embed sent " + curMessage);
-                    message += curMessage + " - ";
-                }
-                catch (Exception ex)
-                {
-                    AddTraceMessage("Discord: couldn't send embed " + ex.Message);
-                    message += ex.Message + " - ";
-                }
-            }
-        }
-        return message;
+        return _programHelper.HandleBatchedDiscordEmbed(ids, operations, AddTraceMessage);
     }
 
     private void AutoUpdateDiscordBatch()

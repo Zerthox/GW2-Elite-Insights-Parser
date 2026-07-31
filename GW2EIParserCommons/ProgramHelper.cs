@@ -152,7 +152,8 @@ public sealed class ProgramHelper : IDisposable
 
         }, RunningMemoryCheck.Token);
     }
-
+    #region UPLOAD
+    #region DISCORD
     public EmbedBuilder GetEmbedBuilder()
     {
         var builder = new EmbedBuilder();
@@ -202,6 +203,119 @@ public sealed class ProgramHelper : IDisposable
         return builder.Build();
     }
 
+    public delegate void BatchedDiscordTraceHandler(string message);
+
+    public string HandleBatchedDiscordEmbed(List<ulong> ids, IReadOnlyList<OperationController> operations, BatchedDiscordTraceHandler traceHandler)
+    {
+        traceHandler("Discord: Sending batch to Discord");
+        if (Settings.WebhookURL == null)
+        {
+            traceHandler("Discord: No webhook url given, batching disabled");
+            return "Set a discord webhook url in settings first";
+        }
+        var fullDpsReportLogs = operations.Where(x => x.DPSReportLink != null && x.DPSReportLink.Contains("https") && x.BasicMetaData != null).ToList();
+        if (fullDpsReportLogs.Count == 0)
+        {
+            traceHandler("Discord: Nothing to send");
+            return "Nothing to send";
+        }
+        traceHandler("Discord: Sorting logs by time and splitting logs by start day");
+        var fullDpsReportsLogsByDate = fullDpsReportLogs.OrderBy(x => DateTime.Parse(x.BasicMetaData!.LogStart)).GroupBy(x => DateTime.Parse(x.BasicMetaData!.LogStart).Date);
+        // split the logs so that a single embed does not reach the discord embed limit and also keep a reasonable size by embed
+        string message = "";
+        bool start = true;
+        foreach (var group in fullDpsReportsLogsByDate)
+        {
+            if (!start)
+            {
+                message += "\r\n";
+            }
+            start = false;
+            var splitDpsReportLogs = new List<List<OperationController>>() { new() };
+            message += group.Key.ToString("yyyy-MM-dd") + " - ";
+            List<OperationController> curListToFill = splitDpsReportLogs.First();
+            traceHandler("Discord: Splitting message to avoid reaching discord's character limit");
+            foreach (OperationController controller in group)
+            {
+                if (curListToFill.Count < 40)
+                {
+                    curListToFill.Add(controller);
+                }
+                else
+                {
+                    curListToFill =
+                    [
+                        controller
+                    ];
+                    splitDpsReportLogs.Add(curListToFill);
+                }
+            }
+            foreach (List<OperationController> dpsReportLogs in splitDpsReportLogs)
+            {
+                EmbedBuilder embedBuilder = GetEmbedBuilder();
+                traceHandler("Discord: Creating embed for " + dpsReportLogs.Count + " logs");
+                var first = DateTime.Parse(dpsReportLogs.First().BasicMetaData!.LogStart);
+                var last = DateTime.Parse(dpsReportLogs.Last().BasicMetaData!.LogEnd);
+                embedBuilder.WithFooter(group.Key.ToString("dd/MM/yyyy") + " - " + first.ToString("T") + " - " + last.ToString("T"));
+                traceHandler("Discord: Sorting logs by category");
+                dpsReportLogs.Sort((x, y) =>
+                {
+                    int categoryCompare = x.BasicMetaData!.LogCategory.CompareTo(y.BasicMetaData!.LogCategory);
+                    if (categoryCompare == 0)
+                    {
+                        return DateTime.Parse(x.BasicMetaData.LogStart).CompareTo(DateTime.Parse(y.BasicMetaData.LogStart));
+                    }
+                    return categoryCompare;
+                });
+                string currentSubCategory = "";
+                var embedFieldBuilder = new EmbedFieldBuilder();
+                string fieldValue = "I can not be empty";
+                traceHandler("Discord: Building embed body");
+                foreach (OperationController controller in dpsReportLogs)
+                {
+                    string subCategory = controller.BasicMetaData!.LogCategory.GetSubCategoryName();
+                    string toAdd = "[" + controller.BasicMetaData.LogName + "](" + controller.DPSReportLink + ") " + (controller.BasicMetaData.Success ? " :white_check_mark: " : " :x: ") + ": " + controller.BasicMetaData.LogDuration;
+                    if (subCategory != currentSubCategory)
+                    {
+                        embedFieldBuilder.WithValue(fieldValue);
+                        embedFieldBuilder = new EmbedFieldBuilder();
+                        fieldValue = "";
+                        embedBuilder.AddField(embedFieldBuilder);
+                        embedFieldBuilder.WithName(subCategory);
+                        currentSubCategory = subCategory;
+                    }
+                    else if (fieldValue.Length + toAdd.Length > 1024)
+                    {
+                        embedFieldBuilder.WithValue(fieldValue);
+                        embedFieldBuilder = new EmbedFieldBuilder();
+                        fieldValue = "";
+                        embedBuilder.AddField(embedFieldBuilder);
+                        embedFieldBuilder.WithName(subCategory);
+                    }
+                    else
+                    {
+                        fieldValue += "\r\n";
+                    }
+                    fieldValue += toAdd;
+                }
+                embedFieldBuilder.WithValue(fieldValue);
+                traceHandler("Discord: Sending embed");
+                try
+                {
+                    ids.Add(WebhookController.SendMessage(Settings.WebhookURL, embedBuilder.Build(), out string curMessage));
+                    traceHandler("Discord: embed sent " + curMessage);
+                    message += curMessage + " - ";
+                }
+                catch (Exception ex)
+                {
+                    traceHandler("Discord: couldn't send embed " + ex.Message);
+                    message += ex.Message + " - ";
+                }
+            }
+        }
+        return message;
+    }
+    #endregion DISCORD
     private string[] UploadOperation(FileInfo fInfo, ParsedEvtcLog originalLog, OperationController originalController)
     {
         //Upload Process
@@ -343,7 +457,7 @@ public sealed class ProgramHelper : IDisposable
         }
         return uploadresult;
     }
-
+    #endregion UPLOAD
     public void DoWork(OperationController operation)
     {
         System.Globalization.CultureInfo before = Thread.CurrentThread.CurrentCulture;
