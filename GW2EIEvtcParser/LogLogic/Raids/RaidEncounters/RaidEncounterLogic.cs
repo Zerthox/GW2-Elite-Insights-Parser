@@ -16,9 +16,9 @@ internal abstract class RaidEncounterLogic : RaidLogic
     protected RaidEncounterLogic(int triggerID) : base(triggerID)
     {
         MechanicList.Add(new MechanicGroup([    
-            new PlayerDstBuffApplyMechanic(ExposedPlayer, new (Symbols.TriangleLeft, Colors.Purple, 10), "Exposed", "Exposed Applied (Increased incoming damage)", "Exposed Applied", Sev0, 0),
-            new PlayerDstBuffApplyMechanic(Debilitated, new (Symbols.TriangleDown, Colors.Purple, 10), "Debilitated", "Debilitated Applied (Reduced outgoing damage)", "Debilitated Applied", Sev0, 0),
-            new PlayerDstBuffApplyMechanic(Infirmity, new (Symbols.TriangleUp, Colors.Purple, 10), "Infirmity", "Infirmity Applied (Reduced incoming healing)", "Infirmity Applied", Sev0, 0),
+            new PlayerDstBuffApplyMechanic(ExposedPlayer, Mech_PlayerExposed, new (Symbols.TriangleLeft, Colors.Purple, 10), new ("Exposed", "Exposed Applied (Increased incoming damage)", "Exposed Applied"), Sev0),
+            new PlayerDstBuffApplyMechanic(Debilitated, Mech_PlayerDebilitated, new (Symbols.TriangleDown, Colors.Purple, 10), new ("Debilitated", "Debilitated Applied (Reduced outgoing damage)", "Debilitated Applied"), Sev0),
+            new PlayerDstBuffApplyMechanic(Infirmity, Mech_PlayerInfirmity, new (Symbols.TriangleUp, Colors.Purple, 10), new ("Infirmity", "Infirmity Applied (Reduced incoming healing)", "Infirmity Applied"), Sev0),
         ])
         );
         LogCategoryInformation.Category = LogCategory.RaidEncounter;

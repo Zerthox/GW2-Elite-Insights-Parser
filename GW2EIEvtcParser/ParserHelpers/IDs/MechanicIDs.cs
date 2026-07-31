@@ -31,13 +31,6 @@ public static class MechanicIDs
     private const int TheKeyOfAhdashimMask = RaidWingMask | 0x00070000;
     private const int MountBalriorMask = RaidWingMask | 0x00080000;
 
-    private const int FestivalMask = RaidEncounterMask | 0x00010000;
-    private const int IBSMask = RaidEncounterMask | 0x00020000;
-    private const int EODMask = RaidEncounterMask | 0x00030000;
-    private const int CoreMask = RaidEncounterMask | 0x00040000;
-    private const int SotOMask = RaidEncounterMask | 0x00050000;
-    private const int VoEMask = RaidEncounterMask | 0x00060000;
-
 
     #region COMMONS
     private static int _commonCount = 0;
@@ -54,6 +47,92 @@ public static class MechanicIDs
     public static readonly int Mech_PlayerLockOut = CommonMask | ++_commonCount;
     public static readonly int Mech_PlayerFloatSinkWater = CommonMask | ++_commonCount;
     #endregion COMMONS
+
+    #region RAID ENCOUNTERS
+    private const int FestivalMask = RaidEncounterMask | 0x00010000;
+    private const int IBSMask = RaidEncounterMask | 0x00020000;
+    private const int EODMask = RaidEncounterMask | 0x00030000;
+    private const int CoreMask = RaidEncounterMask | 0x00040000;
+    private const int SotOMask = RaidEncounterMask | 0x00050000;
+    private const int VoEMask = RaidEncounterMask | 0x00060000;
+
+    private static int _raidEncounterCommonCount = 0;
+    public static readonly int Mech_PlayerExposed = RaidEncounterMask | ++_raidEncounterCommonCount;
+    public static readonly int Mech_PlayerDebilitated = RaidEncounterMask | ++_raidEncounterCommonCount;
+    public static readonly int Mech_PlayerInfirmity = RaidEncounterMask | ++_raidEncounterCommonCount;
+    #region IBS
+    private static int _ibsCount = 0;
+    public static readonly int Mech_IceArmSwing = IBSMask | ++_ibsCount;
+    public static readonly int Mech_IceArmSwingCC = IBSMask | ++_ibsCount;
+    public static readonly int Mech_IceArmSwingCast = IBSMask | ++_ibsCount;
+    public static readonly int Mech_IceShatter = IBSMask | ++_ibsCount;
+    public static readonly int Mech_IceCrystal = IBSMask | ++_ibsCount;
+    public static readonly int Mech_FrostBite = IBSMask | ++_ibsCount;
+    public static readonly int Mech_IceFrail = IBSMask | ++_ibsCount;
+    public static readonly int Mech_IceFrailCC = IBSMask | ++_ibsCount;
+    public static readonly int Mech_DeadlyIceShockwave = IBSMask | ++_ibsCount;
+    public static readonly int Mech_DeadlyIceShockwaveCast = IBSMask | ++_ibsCount;
+    public static readonly int Mech_IceShockwave = IBSMask | ++_ibsCount;
+    public static readonly int Mech_SpinningIce = IBSMask | ++_ibsCount;
+    public static readonly int Mech_IceQuake = IBSMask | ++_ibsCount;
+    public static readonly int Mech_IceShockWaveFraenir = IBSMask | ++_ibsCount;
+    public static readonly int Mech_IceArmSwingFraenir = IBSMask | ++_ibsCount;
+    public static readonly int Mech_FrozenMissile = IBSMask | ++_ibsCount;
+    public static readonly int Mech_FrozenMissileCast = IBSMask | ++_ibsCount;
+    public static readonly int Mech_SeismicCrush = IBSMask | ++_ibsCount;
+    public static readonly int Mech_SeismicCrushCast = IBSMask | ++_ibsCount;
+    public static readonly int Mech_FrigidFusillade = IBSMask | ++_ibsCount;
+    public static readonly int Mech_FrigidFusilladeCast = IBSMask | ++_ibsCount;
+    public static readonly int Mech_Frozen = IBSMask | ++_ibsCount;
+    public static readonly int Mech_Unfrozen = IBSMask | ++_ibsCount;
+    public static readonly int Mech_Snowblind = IBSMask | ++_ibsCount;
+    public static readonly int Mech_Groundshaker = IBSMask | ++_ibsCount;
+    public static readonly int Mech_Groundpiercer = IBSMask | ++_ibsCount;
+    public static readonly int Mech_UnrelentingPainApply = IBSMask | ++_ibsCount;
+    public static readonly int Mech_ImmobileApplyVC = IBSMask | ++_ibsCount;
+    public static readonly int Mech_EnragedBC = IBSMask | ++_ibsCount;
+    public static readonly int Mech_DeadlySynergy = IBSMask | ++_ibsCount;
+    public static readonly int Mech_KodanTeleport = IBSMask | ++_ibsCount;
+    public static readonly int Mech_Grasp = IBSMask | ++_ibsCount;
+    public static readonly int Mech_Cascade = IBSMask | ++_ibsCount;
+    public static readonly int Mech_BoneskinnerCharge = IBSMask | ++_ibsCount;
+    public static readonly int Mech_BoneskinnerChargeCastEnd = IBSMask | ++_ibsCount;
+    public static readonly int Mech_CrushingCruelty = IBSMask | ++_ibsCount;
+    public static readonly int Mech_DeathWind = IBSMask | ++_ibsCount;
+    public static readonly int Mech_DeathWindCastEnd = IBSMask | ++_ibsCount;
+    public static readonly int Mech_DouseInDarkness = IBSMask | ++_ibsCount;
+    public static readonly int Mech_DouseInDarknessCastEnd = IBSMask | ++_ibsCount;
+    public static readonly int Mech_BoneskinnerBarrageWisp = IBSMask | ++_ibsCount;
+    public static readonly int Mech_BoneskinnerBreakbarStart = IBSMask | ++_ibsCount;
+    public static readonly int Mech_BoneskinnerExposed = IBSMask | ++_ibsCount;
+    public static readonly int Mech_IcyEchoes = IBSMask | ++_ibsCount;
+    public static readonly int Mech_Detonate = IBSMask | ++_ibsCount;
+    public static readonly int Mech_LethalCoalescence = IBSMask | ++_ibsCount;
+    public static readonly int Mech_FlameWall = IBSMask | ++_ibsCount;
+    public static readonly int Mech_CallAssassins = IBSMask | ++_ibsCount;
+    public static readonly int Mech_ChargeCW = IBSMask | ++_ibsCount;
+    public static readonly int Mech_ChainsOfFrost = IBSMask | ++_ibsCount;
+    public static readonly int Mech_ChainsOfFrostApply = IBSMask | ++_ibsCount;
+    public static readonly int Mech_ChainsOfFrostCast = IBSMask | ++_ibsCount;
+    public static readonly int Mech_SlitheringRime = IBSMask | ++_ibsCount;
+    public static readonly int Mech_LethalCoalescenceSoaked = IBSMask | ++_ibsCount;
+    public static readonly int Mech_LethalCoalescenceSoakedStart = IBSMask | ++_ibsCount;
+    public static readonly int Mech_LethalCoalescenceBuff = IBSMask | ++_ibsCount;
+    public static readonly int Mech_SpreadingIceOwn = IBSMask | ++_ibsCount;
+    public static readonly int Mech_SpreadingIceOwnCast = IBSMask | ++_ibsCount;
+    public static readonly int Mech_SpreadingIceOthers = IBSMask | ++_ibsCount;
+    public static readonly int Mech_IcySlice = IBSMask | ++_ibsCount;
+    public static readonly int Mech_IceTempest = IBSMask | ++_ibsCount;
+    public static readonly int Mech_FrigidVortex = IBSMask | ++_ibsCount;
+    public static readonly int Mech_FrigidVortexCast = IBSMask | ++_ibsCount;
+    public static readonly int Mech_FrigidVortexApply = IBSMask | ++_ibsCount;
+    public static readonly int Mech_IceShatterWhisper = IBSMask | ++_ibsCount;
+    public static readonly int Mech_WhisperTPBack = IBSMask | ++_ibsCount;
+    public static readonly int Mech_WhisperTPOut = IBSMask | ++_ibsCount;
+    public static readonly int Mech_ViciousSlam = IBSMask | ++_ibsCount;
+    #endregion IBS
+
+    #endregion RAID ENCOUNTERS
 
     #region FRACTALS
     private const int NightmareMask = FractalMask | 0x00010000;
