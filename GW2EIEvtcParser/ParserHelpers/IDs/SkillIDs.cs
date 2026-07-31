@@ -77,6 +77,8 @@ public static class SkillIDs
     public const long DhuumEtherealSealInteract = -58;
     public const long RelicOfTheCruelOverseer = -59;
     public const long UraBloodstoneShardPickUp = -60;
+    public const long FlameRushOrFlameSurge = -61;
+    public const long EchoOfTruthOrVoiceOfTruth = -62;
     #endregion
     #region ArcDPS Hardcoded
     internal const long ArcDPSDodge = 65001;
