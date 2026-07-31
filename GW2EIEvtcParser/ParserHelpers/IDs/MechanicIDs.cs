@@ -60,6 +60,21 @@ public static class MechanicIDs
     public static readonly int Mech_PlayerExposed = RaidEncounterMask | ++_raidEncounterCommonCount;
     public static readonly int Mech_PlayerDebilitated = RaidEncounterMask | ++_raidEncounterCommonCount;
     public static readonly int Mech_PlayerInfirmity = RaidEncounterMask | ++_raidEncounterCommonCount;
+    #region FESTIVAL
+    private static int _festivalCount = 0;
+    public static readonly int Mech_AuroraBeamTarget = FestivalMask | ++_festivalCount;
+    public static readonly int Mech_AuroraBeam = FestivalMask | ++_festivalCount;
+    public static readonly int Mech_AuroraBeamCast = FestivalMask | ++_festivalCount;
+    public static readonly int Mech_GiantSnowballTarget = FestivalMask | ++_festivalCount;
+    public static readonly int Mech_GiantSnowball = FestivalMask | ++_festivalCount;
+    public static readonly int Mech_GiantSnowballCast = FestivalMask | ++_festivalCount;
+    public static readonly int Mech_Blizzard = FestivalMask | ++_festivalCount;
+    public static readonly int Mech_FrostPatch = FestivalMask | ++_festivalCount;
+    public static readonly int Mech_FrostPatchCast = FestivalMask | ++_festivalCount;
+    public static readonly int Mech_JuttingIceSpikes = FestivalMask | ++_festivalCount;
+    public static readonly int Mech_FireSnowball = FestivalMask | ++_festivalCount;
+    public static readonly int Mech_IcyBarrier = FestivalMask | ++_festivalCount;
+    #endregion FESTIVAL
     #region IBS
     private static int _ibsCount = 0;
     public static readonly int Mech_IceArmSwing = IBSMask | ++_ibsCount;
