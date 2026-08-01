@@ -68,32 +68,6 @@ internal sealed partial class MainForm : Form
         VersionLabelUpdate(Application.ProductVersion, Settings.Default.UpdateAvailable);
     }
 
-    private void LoadSettingsWatcher(object sender, EventArgs e)
-    {
-        AddTraceMessage("Settings: Loaded settings");
-        ChkApplicationTraces.Checked = Settings.Default.ApplicationTraces;
-        ChkAutoDiscordBatch.Checked = Settings.Default.AutoDiscordBatch;
-        NumericCustomPopulateLimit.Value = Settings.Default.PopulateHourLimit;
-    }
-
-    private void UpdateStartedWatcher(object sender, EventArgs e)
-    {
-        if (sender is UpdaterForm updaterForm)
-        {
-            AddTraceMessage("Updater: Update started");
-            updaterForm.Close();
-            Close();
-        }
-    }
-
-    private void UpdateTracesWatcher(object sender, EventArgs e)
-    {
-        if (sender is List<string> traces)
-        {
-            traces.ForEach(x => AddTraceMessage("Updater: " + x));
-        }
-    }
-
     public MainForm(IEnumerable<string> filesArray, ProgramHelper programHelper) : this(programHelper)
     {
         Load += new EventHandler((send, e) => AddLogFiles(filesArray));
@@ -131,7 +105,7 @@ internal sealed partial class MainForm : Form
 
         BtnParse.Enabled = !_anyRunning && any;
     }
-
+    #region FILE HANDLING
     private void _RunOperation(FormOperationController operation)
     {
         _programHelper.ExecuteMemoryCheckTask();
@@ -275,7 +249,9 @@ internal sealed partial class MainForm : Form
             }
         }
     }
+    #endregion FILE HANDLING
 
+    #region PARSING
     /// <summary>
     /// Invoked when the 'Parse All' button is clicked. Begins processing of all files
     /// </summary>
@@ -335,18 +311,6 @@ internal sealed partial class MainForm : Form
     }
 
     /// <summary>
-    /// Invoked when the 'Settings' button is clicked. Opens the settings window
-    /// </summary>
-    /// <param name="sender"></param>
-    /// <param name="e"></param>
-    private void BtnSettingsClick(object sender, EventArgs e)
-    {
-        AddTraceMessage("Settings: Opening settings");
-        _settingsForm.Show();
-        BtnSettings.Enabled = false;
-    }
-
-    /// <summary>
     /// Invoked when the 'Clear All' button is clicked. Cancels pending operations and clears completed & un-started operations.
     /// </summary>
     /// <param name="sender"></param>
@@ -387,7 +351,9 @@ internal sealed partial class MainForm : Form
             }
         }
     }
+    #endregion PARSING
 
+    #region FILES UI
     /// <summary>
     /// Invoked when a file is dropped onto the datagridview
     /// </summary>
@@ -571,11 +537,6 @@ internal sealed partial class MainForm : Form
         }
     }
 
-    private void UpdateWatchDirectoryWatcher(object sender, EventArgs e)
-    {
-        UpdateWatchDirectory();
-    }
-
     private void BtnPopulateFromDirectory(object sender, EventArgs e)
     {
         string path = null;
@@ -623,6 +584,13 @@ internal sealed partial class MainForm : Form
         }
     }
 
+    #endregion FILES UI
+
+    #region FILE WATCHER
+    private void UpdateWatchDirectoryWatcher(object sender, EventArgs e)
+    {
+        UpdateWatchDirectory();
+    }
     /// <summary>
     /// Waits 3 seconds, checks if the file still exists and then adds it to the queue.
     /// This is neccessary because:
@@ -651,26 +619,45 @@ internal sealed partial class MainForm : Form
 
     private void LogFileWatcher_Created(object sender, FileSystemEventArgs e)
     {
-        AddTraceMessage("File Watcher: created " + e.FullPath);
         if (ProgramHelper.IsSupportedFormat(e.FullPath))
         {
+            AddTraceMessage("File Watcher: created " + e.FullPath);
             AddDelayed(e.FullPath);
         }
     }
 
     private void LogFileWatcher_Renamed(object sender, RenamedEventArgs e)
     {
-        AddTraceMessage("File Watcher: renamed " + e.OldFullPath + " to " + e.FullPath);
         if (ProgramHelper.IsTemporaryCompressedFormat(e.OldFullPath) && ProgramHelper.IsCompressedFormat(e.FullPath))
         {
+            AddTraceMessage("File Watcher: renamed " + e.OldFullPath + " to " + e.FullPath);
             AddDelayed(e.FullPath);
         }
         else if (ProgramHelper.IsTemporaryFormat(e.OldFullPath) && ProgramHelper.IsSupportedFormat(e.FullPath))
         {
+            AddTraceMessage("File Watcher: renamed " + e.OldFullPath + " to " + e.FullPath);
             AddDelayed(e.FullPath);
         }
     }
-
+    private void UpdateWatchDirectory()
+    {
+        if (Settings.Default.AutoAdd && Directory.Exists(Settings.Default.AutoAddPath))
+        {
+            LogFileWatcher.Path = Settings.Default.AutoAddPath;
+            LblWatchingDir.Text = "Watching for log files in " + Settings.Default.AutoAddPath;
+            LogFileWatcher.EnableRaisingEvents = true;
+            LblWatchingDir.Visible = true;
+            AddTraceMessage("Settings: Updated watch directory to " + Settings.Default.AutoAddPath);
+        }
+        else
+        {
+            Settings.Default.AutoAdd = false;
+            LblWatchingDir.Visible = false;
+            LogFileWatcher.EnableRaisingEvents = false;
+        }
+    }
+    #endregion FILE WATCHER
+    #region DISCORD
     private string DiscordBatch(out List<ulong> ids)
     {
         ids = [];
@@ -725,7 +712,8 @@ internal sealed partial class MainForm : Form
         ChkAutoDiscordBatch.Enabled = !_anyRunning;
         BtnParse.Enabled = !_anyRunning;
     }
-
+    #endregion DISCORD
+    #region TRACES
     private void _AddTraceMessage(string message)
     {
         if (!Settings.Default.ApplicationTraces)
@@ -763,24 +751,17 @@ internal sealed partial class MainForm : Form
             _AddTraceMessage(message);
         }
     }
-    // UI 
-    private void UpdateWatchDirectory()
+
+    private void UpdateTracesWatcher(object sender, EventArgs e)
     {
-        if (Settings.Default.AutoAdd && Directory.Exists(Settings.Default.AutoAddPath))
+        if (sender is List<string> traces)
         {
-            LogFileWatcher.Path = Settings.Default.AutoAddPath;
-            LblWatchingDir.Text = "Watching for log files in " + Settings.Default.AutoAddPath;
-            LogFileWatcher.EnableRaisingEvents = true;
-            LblWatchingDir.Visible = true;
-            AddTraceMessage("Settings: Updated watch directory to " + Settings.Default.AutoAddPath);
-        }
-        else
-        {
-            Settings.Default.AutoAdd = false;
-            LblWatchingDir.Visible = false;
-            LogFileWatcher.EnableRaisingEvents = false;
+            traces.ForEach(x => AddTraceMessage("Updater: " + x));
         }
     }
+    #endregion TRACES
+    #region SETTINGS
+    // UI 
     private void ChkApplicationTracesCheckedChanged(object sender, EventArgs e)
     {
         Settings.Default.ApplicationTraces = ChkApplicationTraces.Checked;
@@ -803,6 +784,29 @@ internal sealed partial class MainForm : Form
         AddTraceMessage("Settings: Closing settings");
         BtnSettings.Enabled = true;
     }
+
+    /// <summary>
+    /// Invoked when the 'Settings' button is clicked. Opens the settings window
+    /// </summary>
+    /// <param name="sender"></param>
+    /// <param name="e"></param>
+    private void BtnSettingsClick(object sender, EventArgs e)
+    {
+        AddTraceMessage("Settings: Opening settings");
+        _settingsForm.Show();
+        BtnSettings.Enabled = false;
+    }
+
+    private void LoadSettingsWatcher(object sender, EventArgs e)
+    {
+        AddTraceMessage("Settings: Loaded settings");
+        ChkApplicationTraces.Checked = Settings.Default.ApplicationTraces;
+        ChkAutoDiscordBatch.Checked = Settings.Default.AutoDiscordBatch;
+        NumericCustomPopulateLimit.Value = Settings.Default.PopulateHourLimit;
+    }
+    #endregion SETTINGS
+
+    #region AUTO UPDATE
 
     private void BtnCheckUpdates_Click(object sender, EventArgs e)
     {
@@ -850,4 +854,15 @@ internal sealed partial class MainForm : Form
     {
         LblVersion.Text = isAvailable ? version + " (Update Available)" : version;
     }
+
+    private void UpdateStartedWatcher(object sender, EventArgs e)
+    {
+        if (sender is UpdaterForm updaterForm)
+        {
+            AddTraceMessage("Updater: Update started");
+            updaterForm.Close();
+            Close();
+        }
+    }
+    #endregion AUTO UPDATE
 }
