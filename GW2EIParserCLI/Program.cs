@@ -13,7 +13,7 @@ internal static class Program
     [STAThread]
     private static int Main(string[] args)
     {
-        Console.WriteLine($"{Process.GetCurrentProcess().ProcessName} {Assembly.GetEntryAssembly().GetName().Version}");
+        Console.WriteLine($"{Process.GetCurrentProcess().ProcessName} {Assembly.GetEntryAssembly().GetName().Version}" + Environment.NewLine);
 
         // Migrate previous settings if version changed
         if (Settings.Default.Outdated)
@@ -28,6 +28,7 @@ internal static class Program
         var logFiles = new List<string>();
         CultureInfo.CurrentCulture = CultureInfo.DefaultThreadCurrentCulture = CultureInfo.CreateSpecificCulture("en-US");
         bool batchDiscord = false;
+        string pathToWatch = null;
         if (args.Length > 0)
         {
             int parserArgOffset = 0;
@@ -85,6 +86,13 @@ internal static class Program
                 parserArgOffset += 1;
             }
 
+            if (args.Contains("-listen"))
+            {
+                int argPos = Array.IndexOf(args, "-listen");
+                pathToWatch = args[argPos + 1];
+                parserArgOffset += 2;
+            }
+
             if (args.Contains("-c"))
             {
                 if (args.Length - parserArgOffset >= 2)
@@ -113,9 +121,10 @@ internal static class Program
         var thisAssembly = Assembly.GetExecutingAssembly();
         var settings = CustomSettingsManager.GetProgramSettings();
         using var programHelper = new ProgramHelper(thisAssembly.GetName().Version, settings);
-        if (logFiles.Count > 0)
+        if (logFiles.Count > 0 || pathToWatch != null)
         {
-            return ConsoleProgram.ParseAll(logFiles, programHelper, batchDiscord);
+            var consoleProgram = new ConsoleProgram(programHelper, batchDiscord, pathToWatch);
+            return consoleProgram.ParseAll(logFiles);
         }
         else
         {
@@ -130,6 +139,7 @@ internal static class Program
         Console.WriteLine("");
         Console.WriteLine("-c [config path] : use another config file");
         Console.WriteLine("-h : help");
+        Console.WriteLine("-listen [path to watch] : will put the application in listener mode where evtc files added to the path will be automatically parsed");
         Console.WriteLine("-discord_batch : will upload logs uploaded to dps.report to the provided discord webhook. Will do nothing without a webhook or no dps.report urls");
         Console.WriteLine("-cache : will update the API caches");
     }
