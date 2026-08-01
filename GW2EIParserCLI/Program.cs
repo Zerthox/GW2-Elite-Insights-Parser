@@ -80,6 +80,23 @@ internal static class Program
                 parserArgOffset += 1;
             }
 
+            if (args.Contains("-populate_from"))
+            {
+                int argPos = Array.IndexOf(args, "-populate_from");
+                var addPath = args[argPos + 1];
+                try
+                {
+                    var duration = long.Parse(args[argPos + 2]);
+                    logFiles.AddRange(ProgramHelper.FetchSupportedFormatsFrom(addPath, duration, DateTime.Now));
+                } 
+                catch (Exception)
+                {
+                    PrintHelp();
+                    return 1;
+                }
+                parserArgOffset += 3;
+            }
+
             if (args.Contains("-discord_batch"))
             {
                 batchDiscord = true;
@@ -140,6 +157,7 @@ internal static class Program
         Console.WriteLine("-c [config path] : use another config file");
         Console.WriteLine("-h : help");
         Console.WriteLine("-listen [path to watch] : will put the application in listener mode where evtc files added to the path will be automatically parsed");
+        Console.WriteLine("-populate_from [path] [duration] : evtcs inside and under path will be added to the list of logs to be parsed. Duration, in hours, is used to limit the age of the logs, 0 for infinite");
         Console.WriteLine("-discord_batch : will upload logs uploaded to dps.report to the provided discord webhook. Will do nothing without a webhook or no dps.report urls");
         Console.WriteLine("-cache : will update the API caches");
     }

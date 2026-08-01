@@ -559,27 +559,7 @@ internal sealed partial class MainForm : Form
         if (path != null)
         {
             AddTraceMessage("UI: Adding files from " + path);
-            var toAdd = new List<string>();
-            foreach (string format in ProgramHelper.SupportedFormats)
-            {
-                try
-                {
-                    if (Settings.Default.PopulateHourLimit > 0)
-                    {
-                        var fileList = new DirectoryInfo(path).EnumerateFiles("*" + format, SearchOption.AllDirectories);
-                        var toKeep = fileList.Where(x => (currentTime - x.CreationTime).TotalHours < Settings.Default.PopulateHourLimit);
-                        toAdd.AddRange(toKeep.Select(x => x.FullName));
-                    }
-                    else
-                    {
-                        toAdd.AddRange(Directory.EnumerateFiles(path, "*" + format, SearchOption.AllDirectories));
-                    }
-                }
-                catch
-                {
-                    // nothing to do
-                }
-            }
+            var toAdd = ProgramHelper.FetchSupportedFormatsFrom(path, Settings.Default.PopulateHourLimit, currentTime);
             AddLogFiles(toAdd);
         }
     }

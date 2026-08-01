@@ -32,8 +32,37 @@ public sealed class ProgramHelper : IDisposable
     {
         Settings = settings;
     }
-
+    #region FORMATS
     public static IReadOnlyList<string> SupportedFormats => SupportedFileFormats.SupportedFormats;
+
+    public static List<string> FetchSupportedFormatsFrom(string path, long duration, DateTime currentTime)
+    {
+        var toAdd = new List<string>();
+        if (Directory.Exists(path))
+        {
+            foreach (string format in SupportedFormats)
+            {
+                try
+                {
+                    if (duration > 0)
+                    {
+                        var fileList = new DirectoryInfo(path).EnumerateFiles("*" + format, SearchOption.AllDirectories);
+                        var toKeep = fileList.Where(x => (currentTime - x.CreationTime).TotalHours < duration);
+                        toAdd.AddRange(toKeep.Select(x => x.FullName));
+                    }
+                    else
+                    {
+                        toAdd.AddRange(Directory.EnumerateFiles(path, "*" + format, SearchOption.AllDirectories));
+                    }
+                }
+                catch
+                {
+                    // nothing to do
+                }
+            }
+        }
+        return toAdd;
+    }
 
     public static bool IsSupportedFormat(string path)
     {
@@ -54,6 +83,7 @@ public sealed class ProgramHelper : IDisposable
     {
         return SupportedFileFormats.IsTemporaryFormat(path);
     }
+    #endregion FORMATS
 
     internal readonly static HTMLAssets htmlAssets = new();
 
@@ -85,7 +115,7 @@ public sealed class ProgramHelper : IDisposable
             RunningMemoryCheck = null;
         }
     }
-
+    #region SETTINGS
     public int GetMaxParallelRunning()
     {
         return Settings.GetMaxParallelRunning();
@@ -152,6 +182,7 @@ public sealed class ProgramHelper : IDisposable
 
         }, RunningMemoryCheck.Token);
     }
+    #endregion SETTINGS
     #region UPLOAD
     #region DISCORD
     public EmbedBuilder GetEmbedBuilder()
@@ -525,7 +556,7 @@ public sealed class ProgramHelper : IDisposable
             Thread.CurrentThread.CurrentCulture = before;
         }
     }
-
+    #region OUTPUTS
     private static void CompressFile(string file, MemoryStream str, OperationController operation)
     {
         // Create the compressed file.
@@ -700,4 +731,5 @@ public sealed class ProgramHelper : IDisposable
         }
         operation.UpdateProgressWithCancellationCheck($"Completed for {resultStr} {log.LogData.Logic.Extension}");
     }
+    #endregion OUTPUTS
 }
