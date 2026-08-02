@@ -28,7 +28,7 @@ public class ConsoleProgram
 
         if (pathToWatch != null && Directory.Exists(pathToWatch))
         {
-            Console.WriteLine("File Watcher: listening to " + pathToWatch + Environment.NewLine);
+            Console.WriteLine("File Watcher: watching " + pathToWatch + Environment.NewLine);
             FileWatcher.Path = pathToWatch;
 
             FileWatcher.IncludeSubdirectories = true;

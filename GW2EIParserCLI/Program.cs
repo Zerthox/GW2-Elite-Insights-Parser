@@ -103,9 +103,9 @@ internal static class Program
                 parserArgOffset += 1;
             }
 
-            if (args.Contains("-listen"))
+            if (args.Contains("-watch"))
             {
-                int argPos = Array.IndexOf(args, "-listen");
+                int argPos = Array.IndexOf(args, "-watch");
                 pathToWatch = args[argPos + 1];
                 parserArgOffset += 2;
             }
@@ -156,7 +156,7 @@ internal static class Program
         Console.WriteLine("");
         Console.WriteLine("-c [config path] : use another config file");
         Console.WriteLine("-h : help");
-        Console.WriteLine("-listen [path to watch] : will put the application in listener mode where evtc files added to the path will be automatically parsed");
+        Console.WriteLine("-watch [path to watch] : will put the application in watch mode where evtc files added to the path will be automatically parsed");
         Console.WriteLine("-populate_from [path] [duration] : evtcs inside and under path will be added to the list of logs to be parsed. Duration, in hours, is used to limit the age of the logs, 0 for infinite");
         Console.WriteLine("-discord_batch : will upload logs uploaded to dps.report to the provided discord webhook. Will do nothing without a webhook or no dps.report urls");
         Console.WriteLine("-cache : will update the API caches");
