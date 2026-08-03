@@ -228,6 +228,7 @@ public static class MechanicIDs
     public static readonly int Mech_SweepingStrikes = NightmareMask | ++_nightmareCount;
     public static readonly int Mech_MiasmaMAMA = NightmareMask | ++_nightmareCount;
     public static readonly int Mech_GrenadeBarrage = NightmareMask | ++_nightmareCount;
+    public static readonly int Mech_GrenadeBarrageReflected = NightmareMask | ++_nightmareCount;
     public static readonly int Mech_BulletsMAMA = NightmareMask | ++_nightmareCount;
     public static readonly int Mech_Extraction = NightmareMask | ++_nightmareCount;
     public static readonly int Mech_HomingGrenades = NightmareMask | ++_nightmareCount;
@@ -277,6 +278,8 @@ public static class MechanicIDs
     public static readonly int Mech_TeleportLunge = ShatteredObservatoryMask | ++_shatteredCount;
     public static readonly int Mech_AstralSurge = ShatteredObservatoryMask | ++_shatteredCount;
     public static readonly int Mech_RedMarble = ShatteredObservatoryMask | ++_shatteredCount;
+    public static readonly int Mech_TawShot = ShatteredObservatoryMask | ++_shatteredCount;
+    public static readonly int Mech_TawShotReflected = ShatteredObservatoryMask | ++_shatteredCount;
     public static readonly int Mech_SparkSpawn = ShatteredObservatoryMask | ++_shatteredCount;
     public static readonly int Mech_HorizonStrikeArkk = ShatteredObservatoryMask | ++_shatteredCount;
     public static readonly int Mech_HorizonStrikeArkkNormal = ShatteredObservatoryMask | ++_shatteredCount;
@@ -354,6 +357,7 @@ public static class MechanicIDs
     public static readonly int Mech_WhirlwindShield = SunquaPeakMask | ++_sunquaPeakCount;
     public static readonly int Mech_ElementalManipulationFire = SunquaPeakMask | ++_sunquaPeakCount;
     public static readonly int Mech_RoilingFlames = SunquaPeakMask | ++_sunquaPeakCount;
+    public static readonly int Mech_RoilingFlamesReflected = SunquaPeakMask | ++_sunquaPeakCount;
     public static readonly int Mech_VolatileFire = SunquaPeakMask | ++_sunquaPeakCount;
     public static readonly int Mech_CallMeteorSummon = SunquaPeakMask | ++_sunquaPeakCount;
     public static readonly int Mech_CallMeteorHit = SunquaPeakMask | ++_sunquaPeakCount;
@@ -361,6 +365,7 @@ public static class MechanicIDs
     public static readonly int Mech_AiFirestorm = SunquaPeakMask | ++_sunquaPeakCount;
     public static readonly int Mech_ElementalManipulationWater = SunquaPeakMask | ++_sunquaPeakCount;
     public static readonly int Mech_TorrentialBolt = SunquaPeakMask | ++_sunquaPeakCount;
+    public static readonly int Mech_TorrentialBoltReflected = SunquaPeakMask | ++_sunquaPeakCount;
     public static readonly int Mech_VolatileWater = SunquaPeakMask | ++_sunquaPeakCount;
     public static readonly int Mech_AquaticBurst = SunquaPeakMask | ++_sunquaPeakCount;
     public static readonly int Mech_TidalBarrier = SunquaPeakMask | ++_sunquaPeakCount;
@@ -368,6 +373,7 @@ public static class MechanicIDs
     public static readonly int Mech_TidalBargainDown = SunquaPeakMask | ++_sunquaPeakCount;
     public static readonly int Mech_EmpathicManipulation = SunquaPeakMask | ++_sunquaPeakCount;
     public static readonly int Mech_FocusedWrath = SunquaPeakMask | ++_sunquaPeakCount;
+    public static readonly int Mech_FocusedWrathReflected = SunquaPeakMask | ++_sunquaPeakCount;
     public static readonly int Mech_NegativeBurst = SunquaPeakMask | ++_sunquaPeakCount;
     public static readonly int Mech_Terrorstorm = SunquaPeakMask | ++_sunquaPeakCount;
     public static readonly int Mech_CrushingGuilt = SunquaPeakMask | ++_sunquaPeakCount;

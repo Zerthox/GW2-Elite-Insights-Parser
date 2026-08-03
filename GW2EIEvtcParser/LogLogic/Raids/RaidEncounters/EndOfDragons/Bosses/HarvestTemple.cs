@@ -73,7 +73,7 @@ internal class HarvestTemple : EndOfDragonsRaidEncounter
                 new PlayerDstHealthDamageHitMechanic(LavaSlam, new (Symbols.TriangleRight, Colors.Red), "Slam.H", "Hit by Primordus Slam", "Primordus Slam", Sev0, 150),
                 new PlayerDstHealthDamageHitMechanic(JawsOfDestruction, new (Symbols.TriangleUp, Colors.Red), "Jaws.H", "Hit by Primordus Jaws", "Primordus Jaws", Sev0, 150),
             ]),
-            // Kralkatorrik 
+            // Kralkatorrik
             new MechanicGroup([
                 new PlayerDstHealthDamageHitMechanic(CrystalBarrage, new (Symbols.TriangleUp, Colors.Purple), "Barrage.H", "Hit by Crystal Barrage", "Barrage", Sev2, 150),
                 new PlayerDstHealthDamageHitMechanic(BrandingBeam, new (Symbols.TriangleRight, Colors.Purple), "Beam.H", "Hit by Kralkatorrik's Branding Beam", "Kralkatorrik Beam", Sev1, 150),
@@ -352,7 +352,7 @@ internal class HarvestTemple : EndOfDragonsRaidEncounter
         if (jormagVoid != null)
         {
             pushableOrbCheckThreshold = jormagVoid.FirstAware;
-        } 
+        }
         else if (otherVoids.Count > 0)
         {
             return LogData.StartStatus.Late;
@@ -418,7 +418,7 @@ internal class HarvestTemple : EndOfDragonsRaidEncounter
             TargetID.PushableVoidAmalgamate,
             TargetID.KillableVoidAmalgamate,
             TargetID.VoidGiant,
-            // Greens         
+            // Greens
             TargetID.HTGreenJormagWest,
             TargetID.HTGreenJormagEast,
             TargetID.HTGreenJormagSouthEast,
@@ -552,7 +552,7 @@ internal class HarvestTemple : EndOfDragonsRaidEncounter
         if (effect.IsAroundDst)
         {
             res.Add(new AnimatedCastEvent(target.AgentItem, skill, effect.Time - startOffset, dur, effect.Dst));
-        } 
+        }
         else
         {
             res.Add(new AnimatedCastEvent(target.AgentItem, skill, effect.Time - startOffset, dur));
@@ -1233,7 +1233,7 @@ internal class HarvestTemple : EndOfDragonsRaidEncounter
                 {
                     id = TargetID.HTGreenJormagEast;
                     name = "Jormag Green E";
-                } 
+                }
                 else if (Math.Abs(angle - 3.14159274) < threshold)
                 {
                     id = TargetID.HTGreenJormagWest;
@@ -1300,7 +1300,7 @@ internal class HarvestTemple : EndOfDragonsRaidEncounter
                 }
                 greenEffectEventTuple.Item2.OverrideSrcAgent(greenAgent);
                 var (dstAgent, value) = MovementEvent.PackMovementData(position.X, position.Y, position.Z);
-                toAdd.Add(new CombatItem(greenEffectEvent.Time, greenAgent.Agent, dstAgent, value, 0, 0, 0, greenAgent.InstID, 
+                toAdd.Add(new CombatItem(greenEffectEvent.Time, greenAgent.Agent, dstAgent, value, 0, 0, 0, greenAgent.InstID,
                     0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, (byte)StateChange.Position, 0, 0, 0, 0,
                     evtcVersion));
             }
@@ -1347,7 +1347,7 @@ internal class HarvestTemple : EndOfDragonsRaidEncounter
                     dragonOrb.OverrideID(TargetID.DragonEnergyOrb, agentData);
                 }
             }
-        } 
+        }
         else if (dragonOrbs.Count > 0)
         {
             foreach (var dragonOrb in dragonOrbs)
@@ -1776,7 +1776,7 @@ internal class HarvestTemple : EndOfDragonsRaidEncounter
                 var graspOfJormagProjectiles = log.CombatData.GetMissileEventsBySkillID(GraspOfJormag);
                 foreach (MissileEvent grasp in graspOfJormagProjectiles)
                 {
-                    CombatReplayDecorationContainer.AddNonHomingMissile(log, grasp, (lifespan, connector) =>
+                    CombatReplayDecorationContainer.AddNonHomingMissile(log, grasp, (launch, lifespan, connector) =>
                     {
                         var beamAoE = new CircleDecoration(160, lifespan, Colors.LightBlue, 0.1, connector);
                         replay.Decorations.AddWithBorder(beamAoE, Colors.Red, 0.5);
@@ -1803,7 +1803,7 @@ internal class HarvestTemple : EndOfDragonsRaidEncounter
                     // The beams can spawn after Jormag has died, they last roughly 3 seconds, if they spawn just before Jormag dies, they get cancelled
                     var end = breath.Time >= target.LastAware ? Math.Min(target.LastAware + 3000, beamAgentSpawnTime) : Math.Min(target.LastAware, beamAgentSpawnTime);
 
-                    CombatReplayDecorationContainer.AddNonHomingMissile(log, breath, (lifespan, connector) =>
+                    CombatReplayDecorationContainer.AddNonHomingMissile(log, breath, (launch, lifespan, connector) =>
                     {
                         var beamAoE = new CircleDecoration(300, lifespan, Colors.LightBlue, 0.1, connector);
                         replay.Decorations.AddWithBorder(beamAoE, Colors.Red, 0.5);
@@ -2929,7 +2929,7 @@ internal class HarvestTemple : EndOfDragonsRaidEncounter
                     radius = radiuses.cm;
                 }
                 (long, long) lifespan = effect.ComputeLifespan(log, 2050);
-                replay.Decorations.AddWithBorder(new CircleDecoration(radius, lifespan, Colors.Orange, 0.3, new PositionConnector(effect.Position)), Colors.Orange, 0.4);   
+                replay.Decorations.AddWithBorder(new CircleDecoration(radius, lifespan, Colors.Orange, 0.3, new PositionConnector(effect.Position)), Colors.Orange, 0.4);
             }
         }
     }

@@ -49,7 +49,8 @@ internal class AiKeeperOfThePeak : SunquaPeak
                 [
 
                     new PlayerDstHealthDamageHitMechanic([ElementalManipulationFire1, ElementalManipulationFire2, ElementalManipulationFire3], Mech_ElementalManipulationFire, new (Symbols.Square,Colors.Orange), new("Fr.Mnp.", "Elemental Manipulation (Fire)","Elemental Manipulation (Fire)"), Sev2),
-                    new PlayerDstHealthDamageHitMechanic([RoilingFlames1, RoilingFlames2], Mech_RoilingFlames, new (Symbols.Circle,Colors.Orange), new("Rlng.Flms.", "Roiling Flames","Roiling Flames"), Sev1),
+                    new PlayerDstHealthDamageHitMechanic([RoilingFlames, RoilingFlamesDash], Mech_RoilingFlames, new (Symbols.Circle,Colors.Orange), new("Rlng.Flms.", "Roiling Flames","Roiling Flames"), Sev1),
+                    new PlayerSrcHealthDamageHitMechanic(RoilingFlamesDash, Mech_RoilingFlamesReflected, new (Symbols.CircleXOpen, Colors.Orange), new("Rlng.Flms.Rfl.", "Hit reflected Roiling Flames projectiles","Roiling Flames Reflect"), Sev0),
                     new PlayerDstHealthDamageHitMechanic(VolatileFire, Mech_VolatileFire, new (Symbols.TriangleLeft,Colors.Orange), new("Vlt.Fr.", "Volatile Fire","Volatile Fire"), Sev1),
                     new MechanicGroup(
                         [
@@ -66,7 +67,8 @@ internal class AiKeeperOfThePeak : SunquaPeak
             new MechanicGroup(
                 [
                     new PlayerDstHealthDamageHitMechanic([ElementalManipulationWater1, ElementalManipulationWater2, ElementalManipulationWater3], Mech_ElementalManipulationWater, new (Symbols.Square,Colors.LightBlue), new("Wtr.Mnp.", "Elemental Manipulation (Water)","Elemental Manipulation (Water)"), Sev2),
-                    new PlayerDstHealthDamageHitMechanic([TorrentialBolt1, TorrentialBolt2], Mech_TorrentialBolt, new (Symbols.Circle,Colors.LightBlue), new("Tr.Blt.", "Torrential Bolt","Torrential Bolt"), Sev1),
+                    new PlayerDstHealthDamageHitMechanic([TorrentialBolt, TorrentialBoltDash], Mech_TorrentialBolt, new (Symbols.Circle,Colors.LightBlue), new("Tr.Blt.", "Torrential Bolt","Torrential Bolt"), Sev1),
+                    new PlayerSrcHealthDamageHitMechanic(TorrentialBoltDash, Mech_TorrentialBoltReflected, new (Symbols.CircleXOpen, Colors.LightBlue), new("Tr.Blt..Rfl.", "Hit reflected Torrential Bolt projectiles","Torrential Bolt Reflect"), Sev0),
                     new PlayerDstHealthDamageHitMechanic(VolatileWater, Mech_VolatileWater, new (Symbols.TriangleLeft,Colors.LightBlue), new("Vlt.Wtr.", "Volatile Water","Volatile Water"), Sev1),
                     new PlayerDstHealthDamageHitMechanic(AquaticBurst, Mech_AquaticBurst, new (Symbols.TriangleDown,Colors.LightBlue), new("Aq.Brst.", "Aquatic Burst","Aquatic Burst"), Sev1),
                     new EnemyDstBuffApplyMechanic(TidalBarrier, Mech_TidalBarrier, new (Symbols.BowtieOpen,Colors.LightBlue), new("Tdl.Bar.", "Tidal Barrier", "Tidal Barrier"), Sev1),
@@ -83,7 +85,8 @@ internal class AiKeeperOfThePeak : SunquaPeak
             new MechanicGroup(
                 [
                     new PlayerDstHealthDamageHitMechanic([EmpathicManipulationGuilt, EmpathicManipulation2, EmpathicManipulationSorrow, EmpathicManipulationFear, EmpathicManipulation5, EmpathicManipulation6, EmpathicManipulation7, EmpathicManipulation8, EmpathicManipulation9], Mech_EmpathicManipulation, new (Symbols.Square,Colors.LightPurple), new("Emp.Mnp.", "Empathic Manipulation","Empathic Manipulation"), Sev2),
-                    new PlayerDstHealthDamageHitMechanic([FocusedWrath, FocusedWrath2], Mech_FocusedWrath, new (Symbols.Circle,Colors.LightPurple), new("Fcsd.Wrth.", "Focused Wrath","Focused Wrath"), Sev1),
+                    new PlayerDstHealthDamageHitMechanic([FocusedWrath, FocusedWrathDash], Mech_FocusedWrath, new (Symbols.Circle,Colors.LightPurple), new("Fcsd.Wrth.", "Focused Wrath","Focused Wrath"), Sev1),
+                    new PlayerSrcHealthDamageHitMechanic(FocusedWrathDash, Mech_FocusedWrathReflected, new (Symbols.CircleXOpen, Colors.LightPurple), new("Fcsd.Wrth.Rfl.", "Hit reflected Focused Wrath projectiles", "Focused Wrath Reflect"), Sev0),
                     new PlayerDstHealthDamageHitMechanic(NegativeBurst, Mech_NegativeBurst, new (Symbols.DiamondWide,Colors.LightPurple), new("N.Brst.", "Negative Burst","Negative Burst"), Sev1, 500),
                     new PlayerDstHealthDamageHitMechanic(Terrorstorm, Mech_Terrorstorm, new (Symbols.DiamondTall,Colors.LightPurple), new("TrrStrm", "Terrorstorm","Terrorstorm"), Sev1),
                     new MechanicGroup(
@@ -156,7 +159,7 @@ internal class AiKeeperOfThePeak : SunquaPeak
         return crMap;
     }
 
-    internal override IReadOnlyList<TargetID>  GetTargetsIDs()
+    internal override IReadOnlyList<TargetID> GetTargetsIDs()
     {
         return
         [
@@ -420,7 +423,7 @@ internal class AiKeeperOfThePeak : SunquaPeak
                 darkPhase = GetFightPhase(log, darkAi, phases[0], "Dark Phase");
                 phases.Add(darkPhase);
             }
-            phases.AddRange(ComputeDarkPhases(log, darkAi, darkPhase, china,requirePhases));
+            phases.AddRange(ComputeDarkPhases(log, darkAi, darkPhase, china, requirePhases));
         }
         return phases;
     }
@@ -462,7 +465,7 @@ internal class AiKeeperOfThePeak : SunquaPeak
                 if (darkInvul895Gain != null)
                 {
                     successHandler.SetSuccess(true, darkInvul895Gain.Time);
-                } 
+                }
                 else
                 {
                     successHandler.SetSuccess(false, darkAi.LastAware);
@@ -612,6 +615,7 @@ internal class AiKeeperOfThePeak : SunquaPeak
         {
             base.ComputeEnvironmentCombatReplayDecorations(log, environmentDecorations);
         }
+
         // arrow indicators
         if (log.CombatData.TryGetEffectEventsByGUID(EffectGUIDs.AiArrowAttackIndicator, out var arrows))
         {
@@ -789,6 +793,28 @@ internal class AiKeeperOfThePeak : SunquaPeak
                 environmentDecorations.Add(new RectangleDecoration(80, directionLength, (start, end), Colors.Orange, 0.15, offset).UsingRotationConnector(rotation));
             }
         }
+
+        // fulgor sphere (air missiles)
+        var fulgorSpheres = log.CombatData.GetMissileEventsBySkillIDs([FulgorSphere1, FulgorSphere2]);
+        environmentDecorations.AddNonHomingMissiles(log, fulgorSpheres, Colors.SkyBlue, 0.4, 50);
+
+        // roiling flames (fire missiles)
+        var roilingFlames = log.CombatData.GetMissileEventsBySkillID(RoilingFlames);
+        var roilingFlamesReflectable = log.CombatData.GetMissileEventsBySkillID(RoilingFlamesDash);
+        environmentDecorations.AddNonHomingMissiles(log, roilingFlames, Colors.Red, 0.3, 50);
+        environmentDecorations.AddReflectableNonHomingMissiles(log, roilingFlamesReflectable, Colors.Red, 0.3, Colors.Grey, 0.3, 50);
+
+        // torrential bolt (water missiles)
+        var torrentialBolts = log.CombatData.GetMissileEventsBySkillID(TorrentialBolt);
+        var torrentialBoltsReflectable = log.CombatData.GetMissileEventsBySkillID(TorrentialBoltDash);
+        environmentDecorations.AddNonHomingMissiles(log, torrentialBolts, Colors.MidTeal, 0.2, 180);
+        environmentDecorations.AddReflectableNonHomingMissiles(log, torrentialBoltsReflectable, Colors.MidTeal, 0.3, Colors.Grey, 0.3, 50);
+
+        // focused wrath (dark missiles)
+        var focusedWraths = log.CombatData.GetMissileEventsBySkillID(FocusedWrath);
+        var focusedWrathsReflectable = log.CombatData.GetMissileEventsBySkillID(FocusedWrathDash);
+        environmentDecorations.AddNonHomingMissiles(log, focusedWraths, Colors.Magenta, 0.3, 50);
+        environmentDecorations.AddReflectableNonHomingMissiles(log, focusedWrathsReflectable, Colors.Magenta, 0.3, Colors.Grey, 0.3, 50);
     }
 
     private static void AddScalingCircleDecorations(ParsedEvtcLog log, IEnumerable<EffectEvent> effects, long damageDuration, CombatReplayDecorationContainer environmentDecorations)

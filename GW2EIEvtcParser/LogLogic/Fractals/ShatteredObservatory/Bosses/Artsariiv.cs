@@ -25,8 +25,11 @@ internal class Artsariiv : ShatteredObservatory
             new PlayerDstHealthDamageHitMechanic(TeleportLunge, Mech_TeleportLunge, new (Symbols.StarTriangleDownOpen,Colors.LightOrange), new("3 Jump", "Triple Jump Mid->Edge","Triple Jump"), Sev1),
             new PlayerDstHealthDamageHitMechanic(AstralSurge, Mech_AstralSurge, new (Symbols.CircleOpen,Colors.Yellow), new("Floor Circle", "Different sized spiraling circles","1000 Circles"), Sev2),
             new PlayerDstHealthDamageHitMechanic([RedMarble1, RedMarble2], Mech_RedMarble, new (Symbols.Circle,Colors.Red), new("Marble", "Red KD Marble after Jump","Red Marble"), Sev0),
+            new PlayerDstHealthDamageHitMechanic([TawShot1, TawShot2, TawShot3, TawShot4], Mech_TawShot, new (Symbols.CircleOpen, Colors.Red), new("Taw Shot", "Hit by Taw Shot projectile", "Taw Shot"), Sev2),
+            new PlayerSrcHealthDamageHitMechanic([TawShot1, TawShot2, TawShot3, TawShot4], Mech_TawShotReflected, new (Symbols.CircleXOpen, Colors.Red), new("Taw Shot Rfl.", "Hit reflected Taw Shot projectile", "Taw Shot Reflect"), Sev0),
             new SpawnMechanic((int)TargetID.Spark, Mech_SparkSpawn, new (Symbols.Star,Colors.Teal),new("Spark","Spawned a Spark (missed marble)", "Spark"), Sev0),
         ]);
+
     public Artsariiv(int triggerID) : base(triggerID)
     {
         MechanicList.Add(Mechanics);
@@ -45,7 +48,7 @@ internal class Artsariiv : ShatteredObservatory
         return crMap;
     }
 
-    internal override IReadOnlyList<TargetID>  GetTargetsIDs()
+    internal override IReadOnlyList<TargetID> GetTargetsIDs()
     {
         return
         [
@@ -331,6 +334,10 @@ internal class Artsariiv : ShatteredObservatory
                 AddBeamingSmileDecoration(effect, (start, end), Colors.Red, 0.2, environmentDecorations);
             }
         }
+
+        // taw shots (small reflectable orbs)
+        var tawshots = log.CombatData.GetMissileEventsBySkillIDs([TawShot1, TawShot2, TawShot3, TawShot4]);
+        environmentDecorations.AddReflectableNonHomingMissiles(log, tawshots, Colors.DarkRed, 0.3, Colors.Grey, 0.3, 25);
     }
 
     internal override void SetInstanceBuffs(ParsedEvtcLog log, List<InstanceBuff> instanceBuffs)

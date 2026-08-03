@@ -125,7 +125,7 @@ internal class TempleOfFebe : SecretOfTheObscureRaidEncounter
                 new EnemyDstBuffApplyMechanic(Invulnerability757, new (Symbols.StarOpen, Colors.Black), "Emp.Regret.K", "Empowered Embodiment of Regret Killed", "Empowered Regret Killed", Sev0, 0)
                     .UsingChecker((bae, log) => bae.To.IsSpecies(TargetID.EmbodimentOfRegret) && bae.To.HasBuff(log, EmpoweredRegretEmbodiment, bae.Time)),
 
-            ]),  
+            ]),
         ])
         );
         Icon = EncounterIconTempleOfFebe;
@@ -143,7 +143,7 @@ internal class TempleOfFebe : SecretOfTheObscureRaidEncounter
         return crMap;
     }
 
-    internal override IReadOnlyList<TargetID>  GetTargetsIDs()
+    internal override IReadOnlyList<TargetID> GetTargetsIDs()
     {
         return
         [
@@ -267,7 +267,7 @@ internal class TempleOfFebe : SecretOfTheObscureRaidEncounter
             if (spawnEvent != null && enterCombatTime >= spawnEvent.Time)
             {
                 return spawnEvent.Time;
-            } 
+            }
             return cerus.FirstAware;
         }
         return startToUse;
@@ -734,7 +734,7 @@ internal class TempleOfFebe : SecretOfTheObscureRaidEncounter
         var isKillableEmbodiment = target.IsSpecies(TargetID.EmbodimentOfEnvy);
         if (!log.CombatData.TryGetEffectEventsBySrcWithGUID(target.AgentItem, EffectGUIDs.TempleOfFebeEnviousGazeWall1, out var wallsDamage))
         {
-            wallsDamage = []; 
+            wallsDamage = [];
         }
         if (log.CombatData.TryGetEffectEventsBySrcWithGUID(target.AgentItem, EffectGUIDs.TempleOfFebeEnviousGazeIndicator, out var wallsIndicators))
         {
@@ -868,7 +868,7 @@ internal class TempleOfFebe : SecretOfTheObscureRaidEncounter
             }
             else
             {
-                CombatReplayDecorationContainer.AddNonHomingMissile(log, orb, (lifespan, connector) =>
+                CombatReplayDecorationContainer.AddNonHomingMissile(log, orb, (launch, lifespan, connector) =>
                 {
                     replay.Decorations.Add(new CircleDecoration(30, lifespan, Colors.Black, 0.5, connector));
                     replay.Decorations.Add(new DoughnutDecoration(30, 40, lifespan, Colors.RedSkin, 0.8, connector));

@@ -25,12 +25,14 @@ internal class MAMA : Nightmare
             new PlayerDstHealthDamageHitMechanic(SweepingStrikes, Mech_SweepingStrikes, new (Symbols.BowtieOpen,Colors.Red), new("Sweep", "Swings (Many rapid front spins)","Sweeping Strikes"), Sev1, 200),
             new PlayerDstHealthDamageHitMechanic(NightmareMiasmaMAMA, Mech_MiasmaMAMA, new (Symbols.CircleOpen,Colors.Magenta), new("Goo.M", "Nightmare Miasma (Poison Puddle)","Poison Goo"), Sev0, 700),
             new PlayerDstHealthDamageHitMechanic([GrenadeBarrage, GrenadeBarrage2], Mech_GrenadeBarrage, new (Symbols.CircleOpen,Colors.Yellow), new("Barrage", "Grenade Barrage (Red Bullets with AoEs)","Ball Barrage"), Sev1),
+            new PlayerSrcHealthDamageHitMechanic([GrenadeBarrage, GrenadeBarrage2], Mech_GrenadeBarrageReflected, new MechanicPlotlySetting(Symbols.CircleXOpen, Colors.Yellow), new("Barrage Rfl.", "Hit reflected Grenade Barrage projectiles (Red Bullets with AoEs)", "Ball Barrage Reflect"), Sev0),
             new PlayerDstHealthDamageHitMechanic([ShootRedBalls, ShootRedBalls2], Mech_BulletsMAMA, new (Symbols.CircleOpen,Colors.Red), new("Ball", "Shoot (Direct Red Bullets)","Bullet"), Sev2),
             new PlayerDstHealthDamageHitMechanic(Extraction, Mech_Extraction, new (Symbols.Bowtie,Colors.LightOrange), new("Pull.K", "Extraction (Knight Pull Circle)","Knight Pull"), Sev0),
             new PlayerDstHealthDamageHitMechanic([HomingGrenades, HomingGrenades2], Mech_HomingGrenades, new (Symbols.StarTriangleDownOpen,Colors.Red), new("Grenades", "Homing Grenades","Homing Grenades"), Sev2),
             new PlayerDstHealthDamageHitMechanic(KnightsGaze, Mech_KnightsGaze, new (Symbols.SquareOpen,Colors.LightPurple), new("Daze", "Knight's Daze","Daze"), Sev1),
             new PlayerDstHealthDamageMechanic([NightmareDevastation1, NightmareDevastation3, NightmareDevastation4], Mech_NightmareDevastationMAMA , new (Symbols.SquareOpen,Colors.Blue), new("Bubble.M", "Nightmare Devastation (not stood in Arkk's Shield)", "Bubble"), Sev0),
         ]);
+
     public MAMA(int triggerID) : base(triggerID)
     {
         MechanicList.Add(Mechanics);
@@ -126,7 +128,7 @@ internal class MAMA : Nightmare
         return phases;
     }
 
-    internal override IReadOnlyList<TargetID>  GetTargetsIDs()
+    internal override IReadOnlyList<TargetID> GetTargetsIDs()
     {
         return
         [
@@ -353,7 +355,7 @@ internal class MAMA : Nightmare
 
         // Grenade Barrage Orbs
         var grenadeBarrage = log.CombatData.GetMissileEventsBySkillIDs([GrenadeBarrage, GrenadeBarrage2]);
-        environmentDecorations.AddNonHomingMissiles(log, grenadeBarrage, Colors.Red, 0.4, 50);
+        environmentDecorations.AddReflectableNonHomingMissiles(log, grenadeBarrage, Colors.Red, 0.4, Colors.Grey, 0.3, 50);
 
         // Shoot Orbs
         var shootRedOrbs = log.CombatData.GetMissileEventsBySkillIDs([ShootRedBalls, ShootRedBalls2]);
