@@ -149,6 +149,29 @@ public static class MechanicIDs
 
     #region EOD
     private static int _eodCount = 0;
+    public static readonly int Mech_NightmareFusilladeMain = EODMask | ++_eodCount;
+    public static readonly int Mech_NightmareFusilladeSide = EODMask | ++_eodCount;
+    public static readonly int Mech_ElectricBlast = EODMask | ++_eodCount;
+    public static readonly int Mech_ToxicOrb = EODMask | ++_eodCount;
+    public static readonly int Mech_Heartpiercer = EODMask | ++_eodCount;
+    public static readonly int Mech_HeartpiercerNoStab = EODMask | ++_eodCount;
+    public static readonly int Mech_FissureOfTorment = EODMask | ++_eodCount;
+    public static readonly int Mech_TormentingWave = EODMask | ++_eodCount;
+    public static readonly int Mech_TormentingWaveDead = EODMask | ++_eodCount;
+    public static readonly int Mech_LeyBreach = EODMask | ++_eodCount;
+    public static readonly int Mech_LeyBreachTarget = EODMask | ++_eodCount;
+    public static readonly int Mech_ToxicBullet = EODMask | ++_eodCount;
+    public static readonly int Mech_FocusedDestructionDown = EODMask | ++_eodCount;
+    public static readonly int Mech_FocusedDestructionDead = EODMask | ++_eodCount;
+    public static readonly int Mech_PhotonSaturation = EODMask | ++_eodCount;
+    public static readonly int Mech_AHSharedDestruction = EODMask | ++_eodCount;
+    public static readonly int Mech_KaleidoscopicChaos = EODMask | ++_eodCount;
+    public static readonly int Mech_ChaosAndDestruction = EODMask | ++_eodCount;
+    public static readonly int Mech_MagBeam = EODMask | ++_eodCount;
+    public static readonly int Mech_MagneticBomb = EODMask | ++_eodCount;
+    public static readonly int Mech_BeamTargetGreen = EODMask | ++_eodCount;
+    public static readonly int Mech_BeamTargetRed = EODMask | ++_eodCount;
+    public static readonly int Mech_BeamTargetBlue = EODMask | ++_eodCount;
     #endregion EOD
 
     #region SOTO
