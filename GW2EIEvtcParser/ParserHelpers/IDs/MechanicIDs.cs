@@ -172,6 +172,29 @@ public static class MechanicIDs
     public static readonly int Mech_BeamTargetGreen = EODMask | ++_eodCount;
     public static readonly int Mech_BeamTargetRed = EODMask | ++_eodCount;
     public static readonly int Mech_BeamTargetBlue = EODMask | ++_eodCount;
+    public static readonly int Mech_GraspingHorror = EODMask | ++_eodCount;
+    public static readonly int Mech_DeathsEmbrace = EODMask | ++_eodCount;
+    public static readonly int Mech_DeathsEmbraceCast = EODMask | ++_eodCount;
+    public static readonly int Mech_DeathsHandInBetween = EODMask | ++_eodCount;
+    public static readonly int Mech_DeathsHandDropped = EODMask | ++_eodCount;
+    public static readonly int Mech_DeathsHandTarget = EODMask | ++_eodCount;
+    public static readonly int Mech_ImminentDeath = EODMask | ++_eodCount;
+    public static readonly int Mech_ImminentDeathApply = EODMask | ++_eodCount;
+    public static readonly int Mech_WallOfFear = EODMask | ++_eodCount;
+    public static readonly int Mech_WaveOfTorment = EODMask | ++_eodCount;
+    public static readonly int Mech_TerrifyingApparition = EODMask | ++_eodCount;
+    public static readonly int Mech_TerrifyingApparitionTarget = EODMask | ++_eodCount;
+    public static readonly int Mech_ClarityLost = EODMask | ++_eodCount;
+    public static readonly int Mech_ClarityKept = EODMask | ++_eodCount;
+    public static readonly int Mech_XJJZhaitansReachPull = EODMask | ++_eodCount;
+    public static readonly int Mech_XJJZhaitansReachKnock = EODMask | ++_eodCount;
+    public static readonly int Mech_XJJHallucinations = EODMask | ++_eodCount;
+    public static readonly int Mech_HatredFixated = EODMask | ++_eodCount;
+    public static readonly int Mech_InevitabilityOfDeath = EODMask | ++_eodCount;
+    public static readonly int Mech_PowerOfTheVoid = EODMask | ++_eodCount;
+    public static readonly int Mech_DevouringVoid = EODMask | ++_eodCount;
+    public static readonly int Mech_UndevouredLost = EODMask | ++_eodCount;
+    public static readonly int Mech_UndevouredKept = EODMask | ++_eodCount;
     #endregion EOD
 
     #region SOTO
