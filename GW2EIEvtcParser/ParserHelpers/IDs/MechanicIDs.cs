@@ -282,7 +282,7 @@ public static class MechanicIDs
     public static readonly int Mech_VoidObliteratorChargeNoStab = EODMask | ++_eodCount;
     public static readonly int Mech_VoidGoliathGlacialSlam = EODMask | ++_eodCount;
     public static readonly int Mech_VoidGoliathGlacialSlamNoStab = EODMask | ++_eodCount;
-    public static readonly int Mech_GraspOfTheBoid = EODMask | ++_eodCount;
+    public static readonly int Mech_GraspOfTheVoid = EODMask | ++_eodCount;
     #endregion EOD
 
     #region SOTO

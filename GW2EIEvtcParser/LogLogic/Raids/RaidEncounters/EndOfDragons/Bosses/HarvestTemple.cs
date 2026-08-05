@@ -165,7 +165,7 @@ internal class HarvestTemple : EndOfDragonsRaidEncounter
             ]),
             // Purification 4
             new MechanicGroup([
-                new PlayerDstHealthDamageHitMechanic(GraspOfTheVoid, Mech_GraspOfTheBoid, new (Symbols.Hexagram, Colors.Black), new("GraspVoid.H", "Hit by Grasp of the Void (Final Orb Projectile)", "Grasp of the Void"), Sev2),
+                new PlayerDstHealthDamageHitMechanic(GraspOfTheVoid, Mech_GraspOfTheVoid, new (Symbols.Hexagram, Colors.Black), new("GraspVoid.H", "Hit by Grasp of the Void (Final Orb Projectile)", "Grasp of the Void"), Sev2),
             ]),
         ]));
         Icon = EncounterIconHarvestTemple;
