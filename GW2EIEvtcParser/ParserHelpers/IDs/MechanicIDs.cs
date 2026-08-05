@@ -147,6 +147,89 @@ public static class MechanicIDs
     public static readonly int Mech_ViciousSlam = IBSMask | ++_ibsCount;
     #endregion IBS
 
+    #region EOD
+    private static int _eodCount = 0;
+    #endregion EOD
+
+    #region SOTO
+    private static int _sotoCount = 0;
+    public static readonly int Mech_DancedStarsLost = SotOMask | ++_sotoCount;
+    public static readonly int Mech_DancedStarsKept = SotOMask | ++_sotoCount;
+    public static readonly int Mech_SpinningNebula = SotOMask | ++_sotoCount;
+    public static readonly int Mech_SpinningNebulaCast = SotOMask | ++_sotoCount;
+    public static readonly int Mech_DemonicBlast = SotOMask | ++_sotoCount;
+    public static readonly int Mech_SoulFeast = SotOMask | ++_sotoCount;
+    public static readonly int Mech_SoulFeastTarget = SotOMask | ++_sotoCount;
+    public static readonly int Mech_PlanetCrash = SotOMask | ++_sotoCount;
+    public static readonly int Mech_PlanetCrashCast = SotOMask | ++_sotoCount;
+    public static readonly int Mech_PlanetCrashCastStop = SotOMask | ++_sotoCount;
+    public static readonly int Mech_PlanetCrashCastDone = SotOMask | ++_sotoCount;
+    public static readonly int Mech_ChargingConstellation = SotOMask | ++_sotoCount;
+    public static readonly int Mech_ShootingStarsTarget = SotOMask | ++_sotoCount;
+    public static readonly int Mech_ShootingStarsCast = SotOMask | ++_sotoCount;
+    public static readonly int Mech_ResidualAnxiety = SotOMask | ++_sotoCount;
+    public static readonly int Mech_COLostControl = SotOMask | ++_sotoCount;
+    public static readonly int Mech_COSharedDestructionTarget = SotOMask | ++_sotoCount;
+    public static readonly int Mech_COTargetOrder = SotOMask | ++_sotoCount;
+    public static readonly int Mech_COExtremeVulnerability = SotOMask | ++_sotoCount;
+    public static readonly int Mech_DemonicAuraRemove = SotOMask | ++_sotoCount;
+    public static readonly int Mech_DemonicAuraLost = SotOMask | ++_sotoCount;
+    public static readonly int Mech_PurifyingLightCast = SotOMask | ++_sotoCount;
+    public static readonly int Mech_PurifyingLightHitSoulFeast = SotOMask | ++_sotoCount;
+    public static readonly int Mech_PurifyingLightHitDagda = SotOMask | ++_sotoCount;
+    public static readonly int Mech_DemonicFeverTarget = SotOMask | ++_sotoCount;
+    public static readonly int Mech_Insatiable = SotOMask | ++_sotoCount;
+    public static readonly int Mech_InsatiableCast = SotOMask | ++_sotoCount;
+    public static readonly int Mech_CrushingRegret = SotOMask | ++_sotoCount;
+    public static readonly int Mech_CrushingRegretEmpowered = SotOMask | ++_sotoCount;
+    public static readonly int Mech_CrushingRegretApply = SotOMask | ++_sotoCount;
+    public static readonly int Mech_CrushingRegretCast= SotOMask | ++_sotoCount;
+    public static readonly int Mech_CrushingRegretSuccess = SotOMask | ++_sotoCount;
+    public static readonly int Mech_CrushingRegretFail = SotOMask | ++_sotoCount;
+    public static readonly int Mech_WallOfDespair = SotOMask | ++_sotoCount;
+    public static readonly int Mech_WallOfDespairEmpowered = SotOMask | ++_sotoCount;
+    public static readonly int Mech_WallOfDespairCast = SotOMask | ++_sotoCount;
+    public static readonly int Mech_PoolOfDespair = SotOMask | ++_sotoCount;
+    public static readonly int Mech_PoolOfDespairEmpowered = SotOMask | ++_sotoCount;
+    public static readonly int Mech_EnviousGaze = SotOMask | ++_sotoCount;
+    public static readonly int Mech_EnviousGazeEmpowered = SotOMask | ++_sotoCount;
+    public static readonly int Mech_EnviousGazeStrip = SotOMask | ++_sotoCount;
+    public static readonly int Mech_EnviousGazeCast = SotOMask | ++_sotoCount;
+    public static readonly int Mech_MaliciousIntent = SotOMask | ++_sotoCount;
+    public static readonly int Mech_MaliciousIntentTarget = SotOMask | ++_sotoCount;
+    public static readonly int Mech_MaliciousIntentCast = SotOMask | ++_sotoCount;
+    public static readonly int Mech_CryOfRage = SotOMask | ++_sotoCount;
+    public static readonly int Mech_CryOfRageEmpowered = SotOMask | ++_sotoCount;
+    public static readonly int Mech_CryOfRageCast = SotOMask | ++_sotoCount;
+    public static readonly int Mech_EnragedSmash = SotOMask | ++_sotoCount;
+    public static readonly int Mech_EnragedSmashDown = SotOMask | ++_sotoCount;
+    public static readonly int Mech_EnragedSmashCast = SotOMask | ++_sotoCount;
+    public static readonly int Mech_Petrify = SotOMask | ++_sotoCount;
+    public static readonly int Mech_PetrifyCast = SotOMask | ++_sotoCount;
+    public static readonly int Mech_PetrifyHeal = SotOMask | ++_sotoCount;
+    public static readonly int Mech_UnboundedOptimismLost = SotOMask | ++_sotoCount;
+    public static readonly int Mech_UnboundedOptimismKept = SotOMask | ++_sotoCount;
+    public static readonly int Mech_EmpoweredCerus = SotOMask | ++_sotoCount;
+    public static readonly int Mech_EmpoweredDespairCerus = SotOMask | ++_sotoCount;
+    public static readonly int Mech_EmpoweredEnvyCerus = SotOMask | ++_sotoCount;
+    public static readonly int Mech_EmpoweredGluttonyCerus = SotOMask | ++_sotoCount;
+    public static readonly int Mech_EmpoweredMaliceCerus = SotOMask | ++_sotoCount;
+    public static readonly int Mech_EmpoweredRageCerus = SotOMask | ++_sotoCount;
+    public static readonly int Mech_EmpoweredRegretCerus = SotOMask | ++_sotoCount;
+    public static readonly int Mech_DespairKilled = SotOMask | ++_sotoCount;
+    public static readonly int Mech_EnvyKilled = SotOMask | ++_sotoCount;
+    public static readonly int Mech_GluttonyKilled = SotOMask | ++_sotoCount;
+    public static readonly int Mech_MaliceKilled = SotOMask | ++_sotoCount;
+    public static readonly int Mech_RageKilled = SotOMask | ++_sotoCount;
+    public static readonly int Mech_RegretKilled = SotOMask | ++_sotoCount;
+    public static readonly int Mech_EmpoweredDespairKilled = SotOMask | ++_sotoCount;
+    public static readonly int Mech_EmpoweredEnvyKilled = SotOMask | ++_sotoCount;
+    public static readonly int Mech_EmpoweredGluttonyKilled = SotOMask | ++_sotoCount;
+    public static readonly int Mech_EmpoweredMaliceKilled = SotOMask | ++_sotoCount;
+    public static readonly int Mech_EmpoweredRageKilled = SotOMask | ++_sotoCount;
+    public static readonly int Mech_EmpoweredRegretKilled = SotOMask | ++_sotoCount;
+    #endregion SOTO
+
     #region VOE
     private static int _voeCount = 0;
     public static readonly int Mech_KelaStomp = VoEMask | ++_voeCount;
