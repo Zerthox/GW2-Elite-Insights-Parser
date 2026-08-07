@@ -127,7 +127,7 @@ internal class Adina : TheKeyOfAhdashim
             if (posEvt != null)
             {
                 var pos = MovementEvent.GetPoint3D(posEvt);
-                if (handOfEruptionPositions.Any(x => (x - pos.XY()).Length() < InchDistanceThreshold))
+                if (handOfEruptionPositions.Any(x => (x - pos.XY()).LengthSquared() < InchDistanceThresholdSquared))
                 {
                     id = TargetID.HandOfEruption;
                 }
