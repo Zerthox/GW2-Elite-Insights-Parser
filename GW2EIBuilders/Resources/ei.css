@@ -726,13 +726,13 @@ canvas {
 
 .combat-replay-mechanics-list-container {
     max-height: 800px;
-    max-width:450px; 
-    overflow-y:auto;
+    max-width: 500px; 
+    overflow-y: auto;
 }
 
 .combat-actor-status-container {
     max-height: 830px;
-    width: 225px;
+    width: 250px;
     overflow-y: auto;
     scrollbar-width: thin;
 }

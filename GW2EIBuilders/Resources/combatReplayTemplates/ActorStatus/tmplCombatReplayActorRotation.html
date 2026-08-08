@@ -46,17 +46,48 @@
                     type: skill[3]
                 }));
             },
+            actorRotationDurationIndexes: function () {
+                if (this.actorRotation.length === 0) {
+                    return [];
+                }
+
+                let previous = -Infinity;
+                let previousIndex = null;
+
+                let next = this.actorRotation[0].time + this.actorRotation[0].duration / 1000.0;
+                let nextIndex = 0;
+
+                return this.actorRotation.map((item, index) => {
+                    const duration = item.time + item.duration / 1000.0;
+
+                    if (duration > next) {
+                        next = duration;
+                        nextIndex = index;
+                    }
+                    if (item.time >= previous) {
+                        previous = next;
+                        previousIndex = nextIndex;
+                    }
+
+                    return previousIndex;
+                });
+            },
             nextSkillIndex: function () {
-                return binarySearchFirstIndex(this.actorRotation, skill => skill.time > this.time / 1000.0);
+                const time = this.time / 1000.0;
+                return binarySearchFirstIndex(this.actorRotation, skill => skill.time > time);
             },
             castingSkill: function () {
-                const firstIndex = binarySearchFirstIndex(this.actorRotation, skill => skill.time + skill.duration / 1000.0 > this.time / 1000.0);
-
-                if (this.nextSkillIndex === this.actorRotation.length || firstIndex >= this.nextSkillIndex) {
+                if (!this.nextSkillIndex || this.nextSkillIndex === 0) {
                     return null;
                 }
 
-                return this.actorRotation[firstIndex];
+                const actorRotationDurationIndex = this.actorRotationDurationIndexes[this.nextSkillIndex - 1];
+                const candidates = this.actorRotation.slice(actorRotationDurationIndex, this.nextSkillIndex);
+
+                const time = this.time / 1000.0;
+                const result = candidates.findLast(c => c.time <= time && c.time + c.duration / 1000.0 >= time);
+                return result;
+
             },
             nextSkills: function () {
                 return this.actorRotation.slice(this.nextSkillIndex, this.nextSkillIndex + 7);
