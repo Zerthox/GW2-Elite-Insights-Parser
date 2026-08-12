@@ -226,7 +226,7 @@ internal class Qadim : MythwrightGambit
         IReadOnlyList<AgentItem> pyres = agentData.GetStableSpeciesByID(TargetID.PyreGuardian);
         foreach (AgentItem pyre in pyres)
         {
-            CombatItem? positionEvt = combatData.FirstOrDefault(x => x.SrcMatchesAgent(pyre) && x.IsStateChange == StateChange.Position);
+            CombatItem? positionEvt = combatData.FirstOrDefault(x => x.SrcMatchesAgent(pyre) && x.IsPosition);
             if (positionEvt != null)
             {
                 var position = MovementEvent.GetPoint3D(positionEvt).XY();
