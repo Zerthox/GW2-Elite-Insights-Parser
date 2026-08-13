@@ -170,6 +170,7 @@ public static class SkillIDs
     public const long Encumbered = 1159;
     public const long Bandage = 1175;
     public const long Quickness = 1187;
+    public const long PetRevive = 1196;
     public const long JacarandasEmbraceMinion = 1286; // Skill casted by Jacaranda's Embrace NPC
     public const long GraspingVinesDamage = 1290;
     public const long AimedShotWvW = 1421;

@@ -572,6 +572,7 @@ internal static class SkillImages
     public const string JetOtter = "https://render.guildwars2.com/file/E839D32DEC66ACF974A59478370BA810C54CCC5D/3772575.png";
     public const string TailWhipOtter = "https://render.guildwars2.com/file/A7179EB9654498EC366C0012246DCE91AD3D68B5/3772577.png";
     public const string ScratchOtter = "https://assets.gw2dat.com/3772576.png";
+    public const string LickWounds = "https://render.guildwars2.com/file/7C0379BEF70903068064D0FE211A2305E5577EBF/103997.png";
     // Galeshot
     public const string Mistral = "https://render.guildwars2.com/file/10E31F10E7D84CABF0963FEA12B77EE0BD950E42/3680194.png";
     #endregion Ranger

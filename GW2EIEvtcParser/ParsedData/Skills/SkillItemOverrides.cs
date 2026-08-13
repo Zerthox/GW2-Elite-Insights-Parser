@@ -14,6 +14,7 @@ public static class SkillItemOverrides
         { Bandage, "Bandage" },
         { WeaponStow, "Weapon Stow" },
         { WeaponDraw, "Weapon Draw" },
+        { PetRevive, "Revive (Pet)" },
 #region ArcDPS
         { ArcDPSDodge, "Dodge" },
         { ArcDPSDodge20220307, "Dodge" },
@@ -438,6 +439,7 @@ public static class SkillItemOverrides
         { ArcDPSDodge20220307, SkillImages.Dodge },
         { Poisoned, BuffImages.Poison },
         { RescueProtocol, SkillImages.RescueProtocol },
+        { PetRevive, SkillImages.LickWounds },
         #region ComboIcons
         // Combos
         { WaterBlastCombo1, ParserIcons.Healing },
