@@ -283,6 +283,38 @@ public static class MechanicIDs
     public static readonly int Mech_VoidGoliathGlacialSlam = EODMask | ++_eodCount;
     public static readonly int Mech_VoidGoliathGlacialSlamNoStab = EODMask | ++_eodCount;
     public static readonly int Mech_GraspOfTheVoid = EODMask | ++_eodCount;
+    public static readonly int Mech_BoilingAetherRedBlue = EODMask | ++_eodCount;
+    public static readonly int Mech_FixatedVermilion = EODMask | ++_eodCount;
+    public static readonly int Mech_DualHorizon = EODMask | ++_eodCount;
+    public static readonly int Mech_DualHorizonCast = EODMask | ++_eodCount;
+    public static readonly int Mech_TidalTorment = EODMask | ++_eodCount;
+    public static readonly int Mech_ErgoShear = EODMask | ++_eodCount;
+    public static readonly int Mech_GravitationalWave = EODMask | ++_eodCount;
+    public static readonly int Mech_Spaghettification = EODMask | ++_eodCount;
+    public static readonly int Mech_ExhaustPlumeVermilion = EODMask | ++_eodCount;
+    public static readonly int Mech_FixatedArsenite = EODMask | ++_eodCount;
+    public static readonly int Mech_BoilingAetherGreen = EODMask | ++_eodCount;
+    public static readonly int Mech_NoxiousVaporBlade = EODMask | ++_eodCount;
+    public static readonly int Mech_NoxiousReturn = EODMask | ++_eodCount;
+    public static readonly int Mech_NoxiousVaporBladeTarget = EODMask | ++_eodCount;
+    public static readonly int Mech_PerniciousVortex = EODMask | ++_eodCount;
+    public static readonly int Mech_PerniciousVortexCast = EODMask | ++_eodCount;
+    public static readonly int Mech_Dysapoptosis = EODMask | ++_eodCount;
+    public static readonly int Mech_ExhaustPlumeArsenite = EODMask | ++_eodCount;
+    public static readonly int Mech_FixatedIndigo = EODMask | ++_eodCount;
+    public static readonly int Mech_TriBolt = EODMask | ++_eodCount;
+    public static readonly int Mech_Tribocharge = EODMask | ++_eodCount;
+    public static readonly int Mech_CracklingWind = EODMask | ++_eodCount;
+    public static readonly int Mech_CracklingWindCast = EODMask | ++_eodCount;
+    public static readonly int Mech_ThunderingUltimatum = EODMask | ++_eodCount;
+    public static readonly int Mech_ExhaustPlumeIndigo = EODMask | ++_eodCount;
+    public static readonly int Mech_AetherAversionLost = EODMask | ++_eodCount;
+    public static readonly int Mech_AetherAversionKept = EODMask | ++_eodCount;
+    public static readonly int Mech_EmpoweredWatchknightTriumverate = EODMask | ++_eodCount;
+    public static readonly int Mech_PowerTransfer = EODMask | ++_eodCount;
+    public static readonly int Mech_LeyWovenShielding = EODMask | ++_eodCount;
+    public static readonly int Mech_MalfunctioningLeyWovenShielding = EODMask | ++_eodCount;
+    public static readonly int Mech_ExposedOLC = EODMask | ++_eodCount;
     #endregion EOD
 
     #region SOTO
