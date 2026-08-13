@@ -22,8 +22,8 @@ internal class SoullessHorror : HallOfChains
 {
     internal readonly MechanicGroup Mechanics = new([
             new MechanicGroup([
-                new PlayerDstHealthDamageHitMechanic(InnerVortexSlash, new (Symbols.Circle,Colors.LightOrange), "Donut In", "Vortex Slash (Inner Donut hit)","Inner Donut", Sev2, 0),
-                new PlayerDstHealthDamageHitMechanic(OuterVortexSlash, new (Symbols.CircleOpen,Colors.LightOrange), "Donut Out", "Vortex Slash (Outer Donut hit)","Outer Donut", Sev1, 0),
+                new PlayerDstHealthDamageHitMechanic(InnerVortexSlash, new (Symbols.Circle,Colors.LightOrange), "Donut In", "Vortex Slash (Inner Donut hit)","Inner Donut", Sev2),
+                new PlayerDstHealthDamageHitMechanic(OuterVortexSlash, new (Symbols.CircleOpen,Colors.LightOrange), "Donut Out", "Vortex Slash (Outer Donut hit)","Outer Donut", Sev1),
                 new MechanicGroup([
                     new AchievementEligibilityMechanic(Ach_NecroDancer, new (Symbols.CircleOpenDot, Colors.Orange), "NecDancer.Achiv.L", "Achievement Eligibility: Necro Dancer Lost", "Necro Dancer Lost", 0)
                         .UsingChecker((evt, log) => evt.Lost),
@@ -32,25 +32,25 @@ internal class SoullessHorror : HallOfChains
                 ]),
             ]),
             new MechanicGroup([
-                new PlayerDstHealthDamageHitMechanic([QuadSlashFirstSet, QuadSlashSecondSet], new (Symbols.StarDiamondOpen,Colors.LightOrange), "4Slice", "Quad Slash (4 Slices)","4 Slices", Sev2, 0),
-                new PlayerDstHealthDamageHitMechanic(DeathBloom, new (Symbols.Octagon,Colors.LightOrange), "8Slice", "Death Bloom (8 Slices)","8 Slices", Sev1, 0),
+                new PlayerDstHealthDamageHitMechanic([QuadSlashFirstSet, QuadSlashSecondSet], new (Symbols.StarDiamondOpen,Colors.LightOrange), "4Slice", "Quad Slash (4 Slices)","4 Slices", Sev2),
+                new PlayerDstHealthDamageHitMechanic(DeathBloom, new (Symbols.Octagon,Colors.LightOrange), "8Slice", "Death Bloom (8 Slices)","8 Slices", Sev1),
             ]),
-            new PlayerDstHealthDamageHitMechanic(SpinningSlash, new (Symbols.StarTriangleUpOpen,Colors.DarkRed), "Scythe", "Spinning Slash (hit by Scythe)","Scythe", Sev0, 0),
+            new PlayerDstHealthDamageHitMechanic(SpinningSlash, new (Symbols.StarTriangleUpOpen,Colors.DarkRed), "Scythe", "Spinning Slash (hit by Scythe)","Scythe", Sev0),
             new MechanicGroup([
-                new PlayerDstBuffApplyMechanic(FixatedSH, new (Symbols.Star,Colors.Magenta), "Fixate", "Fixated (Special Action Key)","Fixated", Sev0, 0),
+                new PlayerDstBuffApplyMechanic(FixatedSH, new (Symbols.Star,Colors.Magenta), "Fixate", "Fixated (Special Action Key)","Fixated", Sev0),
                 new PlayerDstBuffApplyMechanic(Necrosis, new (Symbols.StarOpen,Colors.Magenta), "Necrosis", "Necrosis (Tanking Debuff)","Necrosis Debuff", Sev0, 50),
             ]),
-            new PlayerDstHealthDamageHitMechanic(CorruptTheLiving, new (Symbols.Circle,Colors.Red), "Spin.SH", "Corrupt the Living (Torment+Poison Spin)","Torment+Poison Spin", Sev1, 0),
-            new PlayerDstHealthDamageHitMechanic(WurmSpit, new (Symbols.DiamondOpen,Colors.DarkTeal), "Spit", "Wurm Spit","Wurm Spit", Sev3, 0),
+            new PlayerDstHealthDamageHitMechanic(CorruptTheLiving, new (Symbols.Circle,Colors.Red), "Spin.SH", "Corrupt the Living (Torment+Poison Spin)","Torment+Poison Spin", Sev1),
+            new PlayerDstHealthDamageHitMechanic(WurmSpit, new (Symbols.DiamondOpen,Colors.DarkTeal), "Spit", "Wurm Spit","Wurm Spit", Sev3),
             new MechanicGroup([
-                new EnemyCastStartMechanic(HowlingDeath, new (Symbols.DiamondTall,Colors.DarkTeal), "CC.SH", "Howling Death (Breakbar)","Breakbar", Sev3, 0),
-                new EnemyCastEndMechanic(HowlingDeath, new (Symbols.DiamondTall,Colors.DarkGreen), "CCed.SH", "Howling Death (Breakbar) broken","CCed", Sev0, 0)
+                new EnemyCastStartMechanic(HowlingDeath, new (Symbols.DiamondTall,Colors.DarkTeal), "CC.SH", "Howling Death (Breakbar)","Breakbar", Sev3),
+                new EnemyCastEndMechanic(HowlingDeath, new (Symbols.DiamondTall,Colors.DarkGreen), "CCed.SH", "Howling Death (Breakbar) broken","CCed", Sev0)
                     .UsingChecker((ce, log) => ce.ActualDuration <= 6800),
-                new EnemyCastEndMechanic(HowlingDeath, new (Symbols.DiamondTall,Colors.Red), "CC.SH Fail", "Howling Death (Breakbar failed) ","CC Fail", Sev0, 0)
+                new EnemyCastEndMechanic(HowlingDeath, new (Symbols.DiamondTall,Colors.Red), "CC.SH Fail", "Howling Death (Breakbar failed) ","CC Fail", Sev0)
                     .UsingChecker((ce,log) => ce.ActualDuration > 6800),
             ]),
             new MechanicGroup([
-                new PlayerDstHealthDamageHitMechanic(SoulRift, new (Symbols.CircleOpen,Colors.Red), "Golem.SH", "Soul Rift (stood in Golem Aoe)","Golem Aoe", Sev0, 0),
+                new PlayerDstHealthDamageHitMechanic(SoulRift, new (Symbols.CircleOpen,Colors.Red), "Golem.SH", "Soul Rift (stood in Golem Aoe)","Golem Aoe", Sev0),
                 new PlayerSrcBuffApplyMechanic(Immobile, new (Symbols.X,Colors.Red), "Immob.Golem", "Immobilized Golem","Immobilized Golem", Sev1, 50).UsingChecker((ce, log) => ce.To.IsSpecies(TargetID.TormentedDead)),
             ]),
         ]);

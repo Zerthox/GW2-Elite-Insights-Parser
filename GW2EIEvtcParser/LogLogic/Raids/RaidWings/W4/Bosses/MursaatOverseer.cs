@@ -17,8 +17,8 @@ internal class MursaatOverseer : BastionOfThePenitent
 {
     internal readonly MechanicGroup Mechanics = new([
             new MechanicGroup([
-                new PlayerDstHealthDamageHitMechanic(JadeSoldierAura, new (Symbols.CircleOpen,Colors.Red), "Jade", "Jade Soldier's Aura hit","Jade Aura", Sev2, 0),
-                new PlayerDstHealthDamageHitMechanic(JadeSoldierExplosion, new (Symbols.Circle,Colors.Red), "Jade Expl", "Jade Soldier's Death Explosion","Jade Explosion", Sev0, 0),
+                new PlayerDstHealthDamageHitMechanic(JadeSoldierAura, new (Symbols.CircleOpen,Colors.Red), "Jade", "Jade Soldier's Aura hit","Jade Aura", Sev2),
+                new PlayerDstHealthDamageHitMechanic(JadeSoldierExplosion, new (Symbols.Circle,Colors.Red), "Jade Expl", "Jade Soldier's Death Explosion","Jade Explosion", Sev0),
             ]),
             //new Mechanic(ClaimSAK, "Claim", Mechanic.MechType.PlayerBoon, ParseEnum.BossIDS.MursaatOverseer, new (Symbols.Square,Colors.Yellow), "Claim",0), //Buff remove only
             //new Mechanic(DispelSAK, "Dispel", Mechanic.MechType.PlayerBoon, ParseEnum.BossIDS.MursaatOverseer, new (Symbols.Circle,Colors.Yellow), "Dispel",0), //Buff remove only
@@ -33,9 +33,9 @@ internal class MursaatOverseer : BastionOfThePenitent
                     .UsingTimeClamper((time, log, encounterPhase) => Math.Max(encounterPhase.Start, time)),
             ]),
             new MechanicGroup([
-                new EnemyDstBuffApplyMechanic(MursaatOverseersShield, new (Symbols.CircleOpen,Colors.Yellow), "Shield", "Jade Soldier Shield","Soldier Shield", Sev2, 0),
-                new PlayerSrcBuffRemoveFromMechanic(MursaatOverseersShield, new (Symbols.SquareOpen,Colors.Yellow), "Dispel", "Dispelled Jade Soldier Shield","Dispel", Sev1, 0),
-                new EnemyDstBuffRemoveMechanic(MursaatOverseersShield, new (Symbols.CircleCrossOpen,Colors.Yellow), "Shield.L", "Jade Soldier Shield Lost","Soldier Shield Lost", Sev1, 0),
+                new EnemyDstBuffApplyMechanic(MursaatOverseersShield, new (Symbols.CircleOpen,Colors.Yellow), "Shield", "Jade Soldier Shield","Soldier Shield", Sev2),
+                new PlayerSrcBuffRemoveFromMechanic(MursaatOverseersShield, new (Symbols.SquareOpen,Colors.Yellow), "Dispel", "Dispelled Jade Soldier Shield","Dispel", Sev1),
+                new EnemyDstBuffRemoveMechanic(MursaatOverseersShield, new (Symbols.CircleCrossOpen,Colors.Yellow), "Shield.L", "Jade Soldier Shield Lost","Soldier Shield Lost", Sev1),
             ]),
             //new Mechanic(EnemyTile, "Enemy Tile", ParseEnum.BossIDS.MursaatOverseer, new (Symbols.SquareOpen,Colors.Yellow), "Floor","Enemy Tile damage", "Tile dmg",0) //Fixed damage (3500), not trackable
         ]);

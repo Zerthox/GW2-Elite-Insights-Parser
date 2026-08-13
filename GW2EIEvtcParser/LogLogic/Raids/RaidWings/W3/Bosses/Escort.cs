@@ -23,13 +23,13 @@ internal class Escort : StrongholdOfTheFaithful
 {
     internal readonly MechanicGroup Mechanics = new([
             new PlayerDstHealthDamageMechanic(DetonateMineEscort, new (Symbols.CircleCross, Colors.Red), "Mine.H", "Hit by Mine Detonation", "Mine Detonation Hit", Sev0, 150).UsingChecker((de, log) => de.CreditedFrom.IsSpecies(TargetID.Mine)),
-            new PlayerDstHealthDamageMechanic(GlennaBombHit, new (Symbols.Hexagon, Colors.LightGrey), "Bomb.H", "Hit by Glenna's Bomb", "Glenna's Bomb Hit", Sev1, 0),
-            new PlayerDstHealthDamageHitMechanic(FireMortarEscortHit, new (Symbols.Hourglass, Colors.DarkPurple), "Shrd.H", "Hit by Mortar Fire (Bloodstone Turrets)", "Mortar Fire Hit", Sev2, 0),
+            new PlayerDstHealthDamageMechanic(GlennaBombHit, new (Symbols.Hexagon, Colors.LightGrey), "Bomb.H", "Hit by Glenna's Bomb", "Glenna's Bomb Hit", Sev1),
+            new PlayerDstHealthDamageHitMechanic(FireMortarEscortHit, new (Symbols.Hourglass, Colors.DarkPurple), "Shrd.H", "Hit by Mortar Fire (Bloodstone Turrets)", "Mortar Fire Hit", Sev2),
             new MechanicGroup([
                 new PlayerDstBuffApplyMechanic(RadiantAttunementPhantasm, new (Symbols.Diamond, Colors.White), "Rad.A", "Radiant Attunement Application", "Radiant Attunement Application", Sev1, 150),
                 new PlayerDstBuffApplyMechanic(CrimsonAttunementPhantasm, new (Symbols.Diamond, Colors.Red), "Crim.A", "Crimson Attunement Application", "Crimson Attunement Application", Sev1, 150),
             ]),
-            new PlayerSrcEffectMechanic(EffectGUIDs.EscortOverHere, new (Symbols.Star, Colors.White), "OverHere.C", "Used Over Here! (Special Action Key)", "Over Here! Cast", Sev0, 0),
+            new PlayerSrcEffectMechanic(EffectGUIDs.EscortOverHere, new (Symbols.Star, Colors.White), "OverHere.C", "Used Over Here! (Special Action Key)", "Over Here! Cast", Sev0),
             new EnemyDstBuffApplyMechanic(Invulnerability757, new (Symbols.DiamondOpen, Colors.LightBlue), "Inv.A", "Invulnerability Applied", "Invulnerability Applied", Sev1, 150),
             new EnemyCastStartMechanic(TeleportDisplacementField, new (Symbols.Square, Colors.LightPurple), "Tel.C", "Teleport Cast", "Teleport Cast", Sev2, 150),
         ]);

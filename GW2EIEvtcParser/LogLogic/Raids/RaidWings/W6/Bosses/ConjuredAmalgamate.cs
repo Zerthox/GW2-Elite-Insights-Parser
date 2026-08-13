@@ -22,25 +22,25 @@ internal class ConjuredAmalgamate : MythwrightGambit
 
     internal readonly MechanicGroup Mechanics = new([
             new MechanicGroup([
-                new PlayerDstHealthDamageHitMechanic(Pulverize, new (Symbols.Square,Colors.LightOrange), "Arm Slam", "Pulverize (Arm Slam)","Arm Slam", Sev1, 0)
+                new PlayerDstHealthDamageHitMechanic(Pulverize, new (Symbols.Square,Colors.LightOrange), "Arm Slam", "Pulverize (Arm Slam)","Arm Slam", Sev1)
                     .WithStabilitySubMechanic(
-                        new SubMechanic(new (Symbols.SquareOpen,Colors.LightOrange), "Stab.Slam", "Pulverize (Arm Slam) while affected by stability","Stabilized Arm Slam", Sev0, 0),
+                        new SubMechanic(new (Symbols.SquareOpen,Colors.LightOrange), "Stab.Slam", "Pulverize (Arm Slam) while affected by stability","Stabilized Arm Slam", Sev0),
                         true
                     ),
             ]),
             new MechanicGroup([
-                new PlayerDstHealthDamageHitMechanic(JunkAbsorption, new (Symbols.CircleOpen,Colors.Purple), "Balls", "Junk Absorption (Purple Balls during collect)","Purple Balls", Sev2, 0),
-                new PlayerDstHealthDamageHitMechanic([JunkFall1, JunkFall2], new (Symbols.CircleOpen,Colors.Pink), "Junk", "Junk Fall (Falling Debris)","Junk Fall", Sev2, 0),
-                new PlayerDstHealthDamageHitMechanic(JunkTorrent, new (Symbols.SquareOpen,Colors.Red), "Wall", "Junk Torrent (Moving Wall)","Junk Torrent (Wall)", Sev0, 0)
+                new PlayerDstHealthDamageHitMechanic(JunkAbsorption, new (Symbols.CircleOpen,Colors.Purple), "Balls", "Junk Absorption (Purple Balls during collect)","Purple Balls", Sev2),
+                new PlayerDstHealthDamageHitMechanic([JunkFall1, JunkFall2], new (Symbols.CircleOpen,Colors.Pink), "Junk", "Junk Fall (Falling Debris)","Junk Fall", Sev2),
+                new PlayerDstHealthDamageHitMechanic(JunkTorrent, new (Symbols.SquareOpen,Colors.Red), "Wall", "Junk Torrent (Moving Wall)","Junk Torrent (Wall)", Sev0)
                     .UsingChecker((de,log) => de.HealthDamage > 0),
             ]),
-            new PlayerDstHealthDamageHitMechanic(RupturedGround, new (Symbols.SquareOpen,Colors.Teal), "Ground", "Ruptured Ground (Relics after Junk Wall)","Ruptured Ground", Sev0, 0)
+            new PlayerDstHealthDamageHitMechanic(RupturedGround, new (Symbols.SquareOpen,Colors.Teal), "Ground", "Ruptured Ground (Relics after Junk Wall)","Ruptured Ground", Sev0)
                 .UsingChecker((de,log) => de.HealthDamage > 0),
-            new PlayerDstHealthDamageHitMechanic(Tremor, new (Symbols.CircleOpen,Colors.Red), "Tremor", "Tremor (Field adjacent to Arm Slam)","Near Arm Slam", Sev1, 0)
+            new PlayerDstHealthDamageHitMechanic(Tremor, new (Symbols.CircleOpen,Colors.Red), "Tremor", "Tremor (Field adjacent to Arm Slam)","Near Arm Slam", Sev1)
                 .UsingChecker((de,log) => de.HealthDamage > 0),
             new MechanicGroup([
-                new PlayerCastStartMechanic(ConjuredSlashSAK, new (Symbols.Square,Colors.Red), "Sword.Cst", "Conjured Slash (Special action sword)","Sword Cast", Sev0, 0),
-                new PlayerCastStartMechanic(ConjuredProtectionSAK, new (Symbols.Square,Colors.Green), "Shield.Cst", "Conjured Protection (Special action shield)","Shield Cast", Sev0, 0),
+                new PlayerCastStartMechanic(ConjuredSlashSAK, new (Symbols.Square,Colors.Red), "Sword.Cst", "Conjured Slash (Special action sword)","Sword Cast", Sev0),
+                new PlayerCastStartMechanic(ConjuredProtectionSAK, new (Symbols.Square,Colors.Green), "Shield.Cst", "Conjured Protection (Special action shield)","Shield Cast", Sev0),
             ]),
             new MechanicGroup([
                 new PlayerDstBuffApplyMechanic(GreatswordPower, new (Symbols.DiamondTall,Colors.Red), "Sword.C", "Collected Sword","Sword Collect", Sev1, 50),

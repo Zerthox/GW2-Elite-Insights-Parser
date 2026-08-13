@@ -19,7 +19,7 @@ internal class WhisperingShadow : Kinfall
 {
     internal readonly MechanicGroup Mechanics = new([
             new MechanicGroup([
-                new PlayerDstBuffApplyMechanic(DeathlyRime, Mech_DeathlyRime, new (Symbols.Diamond, Colors.Purple), new("DeathGr.A", "Gained Deathly Rime", "Deathly Rime Application"), Sev0, 0),
+                new PlayerDstBuffApplyMechanic(DeathlyRime, Mech_DeathlyRime, new (Symbols.Diamond, Colors.Purple), new("DeathGr.A", "Gained Deathly Rime", "Deathly Rime Application"), Sev0),
                 new PlayerDstBuffApplyMechanic([LifeFireCircleT1, LifeFireCircleT2, LifeFireCircleT3, LifeFireCircleT4, LifeFireCircleCM], Mech_LifeFireApply, new (Symbols.Pentagon, Colors.LightBlue), new("LifeFire.A", "Gained Life-Fire Circle", "Life-Fire Circle Apply"), Sev2),
                 new PlayerDstBuffRemoveMechanic([LifeFireCircleT1, LifeFireCircleT2, LifeFireCircleT3, LifeFireCircleT4, LifeFireCircleCM], Mech_LifeFireRemove, new (Symbols.PentagonOpen, Colors.LightBlue), new("LifeFire.R", "Lost Life-Fire Circle", "Life-Fire Circle Remove"), Sev2),
             ]),

@@ -36,7 +36,7 @@ internal class FraenirOfJormag : Bjora
                 new EnemyCastStartMechanic(SeismicCrush, Mech_SeismicCrushCast, new (Symbols.Square, Colors.Purple), new ("Seismic Crush (Breakbar)", "Cast Seismic Crush & Breakbar", "Seismic Crush"), Sev3),
             ]),
             new MechanicGroup([
-                new PlayerDstHealthDamageHitMechanic(FrigidFusillade, Mech_FrigidFusillade, new (Symbols.TriangleDown, Colors.Teal), new ("FrigidFusillade.H", "Hit by Frigid Fusillade (Fraenir Arrows)", "Frigid Fusillade"), Sev2, 0),
+                new PlayerDstHealthDamageHitMechanic(FrigidFusillade, Mech_FrigidFusillade, new (Symbols.TriangleDown, Colors.Teal), new ("FrigidFusillade.H", "Hit by Frigid Fusillade (Fraenir Arrows)", "Frigid Fusillade"), Sev2),
                 new EnemyCastStartMechanic(FrigidFusillade, Mech_FrigidFusilladeCast, new (Symbols.TriangleDown, Colors.DarkTeal), new ("Frigid Fusillade", "Cast Frigid Fusillade", "Frigid Fusillade"), Sev3),
             ]),
             new MechanicGroup([

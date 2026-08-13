@@ -34,10 +34,10 @@ internal class Eparch : LonelyTower
             // Eparch Empowerments
             new MechanicGroup([
                 new EnemyDstBuffApplyMechanic(DespairEmpowerment, Mech_DespairEmpowerment, new (Symbols.CircleCross, Colors.Blue), new("Desp.Emp", "Eparch Absorbed Despair Empowerment", "Despair Empowerment"), Sev0),
-                new EnemyDstBuffApplyMechanic(EnvyEmpowerment, Mech_EnvyEmpowerment, new (Symbols.CircleCross, Colors.Green), new("Emvy.Emp", "Eparch Absorbed Envy Empowerment", "Envy Empowerment"), Sev0, 0),
+                new EnemyDstBuffApplyMechanic(EnvyEmpowerment, Mech_EnvyEmpowerment, new (Symbols.CircleCross, Colors.Green), new("Emvy.Emp", "Eparch Absorbed Envy Empowerment", "Envy Empowerment"), Sev0),
                 new EnemyDstBuffApplyMechanic(GluttonyEmpowerment, Mech_GluttonyEmpowerment, new (Symbols.CircleCross, Colors.Orange), new("Glut.Emp", "Eparch Absorbed Gluttony Empowerment", "Gluttony Empowerment"), Sev0),
                 new EnemyDstBuffApplyMechanic(MaliceEmpowerment, Mech_MaliceEmpowerment, new (Symbols.CircleCross, Colors.Purple), new("Mali.Emp", "Eparch Absorbed Malice Empowerment", "Malice Empowerment"), Sev0),
-                new EnemyDstBuffApplyMechanic(RageEmpowerment, Mech_RageEmpowerment, new (Symbols.CircleCross, Colors.Red), new("Rage.Emp", "Eparch Absorbed Rage Empowerment", "Rage Empowerment"), Sev0, 0),
+                new EnemyDstBuffApplyMechanic(RageEmpowerment, Mech_RageEmpowerment, new (Symbols.CircleCross, Colors.Red), new("Rage.Emp", "Eparch Absorbed Rage Empowerment", "Rage Empowerment"), Sev0),
                 new EnemyDstBuffApplyMechanic(RegretEmpowerment, Mech_RegretEmpowerment, new (Symbols.CircleCross, Colors.Yellow), new("Regr.Emp", "Eparch Absorbed Regret Empowerment", "Regret Empowerment"), Sev0),
             ]),
             // Eparch Attacks
