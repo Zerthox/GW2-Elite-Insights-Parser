@@ -22,15 +22,6 @@ public static class MechanicIDs
     private const int GolemMask = 0x08000000;
     private const int ConvergenceMask = 0x09000000;
 
-    private const int SpiritValeMask = RaidWingMask | 0x00010000;
-    private const int SalvationPassMask = RaidWingMask | 0x00020000;
-    private const int StrongholdOfTheFaithfulMask = RaidWingMask | 0x00030000;
-    private const int BastionOfThePenitentMask = RaidWingMask | 0x00040000;
-    private const int HallOfChainsMask = RaidWingMask | 0x00050000;
-    private const int MythwrightGambitMask = RaidWingMask | 0x00060000;
-    private const int TheKeyOfAhdashimMask = RaidWingMask | 0x00070000;
-    private const int MountBalriorMask = RaidWingMask | 0x00080000;
-
 
     #region COMMONS
     private static int _commonCount = 0;
@@ -47,6 +38,64 @@ public static class MechanicIDs
     public static readonly int Mech_PlayerLockOut = CommonMask | ++_commonCount;
     public static readonly int Mech_PlayerFloatSinkWater = CommonMask | ++_commonCount;
     #endregion COMMONS
+
+    #region RAID WINGS
+    private const int SpiritValeMask = RaidWingMask | 0x00010000;
+    private const int SalvationPassMask = RaidWingMask | 0x00020000;
+    private const int StrongholdOfTheFaithfulMask = RaidWingMask | 0x00030000;
+    private const int BastionOfThePenitentMask = RaidWingMask | 0x00040000;
+    private const int HallOfChainsMask = RaidWingMask | 0x00050000;
+    private const int MythwrightGambitMask = RaidWingMask | 0x00060000;
+    private const int TheKeyOfAhdashimMask = RaidWingMask | 0x00070000;
+    private const int MountBalriorMask = RaidWingMask | 0x00080000;
+    #region WING 1
+    private static int spiritValeCount = 0;
+    public static readonly int Mech_GreenUnstableMagic = SpiritValeMask | ++spiritValeCount;
+    public static readonly int Mech_VGUnstableMagic = SpiritValeMask | ++spiritValeCount;
+    public static readonly int Mech_BulletStorm = SpiritValeMask | ++spiritValeCount;
+    public static readonly int Mech_DistributedMagic = SpiritValeMask | ++spiritValeCount;
+    public static readonly int Mech_DistributedMagicBlue = SpiritValeMask | ++spiritValeCount;
+    public static readonly int Mech_DistributedMagicRed = SpiritValeMask | ++spiritValeCount;
+    public static readonly int Mech_DistributedMagicGreen = SpiritValeMask | ++spiritValeCount;
+    public static readonly int Mech_MagicPulse = SpiritValeMask | ++spiritValeCount;
+    public static readonly int Mech_PylonAttunementRed = SpiritValeMask | ++spiritValeCount;
+    public static readonly int Mech_PylonAttunementBlue = SpiritValeMask | ++spiritValeCount;
+    public static readonly int Mech_PylonAttunementGreen = SpiritValeMask | ++spiritValeCount;
+    public static readonly int Mech_BluePylonPower = SpiritValeMask | ++spiritValeCount;
+    public static readonly int Mech_UnstablePylonRed = SpiritValeMask | ++spiritValeCount;
+    public static readonly int Mech_UnstablePylonBlue = SpiritValeMask | ++spiritValeCount;
+    public static readonly int Mech_UnstablePylonGreen = SpiritValeMask | ++spiritValeCount;
+    public static readonly int Mech_MagicStormCast = SpiritValeMask | ++spiritValeCount;
+    public static readonly int Mech_MagicStormCastSuccess = SpiritValeMask | ++spiritValeCount;
+    public static readonly int Mech_MagicStormCastFail = SpiritValeMask | ++spiritValeCount;
+    public static readonly int Mech_SpiritFog = SpiritValeMask | ++spiritValeCount;
+    public static readonly int Mech_OutrunGhostLost = SpiritValeMask | ++spiritValeCount;
+    public static readonly int Mech_OutrunGhostKept = SpiritValeMask | ++spiritValeCount;
+    public static readonly int Mech_SpectralImpact = SpiritValeMask | ++spiritValeCount;
+    public static readonly int Mech_GhastlyPrison = SpiritValeMask | ++spiritValeCount;
+    public static readonly int Mech_SpectralDarkness = SpiritValeMask | ++spiritValeCount;
+    public static readonly int Mech_SpiritedFusion = SpiritValeMask | ++spiritValeCount;
+    public static readonly int Mech_SpiritKick = SpiritValeMask | ++spiritValeCount;
+    public static readonly int Mech_GorsevalBlackGoo = SpiritValeMask | ++spiritValeCount;
+    public static readonly int Mech_GhastlyRampageCast = SpiritValeMask | ++spiritValeCount;
+    public static readonly int Mech_GhastlyRampageCastFail = SpiritValeMask | ++spiritValeCount;
+    public static readonly int Mech_GhastlyRampageCastSuccess = SpiritValeMask | ++spiritValeCount;
+    public static readonly int Mech_ShellShocked = SpiritValeMask | ++spiritValeCount;
+    public static readonly int Mech_SapperBomb = SpiritValeMask | ++spiritValeCount;
+    public static readonly int Mech_Firestorm = SpiritValeMask | ++spiritValeCount;
+    public static readonly int Mech_TimeBombTarget = SpiritValeMask | ++spiritValeCount;
+    public static readonly int Mech_TimeBombDowned = SpiritValeMask | ++spiritValeCount;
+    public static readonly int Mech_TimeBombDead = SpiritValeMask | ++spiritValeCount;
+    public static readonly int Mech_FlakShot = SpiritValeMask | ++spiritValeCount;
+    public static readonly int Mech_CannonBarrage = SpiritValeMask | ++spiritValeCount;
+    public static readonly int Mech_FlameBlast = SpiritValeMask | ++spiritValeCount;
+    public static readonly int Mech_BanditKick = SpiritValeMask | ++spiritValeCount;
+    public static readonly int Mech_KickHeavyBomb = SpiritValeMask | ++spiritValeCount;
+    public static readonly int Mech_PlateformQuakeCast = SpiritValeMask | ++spiritValeCount;
+    public static readonly int Mech_PlateformQuakeCastSuccess = SpiritValeMask | ++spiritValeCount;
+    public static readonly int Mech_PlateformQuakeCastFail = SpiritValeMask | ++spiritValeCount;
+    #endregion WING 1
+    #endregion RAID WINGS
 
     #region RAID ENCOUNTERS
     private const int FestivalMask = RaidEncounterMask | 0x00010000;

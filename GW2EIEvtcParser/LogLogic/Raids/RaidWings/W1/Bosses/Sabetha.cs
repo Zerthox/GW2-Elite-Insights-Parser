@@ -21,29 +21,29 @@ internal class Sabetha : SpiritVale
     internal readonly MechanicGroup Mechanics = new([
        
             // NOTE: Time Bomb damage is registered only for the user that has the bomb, damage to others is not logged.
-            new PlayerDstBuffApplyMechanic(ShellShocked, new (Symbols.CircleOpen,Colors.DarkGreen), "Launched", "Shell-Shocked (launched up to cannons)","Shell-Shocked", Sev2),
-            new PlayerDstBuffApplyMechanic(SapperBombBuff, new (Symbols.Circle,Colors.DarkGreen), "Sap Bomb", "Got a Sapper Bomb","Sapper Bomb", Sev1),
-            new PlayerDstHealthDamageMechanic(Firestorm, new (Symbols.Square,Colors.Red), "Flamewall", "Firestorm (killed by Flamewall)","Flamewall", Sev0)
+            new PlayerDstBuffApplyMechanic(ShellShocked, Mech_ShellShocked, new (Symbols.CircleOpen,Colors.DarkGreen), new("Launched", "Shell-Shocked (launched up to cannons)","Shell-Shocked"), Sev2),
+            new PlayerDstBuffApplyMechanic(SapperBombBuff, Mech_SapperBomb, new (Symbols.Circle,Colors.DarkGreen), new("Sap Bomb", "Got a Sapper Bomb","Sapper Bomb"), Sev1),
+            new PlayerDstHealthDamageMechanic(Firestorm, Mech_Firestorm, new (Symbols.Square,Colors.Red), new("Flamewall", "Firestorm (killed by Flamewall)","Flamewall"), Sev0)
                 .UsingChecker((de, log) => de.HasKilled),
             new MechanicGroup([
-                new PlayerDstBuffApplyMechanic(TimeBomb_Encounter, new (Symbols.Circle,Colors.LightOrange), "Timed Bomb", "Got a Timed Bomb (Expanding circle)","Timed Bomb", Sev0),
-                new PlayerDstHealthDamageMechanic([TimeBombDamage_Encounter, TimeBombDamage2_Encounter], new (Symbols.Hexagram, Colors.DarkMagenta), "TimeB Down", "Downed by Time Bomb", "Time Bomb Down", Sev0)
+                new PlayerDstBuffApplyMechanic(TimeBomb_Encounter, Mech_TimeBombTarget, new (Symbols.Circle,Colors.LightOrange), new("Timed Bomb", "Got a Timed Bomb (Expanding circle)","Timed Bomb"), Sev0),
+                new PlayerDstHealthDamageMechanic([TimeBombDamage_Encounter, TimeBombDamage2_Encounter], Mech_TimeBombDowned, new (Symbols.Hexagram, Colors.DarkMagenta), new("TimeB Down", "Downed by Time Bomb", "Time Bomb Down"), Sev0)
                     .UsingChecker((hde, log) => hde.HasDowned),
-                new PlayerDstHealthDamageMechanic([TimeBombDamage_Encounter, TimeBombDamage2_Encounter], new (Symbols.HexagramOpen, Colors.DarkMagenta), "TimeB Kill", "Killed by Time Bomb", "Time Bomb Kill", Sev0)
+                new PlayerDstHealthDamageMechanic([TimeBombDamage_Encounter, TimeBombDamage2_Encounter], Mech_TimeBombDead, new (Symbols.HexagramOpen, Colors.DarkMagenta), new("TimeB Kill", "Killed by Time Bomb", "Time Bomb Kill"), Sev0)
                     .UsingChecker((hde, log) => hde.HasKilled),
             ]),
-            new PlayerDstHealthDamageHitMechanic(FlakShot, new (Symbols.HexagramOpen,Colors.LightOrange), "Flak", "Flak Shot (Fire Patches)","Flak Shot", Sev2),
-            new PlayerDstHealthDamageHitMechanic(CannonBarrage, new (Symbols.Circle,Colors.Yellow), "Cannon", "Cannon Barrage (stood in AoE)","Cannon Shot", Sev1),
-            new PlayerDstHealthDamageHitMechanic(FlameBlast, new (Symbols.TriangleLeftOpen,Colors.Yellow), "Karde Flame", "Flame Blast (Karde's Flamethrower)","Flamethrower (Karde)", Sev1),
-            new PlayerDstHealthDamageHitMechanic(BanditKick, new (Symbols.TriangleRight,Colors.Magenta), "Kick.B", "Kicked by Bandit","Bandit Kick", Sev0)
+            new PlayerDstHealthDamageHitMechanic(FlakShot, Mech_FlakShot, new (Symbols.HexagramOpen,Colors.LightOrange), new("Flak", "Flak Shot (Fire Patches)","Flak Shot"), Sev2),
+            new PlayerDstHealthDamageHitMechanic(CannonBarrage, Mech_CannonBarrage, new (Symbols.Circle,Colors.Yellow), new("Cannon", "Cannon Barrage (stood in AoE)","Cannon Shot"), Sev1),
+            new PlayerDstHealthDamageHitMechanic(FlameBlast, Mech_FlameBlast, new (Symbols.TriangleLeftOpen,Colors.Yellow), new("Karde Flame", "Flame Blast (Karde's Flamethrower)","Flamethrower (Karde)"), Sev1),
+            new PlayerDstHealthDamageHitMechanic(BanditKick, Mech_BanditKick, new (Symbols.TriangleRight,Colors.Magenta), new("Kick.B", "Kicked by Bandit","Bandit Kick"), Sev0)
                 .UsingBuffChecker(Stability, false),
-            new PlayerCastStartMechanic(KickHeavyBomb, new (Symbols.Cross, Colors.CobaltBlue), "Kick Bomb", "Kicked Heavy Bomb", "Heavy Bomb Kick", Sev0)
+            new PlayerCastStartMechanic(KickHeavyBomb, Mech_KickHeavyBomb, new (Symbols.Cross, Colors.CobaltBlue), new("Kick Bomb", "Kicked Heavy Bomb", "Heavy Bomb Kick"), Sev0)
                 .UsingChecker((ce, log) => !ce.IsInterrupted && !ce.IsUnknown),
             new MechanicGroup([
-                new EnemyCastStartMechanic(PlatformQuake, new (Symbols.DiamondTall,Colors.DarkTeal), "CC.K", "Platform Quake (Breakbar)","Breakbar", Sev3,0),
-                new EnemyCastEndMechanic(PlatformQuake, new (Symbols.DiamondTall,Colors.DarkGreen), "CCed.K", "Platform Quake (Breakbar broken) ","CCed", Sev0)
+                new EnemyCastStartMechanic(PlatformQuake, Mech_PlateformQuakeCast, new (Symbols.DiamondTall,Colors.DarkTeal), new("CC.K", "Platform Quake (Breakbar)","Breakbar"), Sev3),
+                new EnemyCastEndMechanic(PlatformQuake, Mech_PlateformQuakeCastSuccess, new (Symbols.DiamondTall,Colors.DarkGreen), new("CCed.K", "Platform Quake (Breakbar broken) ","CCed"), Sev0)
                     .UsingChecker((ce, log) => ce.ActualDuration <= 4400),
-                new EnemyCastEndMechanic(PlatformQuake, new (Symbols.DiamondTall,Colors.Red), "CC.K Fail", "Platform Quake (Breakbar failed) ","CC Fail", Sev0)
+                new EnemyCastEndMechanic(PlatformQuake, Mech_PlateformQuakeCastFail, new (Symbols.DiamondTall,Colors.Red), new("CC.K Fail", "Platform Quake (Breakbar failed) ","CC Fail"), Sev0)
                     .UsingChecker( (ce,log) =>  ce.ActualDuration > 4400),
             ]),
         ]);
