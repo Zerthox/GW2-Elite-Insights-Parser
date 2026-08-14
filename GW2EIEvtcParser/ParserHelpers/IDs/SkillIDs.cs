@@ -2088,7 +2088,7 @@ public static class SkillIDs
     public const long Eat = 34408;
     public const long ShardsOfRageAbomination = 34411;
     public const long Surrender = 34413;
-    public const long Corruption1 = 34416;
+    public const long CorruptionBuff = 34416;
     public const long FlakShotNarella = 34417;
     public const long BloodFueledPlayer = 34422;
     public const long AbominationTransformation = 34427;
@@ -2108,7 +2108,7 @@ public static class SkillIDs
     public const long ShieldHuman = 34468;
     public const long ThrowOilKeg = 34471;
     public const long DownpourBuff = 34472;
-    public const long Corruption2 = 34473;
+    public const long CorruptionDamage = 34473;
     public const long TantrumDamage = 34479;
     public const long BloodShardsHuman = 34480;
     public const long VolatilePoisonSkill = 34481;

@@ -80,7 +80,7 @@ public static class MechanicIDs
     public static readonly int Mech_GhastlyRampageCast = SpiritValeMask | ++spiritValeCount;
     public static readonly int Mech_GhastlyRampageCastFail = SpiritValeMask | ++spiritValeCount;
     public static readonly int Mech_GhastlyRampageCastSuccess = SpiritValeMask | ++spiritValeCount;
-    public static readonly int Mech_ShellShocked = SpiritValeMask | ++spiritValeCount;
+    public static readonly int Mech_ShellShockedSab = SpiritValeMask | ++spiritValeCount;
     public static readonly int Mech_SapperBomb = SpiritValeMask | ++spiritValeCount;
     public static readonly int Mech_Firestorm = SpiritValeMask | ++spiritValeCount;
     public static readonly int Mech_TimeBombTarget = SpiritValeMask | ++spiritValeCount;
@@ -95,6 +95,59 @@ public static class MechanicIDs
     public static readonly int Mech_PlateformQuakeCastSuccess = SpiritValeMask | ++spiritValeCount;
     public static readonly int Mech_PlateformQuakeCastFail = SpiritValeMask | ++spiritValeCount;
     #endregion WING 1
+    #region WING 2
+    private static int salvationPassCount = 0;
+    public static readonly int Mech_Tantrum = SalvationPassMask | ++salvationPassCount;
+    public static readonly int Mech_VolatilePoisonTarget = SalvationPassMask | ++salvationPassCount;
+    public static readonly int Mech_VolatilePoison = SalvationPassMask | ++salvationPassCount;
+    public static readonly int Mech_Halitosis = SalvationPassMask | ++salvationPassCount;
+    public static readonly int Mech_SporeRelease = SalvationPassMask | ++salvationPassCount;
+    public static readonly int Mech_MagicTransformation = SalvationPassMask | ++salvationPassCount;
+    public static readonly int Mech_SlothFixated = SalvationPassMask | ++salvationPassCount;
+    public static readonly int Mech_ToxicCloud = SalvationPassMask | ++salvationPassCount;
+    public static readonly int Mech_BreakbarFear = SalvationPassMask | ++salvationPassCount;
+    public static readonly int Mech_NarcolepsyStart = SalvationPassMask | ++salvationPassCount;
+    public static readonly int Mech_NarcolepsyFail = SalvationPassMask | ++salvationPassCount;
+    public static readonly int Mech_NarcolepsySuccess = SalvationPassMask | ++salvationPassCount;
+    public static readonly int Mech_SlipperySlubling = SalvationPassMask | ++salvationPassCount;
+    public static readonly int Mech_ShellShockedTrio = SalvationPassMask | ++salvationPassCount;
+    public static readonly int Mech_SlowBurn = SalvationPassMask | ++salvationPassCount;
+    public static readonly int Mech_SapperBombOnCage = SalvationPassMask | ++salvationPassCount;
+    public static readonly int Mech_TargetedBerg = SalvationPassMask | ++salvationPassCount;
+    public static readonly int Mech_TargetedAny = SalvationPassMask | ++salvationPassCount;
+    public static readonly int Mech_BeehiveCast = SalvationPassMask | ++salvationPassCount;
+    public static readonly int Mech_BeehiveOnBerg = SalvationPassMask | ++salvationPassCount;
+    public static readonly int Mech_Beehive = SalvationPassMask | ++salvationPassCount;
+    public static readonly int Mech_OverheadSmashBerg = SalvationPassMask | ++salvationPassCount;
+    public static readonly int Mech_BlindZane = SalvationPassMask | ++salvationPassCount;
+    public static readonly int Mech_HailOfBulletsZane = SalvationPassMask | ++salvationPassCount;
+    public static readonly int Mech_ThrowOilKeg = SalvationPassMask | ++salvationPassCount;
+    public static readonly int Mech_BurningNarella = SalvationPassMask | ++salvationPassCount;
+    public static readonly int Mech_FieryVortexNarella = SalvationPassMask | ++salvationPassCount;
+    public static readonly int Mech_FlakShotNarella = SalvationPassMask | ++salvationPassCount;
+    public static readonly int Mech_OpressiveGaze = SalvationPassMask | ++salvationPassCount;
+    public static readonly int Mech_Bloodshards = SalvationPassMask | ++salvationPassCount;
+    public static readonly int Mech_BloodshardsReflected = SalvationPassMask | ++salvationPassCount;
+    public static readonly int Mech_BloodshardsNotReflected = SalvationPassMask | ++salvationPassCount;
+    public static readonly int Mech_ShardsOfRage = SalvationPassMask | ++salvationPassCount;
+    public static readonly int Mech_ShardsOfRageReflected = SalvationPassMask | ++salvationPassCount;
+    public static readonly int Mech_FieryVortexMatthias = SalvationPassMask | ++salvationPassCount;
+    public static readonly int Mech_IcyPatch = SalvationPassMask | ++salvationPassCount;
+    public static readonly int Mech_StormCloud = SalvationPassMask | ++salvationPassCount;
+    public static readonly int Mech_StormKD = SalvationPassMask | ++salvationPassCount;
+    public static readonly int Mech_Surrender = SalvationPassMask | ++salvationPassCount;
+    public static readonly int Mech_UnstableBloodMagic = SalvationPassMask | ++salvationPassCount;
+    public static readonly int Mech_WellOfTheProfane = SalvationPassMask | ++salvationPassCount;
+    public static readonly int Mech_CorruptionBuff = SalvationPassMask | ++salvationPassCount;
+    public static readonly int Mech_CorruptionDamage = SalvationPassMask | ++salvationPassCount;
+    public static readonly int Mech_MatthiasSacrifice = SalvationPassMask | ++salvationPassCount;
+    public static readonly int Mech_MatthiasSacrificeSuccess = SalvationPassMask | ++salvationPassCount;
+    public static readonly int Mech_MatthiasSacrificeFail = SalvationPassMask | ++salvationPassCount;
+    public static readonly int Mech_BloodShield = SalvationPassMask | ++salvationPassCount;
+    public static readonly int Mech_BloodShieldRemove = SalvationPassMask | ++salvationPassCount;
+    public static readonly int Mech_BloodShieldStackRemoved = SalvationPassMask | ++salvationPassCount;
+    public static readonly int Mech_ZealousBenediction = SalvationPassMask | ++salvationPassCount;
+    #endregion WING 2
     #endregion RAID WINGS
 
     #region RAID ENCOUNTERS

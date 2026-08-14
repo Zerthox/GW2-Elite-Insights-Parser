@@ -21,7 +21,7 @@ internal class Sabetha : SpiritVale
     internal readonly MechanicGroup Mechanics = new([
        
             // NOTE: Time Bomb damage is registered only for the user that has the bomb, damage to others is not logged.
-            new PlayerDstBuffApplyMechanic(ShellShocked, Mech_ShellShocked, new (Symbols.CircleOpen,Colors.DarkGreen), new("Launched", "Shell-Shocked (launched up to cannons)","Shell-Shocked"), Sev2),
+            new PlayerDstBuffApplyMechanic(ShellShocked, Mech_ShellShockedSab, new (Symbols.CircleOpen,Colors.DarkGreen), new("Launched", "Shell-Shocked (launched up to cannons)","Shell-Shocked"), Sev2),
             new PlayerDstBuffApplyMechanic(SapperBombBuff, Mech_SapperBomb, new (Symbols.Circle,Colors.DarkGreen), new("Sap Bomb", "Got a Sapper Bomb","Sapper Bomb"), Sev1),
             new PlayerDstHealthDamageMechanic(Firestorm, Mech_Firestorm, new (Symbols.Square,Colors.Red), new("Flamewall", "Firestorm (killed by Flamewall)","Flamewall"), Sev0)
                 .UsingChecker((de, log) => de.HasKilled),
