@@ -19,15 +19,15 @@ namespace GW2EIEvtcParser.LogLogic;
 internal class TwistedCastle : StrongholdOfTheFaithful
 {
     internal readonly MechanicGroup Mechanics = new([
-            new PlayerDstBuffApplyMechanic(SpatialDistortion, new (Symbols.Circle,Colors.Magenta), "Statue TP", "Teleported by Statue", "Statue Teleport", Sev0, 500),
+            new PlayerDstBuffApplyMechanic(SpatialDistortion, Mech_SpatialDistortion, new (Symbols.Circle,Colors.Magenta), new("Statue TP", "Teleported by Statue", "Statue Teleport"), Sev0, 500),
             new MechanicGroup([
-                new PlayerDstBuffApplyMechanic(StillWaters, new (Symbols.DiamondTall,Colors.Magenta), "Still Waters (Immunity)", "Used a fountain for immunity", "Still Waters (Immunity)", Sev2)
+                new PlayerDstBuffApplyMechanic(StillWaters, Mech_StillWatersImmunity, new (Symbols.DiamondTall,Colors.Magenta), new("Still Waters (Immunity)", "Used a fountain for immunity", "Still Waters (Immunity)"), Sev2)
                     .UsingChecker((evt, log) => log.CombatData.GetBuffDataByIDByDst(SoothingWaters, evt.To).Any(x => x is BuffApplyEvent ba && Math.Abs(ba.Time - evt.Time) < 500)),
-                new PlayerDstBuffApplyMechanic(StillWaters, new (Symbols.StarDiamond,Colors.Magenta), "Still Waters (Removal)", "Used a fountain for stack removal", "Still Waters (Removal)", Sev2)
+                new PlayerDstBuffApplyMechanic(StillWaters, Mech_StillWatersRemoval, new (Symbols.StarDiamond,Colors.Magenta), new("Still Waters (Removal)", "Used a fountain for stack removal", "Still Waters (Removal)"), Sev2)
                     .UsingChecker((evt, log) => !log.CombatData.GetBuffDataByIDByDst(SoothingWaters, evt.To).Any(x => x is BuffApplyEvent ba && Math.Abs(ba.Time - evt.Time) < 500)),
             ]),
-            new PlayerDstBuffApplyMechanic(Madness, new (Symbols.Square,Colors.LightPurple), "Madness", "Stacking debuff", "Madness", Sev1),
-            new PlayerDstBuffApplyMechanic(ChaoticHaze, new (Symbols.Hexagon,Colors.Red), "Chaotic Haze", "Damaging Debuff from bombardement", "Chaotic Haze", Sev0, 500),
+            new PlayerDstBuffApplyMechanic(Madness, Mech_Madness, new (Symbols.Square,Colors.LightPurple), new("Madness", "Stacking debuff", "Madness"), Sev1),
+            new PlayerDstBuffApplyMechanic(ChaoticHaze, Mech_ChaoticHaze, new (Symbols.Hexagon,Colors.Red), new("Chaotic Haze", "Damaging Debuff from bombardement", "Chaotic Haze"), Sev0, 500),
         ]);
     public TwistedCastle(int triggerID) : base(triggerID)
     {
@@ -86,7 +86,7 @@ internal class TwistedCastle : StrongholdOfTheFaithful
 
     internal override void EIEvtcParse(ulong gw2Build, EvtcVersionEvent evtcVersion, LogData logData, AgentData agentData, List<CombatItem> combatData, IReadOnlyDictionary<uint, ExtensionHandler> extensions)
     {
-        agentData.AddCustomNPCAgent(logData.LogStart, logData.LogEnd, "Twisted Castle", Spec.Gadget, TargetID.DummyTarget, true);
+        agentData.AddCustomNPCAgent(logData.LogStart, logData.LogEnd, "Twisted Castle"), Spec.Gadget, TargetID.DummyTarget, true);
         base.EIEvtcParse(gw2Build, evtcVersion, logData, agentData, combatData, extensions);
     }
 

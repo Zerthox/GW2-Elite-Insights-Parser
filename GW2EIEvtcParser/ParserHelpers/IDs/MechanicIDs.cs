@@ -148,6 +148,50 @@ public static class MechanicIDs
     public static readonly int Mech_BloodShieldStackRemoved = SalvationPassMask | ++salvationPassCount;
     public static readonly int Mech_ZealousBenediction = SalvationPassMask | ++salvationPassCount;
     #endregion WING 2
+    #region WING 3
+    private static int strongholdOfTheFaithfulCount = 0;
+    public static readonly int Mech_DetonateMine = StrongholdOfTheFaithfulMask | ++strongholdOfTheFaithfulCount;
+    public static readonly int Mech_GlennaBombed = StrongholdOfTheFaithfulMask | ++strongholdOfTheFaithfulCount;
+    public static readonly int Mech_MortarHit = StrongholdOfTheFaithfulMask | ++strongholdOfTheFaithfulCount;
+    public static readonly int Mech_RadiantAttunementEscort = StrongholdOfTheFaithfulMask | ++strongholdOfTheFaithfulCount;
+    public static readonly int Mech_CrimsonAttunementEscort = StrongholdOfTheFaithfulMask | ++strongholdOfTheFaithfulCount;
+    public static readonly int Mech_EscortSAK = StrongholdOfTheFaithfulMask | ++strongholdOfTheFaithfulCount;
+    public static readonly int Mech_EscortInvulnApplied= StrongholdOfTheFaithfulMask | ++strongholdOfTheFaithfulCount;
+    public static readonly int Mech_EscortTPCast = StrongholdOfTheFaithfulMask | ++strongholdOfTheFaithfulCount;
+    public static readonly int Mech_StatueFixated = StrongholdOfTheFaithfulMask | ++strongholdOfTheFaithfulCount;
+    public static readonly int Mech_HailOfFury = StrongholdOfTheFaithfulMask | ++strongholdOfTheFaithfulCount;
+    public static readonly int Mech_Compromised = StrongholdOfTheFaithfulMask | ++strongholdOfTheFaithfulCount;
+    public static readonly int Mech_MagicBlast33 = StrongholdOfTheFaithfulMask | ++strongholdOfTheFaithfulCount;
+    public static readonly int Mech_MagicBlast66 = StrongholdOfTheFaithfulMask | ++strongholdOfTheFaithfulCount;
+    public static readonly int Mech_InsidiousProjection = StrongholdOfTheFaithfulMask | ++strongholdOfTheFaithfulCount;
+    public static readonly int Mech_PhantasmalBlades = StrongholdOfTheFaithfulMask | ++strongholdOfTheFaithfulCount;
+    public static readonly int Mech_TowerDrop = StrongholdOfTheFaithfulMask | ++strongholdOfTheFaithfulCount;
+    public static readonly int Mech_XerasFury = StrongholdOfTheFaithfulMask | ++strongholdOfTheFaithfulCount;
+    public static readonly int Mech_RadiantEnergyGood = StrongholdOfTheFaithfulMask | ++strongholdOfTheFaithfulCount;
+    public static readonly int Mech_CrimsonEnergyGood = StrongholdOfTheFaithfulMask | ++strongholdOfTheFaithfulCount;
+    public static readonly int Mech_RadiantEnergyBad = StrongholdOfTheFaithfulMask | ++strongholdOfTheFaithfulCount;
+    public static readonly int Mech_CrimsonEnergyBad = StrongholdOfTheFaithfulMask | ++strongholdOfTheFaithfulCount;
+    public static readonly int Mech_CoreHit = StrongholdOfTheFaithfulMask | ++strongholdOfTheFaithfulCount;
+    public static readonly int Mech_SpatialDistortion = StrongholdOfTheFaithfulMask | ++strongholdOfTheFaithfulCount;
+    public static readonly int Mech_StillWatersImmunity= StrongholdOfTheFaithfulMask | ++strongholdOfTheFaithfulCount;
+    public static readonly int Mech_StillWatersRemoval = StrongholdOfTheFaithfulMask | ++strongholdOfTheFaithfulCount;
+    public static readonly int Mech_Madness = StrongholdOfTheFaithfulMask | ++strongholdOfTheFaithfulCount;
+    public static readonly int Mech_ChaoticHaze = StrongholdOfTheFaithfulMask | ++strongholdOfTheFaithfulCount;
+    public static readonly int Mech_TemporalShredOrb = StrongholdOfTheFaithfulMask | ++strongholdOfTheFaithfulCount;
+    public static readonly int Mech_TemporalShredAoE = StrongholdOfTheFaithfulMask | ++strongholdOfTheFaithfulCount;
+    public static readonly int Mech_BloodstoneProtection = StrongholdOfTheFaithfulMask | ++strongholdOfTheFaithfulCount;
+    public static readonly int Mech_SummonFragmentsCast = StrongholdOfTheFaithfulMask | ++strongholdOfTheFaithfulCount;
+    public static readonly int Mech_SummonFragmentsFailed = StrongholdOfTheFaithfulMask | ++strongholdOfTheFaithfulCount;
+    public static readonly int Mech_Success = StrongholdOfTheFaithfulMask | ++strongholdOfTheFaithfulCount;
+    public static readonly int Mech_Derangement = StrongholdOfTheFaithfulMask | ++strongholdOfTheFaithfulCount;
+    public static readonly int Mech_BendingChaos = StrongholdOfTheFaithfulMask | ++strongholdOfTheFaithfulCount;
+    public static readonly int Mech_ShiftingChaos = StrongholdOfTheFaithfulMask | ++strongholdOfTheFaithfulCount;
+    public static readonly int Mech_TwistingChaos = StrongholdOfTheFaithfulMask | ++strongholdOfTheFaithfulCount;
+    public static readonly int Mech_InterventionCast = StrongholdOfTheFaithfulMask | ++strongholdOfTheFaithfulCount;
+    public static readonly int Mech_GravityWellXera = StrongholdOfTheFaithfulMask | ++strongholdOfTheFaithfulCount;
+    public static readonly int Mech_HeroesDeparture = StrongholdOfTheFaithfulMask | ++strongholdOfTheFaithfulCount;
+    public static readonly int Mech_HeroesReturn = StrongholdOfTheFaithfulMask | ++strongholdOfTheFaithfulCount;
+    #endregion WING 3
     #endregion RAID WINGS
 
     #region RAID ENCOUNTERS
