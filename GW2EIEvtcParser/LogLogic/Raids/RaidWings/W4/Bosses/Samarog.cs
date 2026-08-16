@@ -256,7 +256,7 @@ internal class Samarog : BastionOfThePenitent
         {
             int bigStart = (int)c.Time;
             int bigEnd = bigStart + 6000;
-            var circle = new CircleDecoration(300, (bigStart, bigEnd), new("rgba(150, 80, 0, 0.2)", new AgentConnector(p));
+            var circle = new CircleDecoration(300, (bigStart, bigEnd), "rgba(150, 80, 0, 0.2)", new AgentConnector(p));
             replay.Decorations.AddWithGrowing(circle, bigEnd);
         }
         // small bomb
@@ -265,7 +265,7 @@ internal class Samarog : BastionOfThePenitent
         {
             int smallStart = (int)c.Time;
             int smallEnd = smallStart + 6000;
-            replay.Decorations.Add(new CircleDecoration(80, (smallStart, smallEnd), new("rgba(80, 150, 0, 0.3)", new AgentConnector(p)));
+            replay.Decorations.Add(new CircleDecoration(80, (smallStart, smallEnd), "rgba(80, 150, 0, 0.3)", new AgentConnector(p)));
         }
         // fixated Samarog
         var fixatedSam = p.GetBuffStatus(log, FixatedSamarog).Where(x => x.Value > 0);

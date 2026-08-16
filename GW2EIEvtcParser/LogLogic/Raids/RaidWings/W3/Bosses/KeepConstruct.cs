@@ -92,7 +92,7 @@ internal class KeepConstruct : StrongholdOfTheFaithful
         {
             if (c.Value == 0)
             {
-                var mainPhase = new SubPhasePhaseData(Math.Max(c.Start, encounterStart), Math.Min(c.End, encounterEnd), new("Phase " + (mainPhaseCount++));
+                var mainPhase = new SubPhasePhaseData(Math.Max(c.Start, encounterStart), Math.Min(c.End, encounterEnd), "Phase " + (mainPhaseCount++));
                 mainPhase.AddParentPhase(encounterPhase);
                 mainPhase.AddTarget(keepConstruct, log);
                 AddTargetsToPhase(mainPhase, targets, KCStatues, log, PhaseData.TargetPriority.NonBlocking);

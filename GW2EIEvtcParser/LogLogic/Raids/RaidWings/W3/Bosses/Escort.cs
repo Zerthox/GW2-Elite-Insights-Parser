@@ -194,7 +194,7 @@ internal class Escort : StrongholdOfTheFaithful
         // to keep the pre event as we need targets
         if (!agentData.GetStableSpeciesByID(TargetID.WargBloodhound).Any(x => x.FirstAware < mcLeod.FirstAware))
         {
-            agentData.AddCustomNPCAgent(logData.LogStart, logData.LogEnd, "Escort"), Spec.Gadget, TargetID.DummyTarget, true);
+            agentData.AddCustomNPCAgent(logData.LogStart, logData.LogEnd, "Escort", Spec.Gadget, TargetID.DummyTarget, true);
         }
         base.EIEvtcParse(gw2Build, evtcVersion, logData, agentData, combatData, extensions);
         RenameSubMcLeods(Targets);

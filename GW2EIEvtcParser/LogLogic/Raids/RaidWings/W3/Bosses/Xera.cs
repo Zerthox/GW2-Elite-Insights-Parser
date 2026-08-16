@@ -376,7 +376,7 @@ internal class Xera : StrongholdOfTheFaithful
         FindBloodstones(agentData, combatData);
         if (agentData.TryGetFirstAgentItem(TargetID.FakeXera, out _))
         {
-            agentData.AddCustomNPCAgent(logData.LogStart, logData.LogEnd, "Xera Pre Event"), Spec.Gadget, TargetID.DummyTarget, true);
+            agentData.AddCustomNPCAgent(logData.LogStart, logData.LogEnd, "Xera Pre Event", Spec.Gadget, TargetID.DummyTarget, true);
         }
         // find split
         if (agentData.TryGetFirstAgentItem(TargetID.Xera2, out var secondXera))

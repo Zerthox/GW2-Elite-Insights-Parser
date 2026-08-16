@@ -382,7 +382,7 @@ internal class Deimos : BastionOfThePenitent
         HandleShackledPrisoners(agentData, combatData);
         if (_hasPreEvent && needsDummy)
         {
-            agentData.AddCustomNPCAgent(logData.LogStart, logData.LogEnd, "Deimos Pre Event"), Spec.Gadget, TargetID.DummyTarget, true);
+            agentData.AddCustomNPCAgent(logData.LogStart, logData.LogEnd, "Deimos Pre Event", Spec.Gadget, TargetID.DummyTarget, true);
         }
         base.EIEvtcParse(gw2Build, evtcVersion, logData, agentData, combatData, extensions);
         // Find target
