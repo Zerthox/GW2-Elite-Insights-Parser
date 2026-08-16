@@ -18,46 +18,46 @@ namespace GW2EIEvtcParser.LogLogic;
 internal class Samarog : BastionOfThePenitent
 {
     internal readonly MechanicGroup Mechanics = new([
-            new PlayerDstHealthDamageHitMechanic(SamarogShockwave, new (Symbols.Circle,Colors.Blue), "Schk.Wv", "Shockwave from Spears","Shockwave", Sev0)
+            new PlayerDstHealthDamageHitMechanic(SamarogShockwave, Mech_SamarogShockwave, new (Symbols.Circle,Colors.Blue), new("Schk.Wv", "Shockwave from Spears","Shockwave"), Sev0)
                 .UsingBuffChecker(Stability, false),
-            new PlayerDstHealthDamageHitMechanic(PrisonerSweep, new (Symbols.Hexagon,Colors.Blue), "Swp", "Prisoner Sweep (horizontal)","Sweep", Sev0)
+            new PlayerDstHealthDamageHitMechanic(PrisonerSweep, Mech_PrisonerSweep, new (Symbols.Hexagon,Colors.Blue), new("Swp", "Prisoner Sweep (horizontal)","Sweep"), Sev0)
                 .UsingBuffChecker(Stability, false),
-            new PlayerDstHealthDamageHitMechanic(TramplingRush, new (Symbols.TriangleRight,Colors.Red), "Trpl", "Trampling Rush (hit by stampede towards home)","Trampling Rush", Sev1),
-            new PlayerDstHealthDamageHitMechanic(Bludgeon , new (Symbols.TriangleDown,Colors.Blue), "Slam", "Bludgeon (vertical Slam)","Slam", Sev2),
+            new PlayerDstHealthDamageHitMechanic(TramplingRush, Mech_TramplingRush, new (Symbols.TriangleRight,Colors.Red), new("Trpl", "Trampling Rush (hit by stampede towards home)","Trampling Rush"), Sev1),
+            new PlayerDstHealthDamageHitMechanic(Bludgeon , Mech_Bludgeon, new (Symbols.TriangleDown,Colors.Blue), new("Slam", "Bludgeon (vertical Slam)","Slam"), Sev2),
             new MechanicGroup([
-                new PlayerDstBuffApplyMechanic(FixatedSamarog, new (Symbols.Star,Colors.Magenta), "S.Fix", "Fixated by Samarog","Fixate: Samarog", Sev0),
-                new PlayerDstBuffApplyMechanic(FixatedGuldhem, new (Symbols.StarOpen,Colors.Orange), "G.Fix", "Fixated by Guldhem","Fixate: Guldhem", Sev1),
-                new PlayerDstBuffApplyMechanic(FixatedRigom, new (Symbols.StarOpen,Colors.Red), "R.Fix", "Fixated by Rigom","Fixate: Rigom", Sev1),
+                new PlayerDstBuffApplyMechanic(FixatedSamarog, Mech_FixatedSamarog, new (Symbols.Star,Colors.Magenta), new("S.Fix", "Fixated by Samarog","Fixate: Samarog"), Sev0),
+                new PlayerDstBuffApplyMechanic(FixatedGuldhem, Mech_FixatedGuldhem, new (Symbols.StarOpen,Colors.Orange), new("G.Fix", "Fixated by Guldhem","Fixate: Guldhem"), Sev1),
+                new PlayerDstBuffApplyMechanic(FixatedRigom, Mech_FixatedRigom, new (Symbols.StarOpen,Colors.Red), new("R.Fix", "Fixated by Rigom","Fixate: Rigom"), Sev1),
             ]),
             new MechanicGroup([
-                new PlayerDstBuffApplyMechanic(InevitableBetrayalBig, new (Symbols.Circle,Colors.DarkGreen), "B.Gr", "Big Green (friends mechanic)","Big Green", Sev0),
-                new PlayerDstBuffApplyMechanic(InevitableBetrayalSmall, new (Symbols.CircleOpen,Colors.DarkGreen), "S.Gr", "Small Green (friends mechanic)","Small Green", Sev0),
+                new PlayerDstBuffApplyMechanic(InevitableBetrayalBig, Mech_InevitableBetrayalBig, new (Symbols.Circle,Colors.DarkGreen), new("B.Gr", "Big Green (friends mechanic)","Big Green"), Sev0),
+                new PlayerDstBuffApplyMechanic(InevitableBetrayalSmall, Mech_InevitableBetrayalSmall, new (Symbols.CircleOpen,Colors.DarkGreen), new("S.Gr", "Small Green (friends mechanic)","Small Green"), Sev0),
+                new PlayerDstHealthDamageHitMechanic([InevitableBetrayalFailSmall, InevitableBetrayalFailBig], Mech_InevitableBetrayalFail, new (Symbols.Circle,Colors.Red), new("Gr.Fl", "Inevitable Betrayal (failed Green)","Failed Green"), Sev0),
             ]),
             new MechanicGroup([
-                new EnemyDstBuffApplyMechanic(StrengthenedBondGuldhem, new (Symbols.TriangleNE,Colors.Orange), "G.Str", "Strengthened Bond: Guldhem","Strengthened: Guldhem", Sev3),
-                new EnemyDstBuffApplyMechanic(StrengthenedBondRigom, new (Symbols.TriangleNE,Colors.Red), "R.Str", "Strengthened Bond: Rigom","Strengthened: Rigom", Sev3),
+                new EnemyDstBuffApplyMechanic(StrengthenedBondGuldhem, Mech_StrengthenedBondGuldhem, new (Symbols.TriangleNE,Colors.Orange), new("G.Str", "Strengthened Bond: Guldhem","Strengthened: Guldhem"), Sev3),
+                new EnemyDstBuffApplyMechanic(StrengthenedBondRigom, Mech_StrengthenedBondRigom, new (Symbols.TriangleNE,Colors.Red), new("R.Str", "Strengthened Bond: Rigom","Strengthened: Rigom"), Sev3),
             ]),
             new MechanicGroup([
-                new PlayerDstHealthDamageHitMechanic(SpearReturn, new (Symbols.TriangleLeft,Colors.Red), "S.Rt", "Hit by Spear Return","Spear Return", Sev2),
-                new PlayerDstHealthDamageHitMechanic(EffigyPulse, new (Symbols.TriangleDownOpen,Colors.Red), "S.Pls", "Effigy Pulse (Stood in Spear AoE)","Spear Aoe", Sev1),
-                new PlayerDstHealthDamageHitMechanic(SpearImpact, new (Symbols.TriangleDown,Colors.Red), "S.Spwn", "Spear Impact (hit by spawning Spear)","Spear Spawned", Sev1),
+                new PlayerDstHealthDamageHitMechanic(SpearReturn, Mech_SpearReturn, new (Symbols.TriangleLeft,Colors.Red), new("S.Rt", "Hit by Spear Return","Spear Return"), Sev2),
+                new PlayerDstHealthDamageHitMechanic(EffigyPulse, Mech_EffigyPulse, new (Symbols.TriangleDownOpen,Colors.Red), new("S.Pls", "Effigy Pulse (Stood in Spear AoE)","Spear Aoe"), Sev1),
+                new PlayerDstHealthDamageHitMechanic(SpearImpact, Mech_SpearImpact, new (Symbols.TriangleDown,Colors.Red), new("S.Spwn", "Spear Impact (hit by spawning Spear)","Spear Spawned"), Sev1),
             ]),
-            new PlayerDstHealthDamageHitMechanic([InevitableBetrayalFailSmall, InevitableBetrayalFailBig], new (Symbols.Circle,Colors.Red), "Gr.Fl", "Inevitable Betrayal (failed Green)","Failed Green", Sev0),
             new MechanicGroup([
-                new PlayerDstBuffApplyMechanic(BrutalizeBuff, new (Symbols.DiamondTall,Colors.Magenta), "Brtlzd","Brutalized (jumped upon by Samarog->Breakbar)","Brutalized", Sev1),
-                new EnemyCastEndMechanic(BrutalizeCast, new (Symbols.DiamondTall,Colors.DarkTeal), "CC.Sam","Brutalize (Breakbar)","Breakbar", Sev3),
-                new PlayerDstHealthDamageMechanic(BrutalizeKill, new (Symbols.DiamondTall,Colors.Red), "CC.Sam Fail", "Brutalize (Failed CC)","CC Fail", Sev0)
+                new PlayerDstBuffApplyMechanic(BrutalizeBuff, Mech_Brutalized, new (Symbols.DiamondTall,Colors.Magenta), new("Brtlzd","Brutalized (jumped upon by Samarog->Breakbar)","Brutalized"), Sev1),
+                new EnemyCastEndMechanic(BrutalizeCast, Mech_BrutalizeCast, new (Symbols.DiamondTall,Colors.DarkTeal), new("CC.Sam","Brutalize (Breakbar)","Breakbar"), Sev3),
+                new PlayerDstHealthDamageMechanic(BrutalizeKill, Mech_BrutalizeKill, new (Symbols.DiamondTall,Colors.Red), new("CC.Sam Fail", "Brutalize (Failed CC)","CC Fail"), Sev0)
                     .UsingChecker((de, log) => de.HasKilled),
-                new EnemyDstBuffRemoveMechanic(FanaticalResilience, new (Symbols.DiamondTall,Colors.DarkGreen), "CC.Sam End", "Ended Brutalize","CC Ended", Sev0),
+                new EnemyDstBuffRemoveMechanic(FanaticalResilience, Mech_FanaticalResilienceEnd, new (Symbols.DiamondTall,Colors.DarkGreen), new("CC.Sam End", "Ended Brutalize","CC Ended"), Sev0),
             ]),
-            //new PlayerBoonRemoveMechanic(BrutalizeEffect, "Brutalize", ParseEnum.BossIDS.Samarog, new (Symbols.DiamondTall,Colors.DarkGreen), "CCed","Ended Brutalize (Breakbar broken)", "CCEnded",0),//(condition => condition.getCombatItem().IsBuffRemove == ParseEnum.BuffRemove.Manual)),
-            //new Mechanic(BrutalizeEffect, "Brutalize", Mechanic.MechType.EnemyBoonStrip, ParseEnum.BossIDS.Samarog, new (Symbols.DiamondTall,"rgb(110,160,0)"), "CCed1","Ended Brutalize (Breakbar broken)", "CCed1",0),//(condition => condition.getCombatItem().IsBuffRemove == ParseEnum.BuffRemove.All)),
-            new PlayerDstBuffApplyMechanic(SoulSwarm, new (Symbols.XThinOpen,Colors.Teal), "Wall","Soul Swarm (stood in or beyond Spear Wall)","Spear Wall", Sev1),
-            new PlayerDstHealthDamageHitMechanic(ImpalingStab, new (Symbols.Hourglass,Colors.Blue), "Shck.Wv Ctr","Impaling Stab (hit by Spears causing Shockwave)","Shockwave Center", Sev1),
-            new PlayerDstHealthDamageHitMechanic(AnguishedBolt, new (Symbols.Circle,Colors.LightOrange), "Stun","Anguished Bolt (AoE Stun Circle by Guldhem)","Guldhem's Stun", Sev0)
+            //new PlayerBoonRemoveMechanic(BrutalizeEffect, "Brutalize", ParseEnum.BossIDS.Samarog, new (Symbols.DiamondTall,Colors.DarkGreen), new("CCed","Ended Brutalize (Breakbar broken)", "CCEnded",0),//(condition => condition.getCombatItem().IsBuffRemove == ParseEnum.BuffRemove.Manual)),
+            //new Mechanic(BrutalizeEffect, "Brutalize", Mechanic.MechType.EnemyBoonStrip, ParseEnum.BossIDS.Samarog, new (Symbols.DiamondTall,"rgb(110,160,0)"), new("CCed1","Ended Brutalize (Breakbar broken)", "CCed1",0),//(condition => condition.getCombatItem().IsBuffRemove == ParseEnum.BuffRemove.All)),
+            new PlayerDstBuffApplyMechanic(SoulSwarm, Mech_SoulSwarm, new (Symbols.XThinOpen,Colors.Teal), new("Wall","Soul Swarm (stood in or beyond Spear Wall)","Spear Wall"), Sev1),
+            new PlayerDstHealthDamageHitMechanic(ImpalingStab, Mech_ImpalingStab, new (Symbols.Hourglass,Colors.Blue), new("Shck.Wv Ctr","Impaling Stab (hit by Spears causing Shockwave)","Shockwave Center"), Sev1),
+            new PlayerDstHealthDamageHitMechanic(AnguishedBolt, Mech_AnguishedBolt, new (Symbols.Circle,Colors.LightOrange), new("Stun","Anguished Bolt (AoE Stun Circle by Guldhem)","Guldhem's Stun"), Sev0)
                 .UsingBuffChecker(Stability, false),
         
-            //  new Mechanic(SpearImpact, "Brutalize", ParseEnum.BossIDS.Samarog, new (Symbols.StarSquare,Color.Red), "CC Target", casted without dmg odd
+            //  new Mechanic(SpearImpact, "Brutalize", ParseEnum.BossIDS.Samarog, new (Symbols.StarSquare,Color.Red), new("CC Target", casted without dmg odd
         ]);
     public Samarog(int triggerID) : base(triggerID)
     {
@@ -256,7 +256,7 @@ internal class Samarog : BastionOfThePenitent
         {
             int bigStart = (int)c.Time;
             int bigEnd = bigStart + 6000;
-            var circle = new CircleDecoration(300, (bigStart, bigEnd), "rgba(150, 80, 0, 0.2)", new AgentConnector(p));
+            var circle = new CircleDecoration(300, (bigStart, bigEnd), new("rgba(150, 80, 0, 0.2)", new AgentConnector(p));
             replay.Decorations.AddWithGrowing(circle, bigEnd);
         }
         // small bomb
@@ -265,7 +265,7 @@ internal class Samarog : BastionOfThePenitent
         {
             int smallStart = (int)c.Time;
             int smallEnd = smallStart + 6000;
-            replay.Decorations.Add(new CircleDecoration(80, (smallStart, smallEnd), "rgba(80, 150, 0, 0.3)", new AgentConnector(p)));
+            replay.Decorations.Add(new CircleDecoration(80, (smallStart, smallEnd), new("rgba(80, 150, 0, 0.3)", new AgentConnector(p)));
         }
         // fixated Samarog
         var fixatedSam = p.GetBuffStatus(log, FixatedSamarog).Where(x => x.Value > 0);

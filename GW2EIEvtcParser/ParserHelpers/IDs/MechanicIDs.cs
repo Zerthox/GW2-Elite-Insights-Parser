@@ -192,6 +192,69 @@ public static class MechanicIDs
     public static readonly int Mech_HeroesDeparture = StrongholdOfTheFaithfulMask | ++strongholdOfTheFaithfulCount;
     public static readonly int Mech_HeroesReturn = StrongholdOfTheFaithfulMask | ++strongholdOfTheFaithfulCount;
     #endregion WING 3
+    #region WING 4
+    private static int bastionOfThePenitentCount = 0;
+    public static readonly int Mech_CairnDisplacement = BastionOfThePenitentMask | ++bastionOfThePenitentCount;
+    public static readonly int Mech_SpatialManipulation = BastionOfThePenitentMask | ++bastionOfThePenitentCount;
+    public static readonly int Mech_SpatialManipulationNoStab = BastionOfThePenitentMask | ++bastionOfThePenitentCount;
+    public static readonly int Mech_SpatialManipulationStab = BastionOfThePenitentMask | ++bastionOfThePenitentCount;
+    public static readonly int Mech_MeteorSwarm = BastionOfThePenitentMask | ++bastionOfThePenitentCount;
+    public static readonly int Mech_MeteorSwarmReflect = BastionOfThePenitentMask | ++bastionOfThePenitentCount;
+    public static readonly int Mech_SharedAgony = BastionOfThePenitentMask | ++bastionOfThePenitentCount;
+    public static readonly int Mech_SharedAgony25 = BastionOfThePenitentMask | ++bastionOfThePenitentCount;
+    public static readonly int Mech_SharedAgony50 = BastionOfThePenitentMask | ++bastionOfThePenitentCount;
+    public static readonly int Mech_SharedAgony75 = BastionOfThePenitentMask | ++bastionOfThePenitentCount;
+    public static readonly int Mech_EnergySurge = BastionOfThePenitentMask | ++bastionOfThePenitentCount;
+    public static readonly int Mech_OrbitalSweep = BastionOfThePenitentMask | ++bastionOfThePenitentCount;
+    public static readonly int Mech_GravityWave = BastionOfThePenitentMask | ++bastionOfThePenitentCount;
+    public static readonly int Mech_JadeSoldierAura = BastionOfThePenitentMask | ++bastionOfThePenitentCount;
+    public static readonly int Mech_JadeSoldierExplosion = BastionOfThePenitentMask | ++bastionOfThePenitentCount;
+    public static readonly int Mech_SAKProtected = BastionOfThePenitentMask | ++bastionOfThePenitentCount;
+    public static readonly int Mech_ProtectSAK = BastionOfThePenitentMask | ++bastionOfThePenitentCount;
+    public static readonly int Mech_DispelSAK = BastionOfThePenitentMask | ++bastionOfThePenitentCount;
+    public static readonly int Mech_ClaimSAK = BastionOfThePenitentMask | ++bastionOfThePenitentCount;
+    public static readonly int Mech_MursaatOverseersShieldApply = BastionOfThePenitentMask | ++bastionOfThePenitentCount;
+    public static readonly int Mech_MursaatOverseersShieldRemove = BastionOfThePenitentMask | ++bastionOfThePenitentCount;
+    public static readonly int Mech_MursaatOverseersShieldLost = BastionOfThePenitentMask | ++bastionOfThePenitentCount;
+    public static readonly int Mech_SamarogShockwave = BastionOfThePenitentMask | ++bastionOfThePenitentCount;
+    public static readonly int Mech_PrisonerSweep = BastionOfThePenitentMask | ++bastionOfThePenitentCount;
+    public static readonly int Mech_TramplingRush = BastionOfThePenitentMask | ++bastionOfThePenitentCount;
+    public static readonly int Mech_Bludgeon = BastionOfThePenitentMask | ++bastionOfThePenitentCount;
+    public static readonly int Mech_FixatedSamarog = BastionOfThePenitentMask | ++bastionOfThePenitentCount;
+    public static readonly int Mech_FixatedGuldhem = BastionOfThePenitentMask | ++bastionOfThePenitentCount;
+    public static readonly int Mech_FixatedRigom = BastionOfThePenitentMask | ++bastionOfThePenitentCount;
+    public static readonly int Mech_InevitableBetrayalBig = BastionOfThePenitentMask | ++bastionOfThePenitentCount;
+    public static readonly int Mech_InevitableBetrayalSmall = BastionOfThePenitentMask | ++bastionOfThePenitentCount;
+    public static readonly int Mech_InevitableBetrayalFail = BastionOfThePenitentMask | ++bastionOfThePenitentCount;
+    public static readonly int Mech_StrengthenedBondGuldhem = BastionOfThePenitentMask | ++bastionOfThePenitentCount;
+    public static readonly int Mech_StrengthenedBondRigom = BastionOfThePenitentMask | ++bastionOfThePenitentCount;
+    public static readonly int Mech_SpearReturn = BastionOfThePenitentMask | ++bastionOfThePenitentCount;
+    public static readonly int Mech_EffigyPulse = BastionOfThePenitentMask | ++bastionOfThePenitentCount;
+    public static readonly int Mech_SpearImpact = BastionOfThePenitentMask | ++bastionOfThePenitentCount;
+    public static readonly int Mech_Brutalized = BastionOfThePenitentMask | ++bastionOfThePenitentCount;
+    public static readonly int Mech_BrutalizeCast= BastionOfThePenitentMask | ++bastionOfThePenitentCount;
+    public static readonly int Mech_BrutalizeKill = BastionOfThePenitentMask | ++bastionOfThePenitentCount;
+    public static readonly int Mech_FanaticalResilienceEnd = BastionOfThePenitentMask | ++bastionOfThePenitentCount;
+    public static readonly int Mech_SoulSwarm = BastionOfThePenitentMask | ++bastionOfThePenitentCount;
+    public static readonly int Mech_ImpalingStab = BastionOfThePenitentMask | ++bastionOfThePenitentCount;
+    public static readonly int Mech_AnguishedBolt = BastionOfThePenitentMask | ++bastionOfThePenitentCount;
+    public static readonly int Mech_RapidDecay = BastionOfThePenitentMask | ++bastionOfThePenitentCount;
+    public static readonly int Mech_RapidDecayTrigger = BastionOfThePenitentMask | ++bastionOfThePenitentCount;
+    public static readonly int Mech_OffBalanceCast = BastionOfThePenitentMask | ++bastionOfThePenitentCount;
+    public static readonly int Mech_OffBalanceFail = BastionOfThePenitentMask | ++bastionOfThePenitentCount;
+    public static readonly int Mech_OffBalanceSuccess = BastionOfThePenitentMask | ++bastionOfThePenitentCount;
+    public static readonly int Mech_BoonThiefCast = BastionOfThePenitentMask | ++bastionOfThePenitentCount;
+    public static readonly int Mech_BoonThiefFail = BastionOfThePenitentMask | ++bastionOfThePenitentCount;
+    public static readonly int Mech_BoonThiefSuccess = BastionOfThePenitentMask | ++bastionOfThePenitentCount;
+    public static readonly int Mech_Annihilate = BastionOfThePenitentMask | ++bastionOfThePenitentCount;
+    public static readonly int Mech_DemonicShockWave = BastionOfThePenitentMask | ++bastionOfThePenitentCount;
+    public static readonly int Mech_TearInstability = BastionOfThePenitentMask | ++bastionOfThePenitentCount;
+    public static readonly int Mech_MindCrush = BastionOfThePenitentMask | ++bastionOfThePenitentCount;
+    public static readonly int Mech_WeakMinded = BastionOfThePenitentMask | ++bastionOfThePenitentCount;
+    public static readonly int Mech_DeimosSelectedByGreen = BastionOfThePenitentMask | ++bastionOfThePenitentCount;
+    public static readonly int Mech_DeimosGreenTeleport = BastionOfThePenitentMask | ++bastionOfThePenitentCount;
+    public static readonly int Mech_UnnaturalSignet = BastionOfThePenitentMask | ++bastionOfThePenitentCount;
+    #endregion WING 4
     #endregion RAID WINGS
 
     #region RAID ENCOUNTERS
