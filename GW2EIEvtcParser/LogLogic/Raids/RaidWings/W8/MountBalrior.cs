@@ -18,10 +18,10 @@ internal abstract class MountBalrior : RaidWingLogic
     {
         MechanicList.AddRange(new List<Mechanic>
         {
-            new PlayerDstBuffApplyMechanic(ExposedPlayer, new (Symbols.TriangleLeft, Colors.Purple, 10), new("Exposed", "Exposed Applied (Increased incoming damage)", "Exposed Applied"), Sev0),
-            new PlayerDstBuffApplyMechanic(Debilitated, new (Symbols.TriangleDown, Colors.Purple, 10), new("Debilitated", "Debilitated Applied (Reduced outgoing damage)", "Debilitated Applied"), Sev0),
-            new PlayerDstBuffApplyMechanic(Infirmity, new (Symbols.TriangleUp, Colors.Purple, 10), new("Infirmity", "Infirmity Applied (Reduced incoming healing)", "Infirmity Applied"), Sev0),
-            new EnemyDstBuffApplyMechanic(Exposed31589, new (Symbols.BowtieOpen, Colors.LightPurple), new("Brk.Brkn", "Got Exposed (Broke Breakbar)", "Exposed"), Sev1),
+            new PlayerDstBuffApplyMechanic(ExposedPlayer, Mech_ExposedPlayerWing8, new (Symbols.TriangleLeft, Colors.Purple, 10), new("Exposed", "Exposed Applied (Increased incoming damage)", "Exposed Applied"), Sev0),
+            new PlayerDstBuffApplyMechanic(Debilitated, Mech_DebilitatedWing8, new (Symbols.TriangleDown, Colors.Purple, 10), new("Debilitated", "Debilitated Applied (Reduced outgoing damage)", "Debilitated Applied"), Sev0),
+            new PlayerDstBuffApplyMechanic(Infirmity, Mech_InfirmityWing8, new (Symbols.TriangleUp, Colors.Purple, 10), new("Infirmity", "Infirmity Applied (Reduced incoming healing)", "Infirmity Applied"), Sev0),
+            new EnemyDstBuffApplyMechanic(Exposed31589, Mech_ExposedWing8, new (Symbols.BowtieOpen, Colors.LightPurple), new("Brk.Brkn", "Got Exposed (Broke Breakbar)", "Exposed"), Sev1),
         });
         LogCategoryInformation.SubCategory = SubLogCategory.MountBalrior;
         LogID |= LogIDs.RaidWingMasks.MountBalriorMask;

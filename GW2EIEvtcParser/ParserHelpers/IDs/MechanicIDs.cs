@@ -379,6 +379,43 @@ public static class MechanicIDs
     public static readonly int Mech_FixatedQadimThePeerless = TheKeyOfAhdashimMask | ++keyOfAhdashimCount;
     public static readonly int Mech_SappingSurge = TheKeyOfAhdashimMask | ++keyOfAhdashimCount;
     #endregion WING 7
+    #region WING 8
+    private static int mountBalriorCount = 0;
+    public static readonly int Mech_ExposedPlayerWing8 = MountBalriorMask | ++mountBalriorCount;
+    public static readonly int Mech_DebilitatedWing8 = MountBalriorMask | ++mountBalriorCount;
+    public static readonly int Mech_InfirmityWing8 = MountBalriorMask | ++mountBalriorCount;
+    public static readonly int Mech_ExposedWing8 = MountBalriorMask | ++mountBalriorCount;
+    public static readonly int Mech_GreerReflectableProjectilesGreer = MountBalriorMask | ++mountBalriorCount;
+    public static readonly int Mech_GreerReflectableProjectilesReeg = MountBalriorMask | ++mountBalriorCount;
+    public static readonly int Mech_GreerReflectableProjectilesGree = MountBalriorMask | ++mountBalriorCount;
+    public static readonly int Mech_RotTheWorld = MountBalriorMask | ++mountBalriorCount;
+    public static readonly int Mech_EruptionOfRot = MountBalriorMask | ++mountBalriorCount;
+    public static readonly int Mech_RotEruption = MountBalriorMask | ++mountBalriorCount;
+    public static readonly int Mech_EruptionOfRootStood = MountBalriorMask | ++mountBalriorCount;
+    public static readonly int Mech_EruptionOfRootDowned = MountBalriorMask | ++mountBalriorCount;
+    public static readonly int Mech_EruptionOfRootTarget = MountBalriorMask | ++mountBalriorCount;
+    public static readonly int Mech_RipplesOfRot = MountBalriorMask | ++mountBalriorCount;
+    public static readonly int Mech_PlagueRot = MountBalriorMask | ++mountBalriorCount;
+    public static readonly int Mech_UnplaguedLost = MountBalriorMask | ++mountBalriorCount;
+    public static readonly int Mech_UnplaguedKept = MountBalriorMask | ++mountBalriorCount;
+    public static readonly int Mech_RakeTheRot = MountBalriorMask | ++mountBalriorCount;
+    public static readonly int Mech_SweepTheMold = MountBalriorMask | ++mountBalriorCount;
+    public static readonly int Mech_StompTheGrowth = MountBalriorMask | ++mountBalriorCount;
+    public static readonly int Mech_WaveOfCorruption = MountBalriorMask | ++mountBalriorCount;
+    public static readonly int Mech_SeedsOfDecay = MountBalriorMask | ++mountBalriorCount;
+    public static readonly int Mech_CageOfDecay = MountBalriorMask | ++mountBalriorCount;
+    public static readonly int Mech_WorldEndsInDecay = MountBalriorMask | ++mountBalriorCount;
+    public static readonly int Mech_RainOfSpores = MountBalriorMask | ++mountBalriorCount;
+    public static readonly int Mech_ScatteringSporeblast = MountBalriorMask | ++mountBalriorCount;
+    public static readonly int Mech_InfectiousRot = MountBalriorMask | ++mountBalriorCount;
+    public static readonly int Mech_NoxiousBlight = MountBalriorMask | ++mountBalriorCount;
+    public static readonly int Mech_EnfeeblingMiasma = MountBalriorMask | ++mountBalriorCount;
+    public static readonly int Mech_AuraOfCorruption = MountBalriorMask | ++mountBalriorCount;
+    public static readonly int Mech_BlobOfBlight = MountBalriorMask | ++mountBalriorCount;
+    public static readonly int Mech_BlobOfBlightTarget = MountBalriorMask | ++mountBalriorCount;
+    public static readonly int Mech_BoonsCorruptedGreer = MountBalriorMask | ++mountBalriorCount;
+    public static readonly int Mech_EmpoweredGreer = MountBalriorMask | ++mountBalriorCount;
+    #endregion WING 8
     #endregion RAID WINGS
 
     #region RAID ENCOUNTERS
