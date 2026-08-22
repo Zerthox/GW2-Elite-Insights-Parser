@@ -299,7 +299,7 @@ partial class CombatData
                 Add(statusEvents.MovementEvents, posEvt.Src, posEvt);
                 break;
             case StateChange.Teleport:
-                var tpEvt = new PositionEvent(stateChangeEvent, agentData);
+                var tpEvt = new TeleportEvent(stateChangeEvent, agentData);
                 Add(statusEvents.MovementEvents, tpEvt.Src, tpEvt);
                 break;
             case StateChange.WeaponSwap:
