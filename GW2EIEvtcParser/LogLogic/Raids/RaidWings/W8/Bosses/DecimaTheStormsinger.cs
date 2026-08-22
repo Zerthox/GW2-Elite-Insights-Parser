@@ -22,77 +22,77 @@ internal class DecimaTheStormsinger : MountBalrior
 
     internal readonly MechanicGroup Mechanics = new([
             new MechanicGroup([
-                new PlayerDstHealthDamageHitMechanic([ChorusOfThunderDamage, ChorusOfThunderCM], new (Symbols.Circle, Colors.LightOrange), new("ChorThun.H", "Hit by Chorus of Thunder (Spreads AoE / Conduit AoE)", "Chorus of Thunder Hit"), Sev1),
-                new PlayerDstEffectMechanic(EffectGUIDs.DecimaChorusOfThunderAoE, new (Symbols.Circle, Colors.LightGrey), new("ChorThun.T", "Targeted by Chorus of Thunder (Spreads)", "Chorus of Thunder Target"), Sev1),
+                new PlayerDstHealthDamageHitMechanic([ChorusOfThunderDamage, ChorusOfThunderCM], Mech_ChorusOfThunder, new (Symbols.Circle, Colors.LightOrange), new("ChorThun.H", "Hit by Chorus of Thunder (Spreads AoE / Conduit AoE)", "Chorus of Thunder Hit"), Sev1),
+                new PlayerDstEffectMechanic(EffectGUIDs.DecimaChorusOfThunderAoE, Mech_ChorusOfThunderTarget, new (Symbols.Circle, Colors.LightGrey), new("ChorThun.T", "Targeted by Chorus of Thunder (Spreads)", "Chorus of Thunder Target"), Sev1),
             ]),
-            new PlayerDstHealthDamageHitMechanic([DiscordantThunderCM], new (Symbols.Circle, Colors.Orange), new("DiscThun.H", "Hit by Discordant Thunder", "Discordant Thunder Hit"), Sev1),
-            new PlayerDstHealthDamageHitMechanic(HarmoniousThunder, new (Symbols.Circle, Colors.Yellow), new("HarmThun.H", "Hit by Harmonious Thunder", "Harmonious Thunder Hit"), Sev1),
+            new PlayerDstHealthDamageHitMechanic([DiscordantThunderCM], Mech_DiscordantThunder, new (Symbols.Circle, Colors.Orange), new("DiscThun.H", "Hit by Discordant Thunder", "Discordant Thunder Hit"), Sev1),
+            new PlayerDstHealthDamageHitMechanic(HarmoniousThunder, Mech_HarmoniousThunder, new (Symbols.Circle, Colors.Yellow), new("HarmThun.H", "Hit by Harmonious Thunder", "Harmonious Thunder Hit"), Sev1),
             // TODO: Seismic Crash needs to be fully verified again in both modes
             new MechanicGroup([
-                new PlayerDstHealthDamageHitMechanic([SeismicCrashNM, SeismicCrashCM, SeismicCrashCM2, SeismicCrashCM3, SeismicCrashCM4, SeismicCrashCM5, SeismicCrashCM6], new (Symbols.Hourglass, Colors.White), new("SeisCrash.H", "Hit by Seismic Crash (Concentric Rings)", "Seismic Crash Hit"), Sev3)
+                new PlayerDstHealthDamageHitMechanic([SeismicCrashNM, SeismicCrashCM, SeismicCrashCM2, SeismicCrashCM3, SeismicCrashCM4, SeismicCrashCM5, SeismicCrashCM6], Mech_SeismicCrash, new (Symbols.Hourglass, Colors.White), new("SeisCrash.H", "Hit by Seismic Crash (Concentric Rings)", "Seismic Crash Hit"), Sev3)
                     .WithStabilitySubMechanic(
-                        new SubMechanic(new (Symbols.Hourglass, Colors.DarkWhite), new("SeisCrash.CC", "CC by Seismic Crash (Concentric Rings)", "Seismic Crash CC"), Sev0),
+                        new SubMechanic(Mech_SeismicCrashNoStab, new (Symbols.Hourglass, Colors.DarkWhite), new("SeisCrash.CC", "CC by Seismic Crash (Concentric Rings)", "Seismic Crash CC"), Sev0),
                         false
                     ),
-                new PlayerDstHealthDamageMechanic(SeismicCrashHitboxDamage, new (Symbols.CircleCross, Colors.LightRed), new("SeisCrash.Dwn", "Downed by Seismic Crash (Hitbox)", "Seismic Crash Downed"), Sev0)
+                new PlayerDstHealthDamageMechanic(SeismicCrashHitboxDamage, Mech_SeismicCrashHitBox, new (Symbols.CircleCross, Colors.LightRed), new("SeisCrash.Dwn", "Downed by Seismic Crash (Hitbox)", "Seismic Crash Downed"), Sev0)
                     .UsingChecker((hde, log) => hde.To.IsDowned(log, hde.Time))
                     .WithBuilds(GW2Builds.December2024MountBalriorNerfs),
-                new PlayerDstHealthDamageMechanic(SeismicCrashHitboxDamage, new (Symbols.CircleCross, Colors.Red), new("SeisCrash.D", "Seismic Crash Death (Hitbox)", "Seismic Crash Death"), Sev0)
+                new PlayerDstHealthDamageMechanic(SeismicCrashHitboxDamage, Mech_SeismicCrashHitBoxKilled, new (Symbols.CircleCross, Colors.Red), new("SeisCrash.D", "Seismic Crash Death (Hitbox)", "Seismic Crash Death"), Sev0)
                     .UsingChecker((hde, log) => hde.To.IsDead(log, hde.Time)), // If a player is already in downstate they get killed in NM, not logged in CM
             ]),
             new MechanicGroup([
-                new PlayerDstHealthDamageHitMechanic([SeismicReposition_80_50, SeismicReposition_70_40, SeismicReposition_40_TO_10, SeismicReposition_10], new (Symbols.HourglassOpen, Colors.White), new("SeisRepos.H", "Hit by Seismic Reposition (Concentric Rings Leap)", "Seismic Reposition Hit"), Sev3)
+                new PlayerDstHealthDamageHitMechanic([SeismicReposition_80_50, SeismicReposition_70_40, SeismicReposition_40_TO_10, SeismicReposition_10], Mech_SeismicReposition, new (Symbols.HourglassOpen, Colors.White), new("SeisRepos.H", "Hit by Seismic Reposition (Concentric Rings Leap)", "Seismic Reposition Hit"), Sev3)
                     .WithStabilitySubMechanic(
-                        new SubMechanic(new (Symbols.HourglassOpen, Colors.DarkWhite), new("SeisRepos.CC", "CC by Seismic Reposition (Concentric Rings Leap)", "Seismic Reposition CC"), Sev0),
+                        new SubMechanic(Mech_SeismicRepositionNoStab, new (Symbols.HourglassOpen, Colors.DarkWhite), new("SeisRepos.CC", "CC by Seismic Reposition (Concentric Rings Leap)", "Seismic Reposition CC"), Sev0),
                         false
                     ),
             ]),
             new MechanicGroup([
-                new PlayerDstHealthDamageHitMechanic([EarthrendCastAndOuterRingDamageNM, EarthrendCastAndOuterRingDamageCM], new (Symbols.CircleOpen, Colors.Blue), new("Earthrend.H", "Hit by Earthrend (Outer Doughnut)", "Earthrend Hit"), Sev2)
+                new PlayerDstHealthDamageHitMechanic([EarthrendCastAndOuterRingDamageNM, EarthrendCastAndOuterRingDamageCM], Mech_Earthrend, new (Symbols.CircleOpen, Colors.Blue), new("Earthrend.H", "Hit by Earthrend (Outer Doughnut)", "Earthrend Hit"), Sev2)
                     .WithStabilitySubMechanic(
                         new SubMechanic(new (Symbols.CircleOpen, Colors.DarkBlue), new("Earthrend.CC", "CC by Earthrend (Outer Doughnut)", "Earthrend CC"), Sev0),
                         false
                     ),
-                new PlayerDstHealthDamageMechanic(EarthrendInnerHitboxDamageNM, new (Symbols.CircleCrossOpen, Colors.LightRed), new("Earthrend.Dwn", "Downed by Earthrend (Hitbox)", "Earthrend Downed"), Sev0)
+                new PlayerDstHealthDamageMechanic(EarthrendInnerHitboxDamageNM, Mech_EarthrendHitBox, new (Symbols.CircleCrossOpen, Colors.LightRed), new("Earthrend.Dwn", "Downed by Earthrend (Hitbox)", "Earthrend Downed"), Sev0)
                     .UsingChecker((hde, log) => hde.To.IsDowned(log, hde.Time))
                     .WithBuilds(GW2Builds.December2024MountBalriorNerfs),
-                new PlayerDstHealthDamageMechanic([EarthrendInnerHitboxDamageNM, EarthrendInnerHitboxDamageCM], new (Symbols.CircleCrossOpen, Colors.Red), new("Earthrend.D", "Earthrend Death (Hitbox)", "Earthrend Death"), Sev0)
+                new PlayerDstHealthDamageMechanic([EarthrendInnerHitboxDamageNM, EarthrendInnerHitboxDamageCM], Mech_EarthrendHitBoxKilled, new (Symbols.CircleCrossOpen, Colors.Red), new("Earthrend.D", "Earthrend Death (Hitbox)", "Earthrend Death"), Sev0)
                     .UsingChecker((hde, log) => hde.To.IsDead(log, hde.Time)), // If a player is already in downstate they get killed in NM, not logged in CM
             ]),
             new MechanicGroup([
-                new PlayerDstHealthDamageHitMechanic(Fluxlance, new (Symbols.StarSquare, Colors.LightOrange), new("Fluxlance.H", "Hit by Fluxlance (Single Orange Arrow)", "Fluxlance Hit"), Sev2),
-                new PlayerDstHealthDamageHitMechanic([FluxlanceFusillade, FluxlanceFusilladeCM], new (Symbols.StarDiamond, Colors.LightOrange), new("FluxFusi.H", "Hit by Fluxlance Fusillade (Sequential Orange Arrows)", "Fluxlance Fusillade Hit"), Sev2),
-                new PlayerDstHealthDamageHitMechanic([FluxlanceSalvo1, FluxlanceSalvoCM1, FluxlanceSalvo2, FluxlanceSalvoCM2, FluxlanceSalvo3, FluxlanceSalvoCM3, FluxlanceSalvo4, FluxlanceSalvoCM4, FluxlanceSalvo5, FluxlanceSalvoCM5], new (Symbols.StarDiamondOpen, Colors.LightOrange), new("FluxSalvo.H", "Hit by Fluxlance Salvo (Simultaneous Orange Arrows)", "Fluxlance Salvo Hit"), Sev2),
-                new PlayerDstHealthDamageHitMechanic([Fluxlance, FluxlanceFusillade, FluxlanceFusilladeCM, FluxlanceSalvo1, FluxlanceSalvoCM1, FluxlanceSalvo2, FluxlanceSalvoCM2, FluxlanceSalvo3, FluxlanceSalvoCM3, FluxlanceSalvo4, FluxlanceSalvoCM4, FluxlanceSalvo5, FluxlanceSalvoCM5], new (Symbols.DiamondWide, Colors.DarkMagenta), new("FluxInc.H", "Hit by Fluxlance with Harmonic Sensitivity", "Fluxlance with Harmonic Sensitivity Hit"), Sev0)
+                new PlayerDstHealthDamageHitMechanic(Fluxlance, Mech_Fluxlance, new (Symbols.StarSquare, Colors.LightOrange), new("Fluxlance.H", "Hit by Fluxlance (Single Orange Arrow)", "Fluxlance Hit"), Sev2),
+                new PlayerDstHealthDamageHitMechanic([FluxlanceFusillade, FluxlanceFusilladeCM], Mech_FluxlanceFusillade, new (Symbols.StarDiamond, Colors.LightOrange), new("FluxFusi.H", "Hit by Fluxlance Fusillade (Sequential Orange Arrows)", "Fluxlance Fusillade Hit"), Sev2),
+                new PlayerDstHealthDamageHitMechanic([FluxlanceSalvo1, FluxlanceSalvoCM1, FluxlanceSalvo2, FluxlanceSalvoCM2, FluxlanceSalvo3, FluxlanceSalvoCM3, FluxlanceSalvo4, FluxlanceSalvoCM4, FluxlanceSalvo5, FluxlanceSalvoCM5], Mech_FluxlanceSalvo, new (Symbols.StarDiamondOpen, Colors.LightOrange), new("FluxSalvo.H", "Hit by Fluxlance Salvo (Simultaneous Orange Arrows)", "Fluxlance Salvo Hit"), Sev2),
+                new PlayerDstHealthDamageHitMechanic([Fluxlance, FluxlanceFusillade, FluxlanceFusilladeCM, FluxlanceSalvo1, FluxlanceSalvoCM1, FluxlanceSalvo2, FluxlanceSalvoCM2, FluxlanceSalvo3, FluxlanceSalvoCM3, FluxlanceSalvo4, FluxlanceSalvoCM4, FluxlanceSalvo5, FluxlanceSalvoCM5], Mech_FluxlanceHarmonic, new (Symbols.DiamondWide, Colors.DarkMagenta), new("FluxInc.H", "Hit by Fluxlance with Harmonic Sensitivity", "Fluxlance with Harmonic Sensitivity Hit"), Sev0)
                     .UsingChecker((hde, log) => hde.To.HasBuff(log, HarmonicSensitivity, hde.Time, ServerDelayConstant)),
-                new PlayerDstBuffApplyMechanic(FluxlanceTargetBuff1, new (Symbols.StarTriangleDown, Colors.Orange), new("Fluxlance.T", "Targeted by Fluxlance", "Fluxlance Target"), Sev1),
-                new PlayerDstBuffApplyMechanic(FluxlanceRedArrowTargetBuff, new (Symbols.StarTriangleDown, Colors.Red), new("FluxRed.T", "Targeted by Fluxlance (Red Arrow)", "Fluxlance (Red Arrow)"), Sev0),
-                new PlayerDstBuffApplyMechanic([TargetOrder1JW, TargetOrder2JW, TargetOrder3JW, TargetOrder4JW, TargetOrder5JW], new (Symbols.StarTriangleDown, Colors.LightOrange), new("FluxOrder.T", "Targeted by Fluxlance (Target Order)", "Fluxlance Target (Sequential)"), Sev1),
+                new PlayerDstBuffApplyMechanic(FluxlanceTargetBuff1, Mech_FluxlanceTarget, new (Symbols.StarTriangleDown, Colors.Orange), new("Fluxlance.T", "Targeted by Fluxlance", "Fluxlance Target"), Sev1),
+                new PlayerDstBuffApplyMechanic(FluxlanceRedArrowTargetBuff, Mech_FluxlanceRedTarget, new (Symbols.StarTriangleDown, Colors.Red), new("FluxRed.T", "Targeted by FluxlANCE (Red Arrow)", "FluxlANCE (Red Arrow)"), Sev0),
+                new PlayerDstBuffApplyMechanic([TargetOrder1JW, TargetOrder2JW, TargetOrder3JW, TargetOrder4JW, TargetOrder5JW], Mech_DecimaTargetOrder, new (Symbols.StarTriangleDown, Colors.LightOrange), new("FluxOrder.T", "Targeted by Fluxlance (Target Order)", "Fluxlance Target (Sequential)"), Sev1),
             ]),
             new MechanicGroup([
-                new PlayerDstHealthDamageHitMechanic([SparkingAuraTier1, SparkingAuraTier1CM], new (Symbols.CircleX, Colors.Green), new("SparkAura1.H", "Sparking Aura (Absorbed Tier 1 Green Damage)", "Absorbed Tier 1 Green"), Sev2),
-                new PlayerDstHealthDamageHitMechanic([SparkingAuraTier2, SparkingAuraTier2CM], new (Symbols.CircleX, Colors.LightMilitaryGreen), new("SparkAura2.H", "Sparking Aura (Absorbed Tier 2 Green Damage)", "Absorbed Tier 2 Green"), Sev2),
-                new PlayerDstHealthDamageHitMechanic([SparkingAuraTier3, SparkingAuraTier3CM], new (Symbols.CircleX, Colors.DarkGreen), new("SparkAura3.H", "Sparking Aura (Absorbed Tier 3 Green Damage)", "Absorbed Tier 3 Green"), Sev2),
-                new PlayerDstHealthDamageHitMechanic([SparkingAuraTier1, SparkingAuraTier1CM, SparkingAuraTier2, SparkingAuraTier2CM, SparkingAuraTier3, SparkingAuraTier3CM], new (Symbols.CircleX, Colors.MilitaryGreen), new("SparkAuraInc.H", "Hit by Sparking Aura with Galvanic Sensitivity", "Sparking Aura with Galvanic Sensitivity Hit"), Sev0)
+                new PlayerDstHealthDamageHitMechanic([SparkingAuraTier1, SparkingAuraTier1CM], Mech_SparkingAuraTier1, new (Symbols.CircleX, Colors.Green), new("SparkAura1.H", "Sparking Aura (Absorbed Tier 1 Green Damage)", "Absorbed Tier 1 Green"), Sev2),
+                new PlayerDstHealthDamageHitMechanic([SparkingAuraTier2, SparkingAuraTier2CM], Mech_SparkingAuraTier2, new (Symbols.CircleX, Colors.LightMilitaryGreen), new("SparkAura2.H", "Sparking Aura (Absorbed Tier 2 Green Damage)", "Absorbed Tier 2 Green"), Sev2),
+                new PlayerDstHealthDamageHitMechanic([SparkingAuraTier3, SparkingAuraTier3CM], Mech_SparkingAuraTier3, new (Symbols.CircleX, Colors.DarkGreen), new("SparkAura3.H", "Sparking Aura (Absorbed Tier 3 Green Damage)", "Absorbed Tier 3 Green"), Sev2),
+                new PlayerDstHealthDamageHitMechanic([SparkingAuraTier1, SparkingAuraTier1CM, SparkingAuraTier2, SparkingAuraTier2CM, SparkingAuraTier3, SparkingAuraTier3CM], Mech_SparkingAuraGalvanic, new (Symbols.CircleX, Colors.MilitaryGreen), new("SparkAuraInc.H", "Hit by Sparking Aura with Galvanic Sensitivity", "Sparking Aura with Galvanic Sensitivity Hit"), Sev0)
                     .UsingChecker((hde, log) => hde.To.HasBuff(log, GalvanicSensitivityBuff, hde.Time, ServerDelayConstant)),
             ]),
             new MechanicGroup([
-                new PlayerDstHealthDamageHitMechanic([FulgentFence, FulgentFenceCM], new (Symbols.Octagon, Colors.Purple), new("FulFence.H", "Hit by Fulgent Fence (Barriers between Conduits)", "Fulgence Fence Hit"), Sev1),
-                new PlayerDstHealthDamageHitMechanic([FulgentAuraTier1, FulgentAuraTier1CM, FulgentAuraTier2, FulgentAuraTier2CM, FulgentAuraTier3, FulgentAuraTier3CM], new (Symbols.CircleXOpen, Colors.Purple), new("FulAura.H", "Hit by Fulgent Aura (Conduit AoE)", "Fulgent Aura Hit"), Sev0),
-                new PlayerDstHealthDamageHitMechanic([ReverberatingImpact, ReverberatingImpactCM], new (Symbols.StarOpen, Colors.LightBlue), new("RevImpact.H", "Hit by Reverberating Impact (Hit a Conduit)", "Reverberating Impact Hit"), Sev0),
+                new PlayerDstHealthDamageHitMechanic([FulgentFence, FulgentFenceCM], Mech_FulgentFence, new (Symbols.Octagon, Colors.Purple), new("FulFence.H", "Hit by Fulgent Fence (Barriers between Conduits)", "Fulgence Fence Hit"), Sev1),
+                new PlayerDstHealthDamageHitMechanic([FulgentAuraTier1, FulgentAuraTier1CM, FulgentAuraTier2, FulgentAuraTier2CM, FulgentAuraTier3, FulgentAuraTier3CM], Mech_FulgentAura, new (Symbols.CircleXOpen, Colors.Purple), new("FulAura.H", "Hit by Fulgent Aura (Conduit AoE)", "Fulgent Aura Hit"), Sev0),
+                new PlayerDstHealthDamageHitMechanic([ReverberatingImpact, ReverberatingImpactCM], Mech_ReverberatingImpact, new (Symbols.StarOpen, Colors.LightBlue), new("RevImpact.H", "Hit by Reverberating Impact (Hit a Conduit)", "Reverberating Impact Hit"), Sev0),
             ]),
             new MechanicGroup([
-                new PlayerDstHealthDamageHitMechanic(Earthfall, new (Symbols.YUp, Colors.LightPink), new("Earthfall.H", "Hit by Earthfall (Transcendent Boudlers Jump)", "Earthfall Hit"), Sev2),
-                new PlayerDstHealthDamageHitMechanic(Sparkwave, new (Symbols.TriangleDown, Colors.LightOrange), new("Sparkwave.H", "Hit by Sparkwave (Transcendent Boulders Cone)", "Sparkwave Hit"), Sev2),
-                new PlayerDstHealthDamageHitMechanic(ChargedGround, new (Symbols.CircleOpenDot, Colors.CobaltBlue), new("CharGrnd.H", "Hit by Charged Ground (Transcendent Boulders AoEs)", "Charged Ground Hit"), Sev0),
+                new PlayerDstHealthDamageHitMechanic(Earthfall, Mech_Earthfall, new (Symbols.YUp, Colors.LightPink), new("Earthfall.H", "Hit by Earthfall (Transcendent Boudlers Jump)", "Earthfall Hit"), Sev2),
+                new PlayerDstHealthDamageHitMechanic(Sparkwave, Mech_Sparkwave, new (Symbols.TriangleDown, Colors.LightOrange), new("Sparkwave.H", "Hit by Sparkwave (Transcendent Boulders Cone)", "Sparkwave Hit"), Sev2),
+                new PlayerDstHealthDamageHitMechanic(ChargedGround, Mech_ChargedGround, new (Symbols.CircleOpenDot, Colors.CobaltBlue), new("CharGrnd.H", "Hit by Charged Ground (Transcendent Boulders AoEs)", "Charged Ground Hit"), Sev0),
             ]),
             new MechanicGroup([
-                new AchievementEligibilityMechanic(Ach_ThisBugCanDance, new (Symbols.Pentagon, Colors.DarkerLime), new("BugDance.Achiv.L", "Achievement Eligibility: This Bug Can Dance Lost", "Achiv: This Bug Can Dance Lost"))
+                new AchievementEligibilityMechanic(Ach_ThisBugCanDance, Mech_BugCanDanceLost, new (Symbols.Pentagon, Colors.DarkerLime), new("BugDance.Achiv.L", "Achievement Eligibility: This Bug Can Dance Lost", "Achiv: This Bug Can Dance Lost"))
                         .UsingChecker((evt, log) => evt.Lost),
-                new AchievementEligibilityMechanic(Ach_ThisBugCanDance, new (Symbols.Pentagon, Colors.Lime), new("BugDance.Achiv.K", "Achievement Eligibility: This Bug Can Dance Kept", "Achiv: This Bug Can Dance Kept"))
+                new AchievementEligibilityMechanic(Ach_ThisBugCanDance, Mech_BugCanDanceKept, new (Symbols.Pentagon, Colors.Lime), new("BugDance.Achiv.K", "Achievement Eligibility: This Bug Can Dance Kept", "Achiv: This Bug Can Dance Kept"))
                         .UsingChecker((evt, log) => !evt.Lost)
             ]),
-            new EnemyDstBuffApplyMechanic(ChargeDecima, new (Symbols.BowtieOpen, Colors.DarkMagenta), new("Charge", "Charge Stacks", "Charge Stacks"), Sev0),
+            new EnemyDstBuffApplyMechanic(ChargeDecima, Mech_DecimaCharged, new (Symbols.BowtieOpen, Colors.DarkMagenta), new("Charge", "Charge Stacks", "Charge Stacks"), Sev0),
         ]);
 
     public DecimaTheStormsinger(int triggerID) : base(triggerID)

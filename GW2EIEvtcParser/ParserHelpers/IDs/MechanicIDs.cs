@@ -1,5 +1,6 @@
 ﻿namespace GW2EIEvtcParser;
 
+#pragma warning disable CA1823 // Unused field
 /// <summary>
 /// Pool of mechanic IDs used in the parser, always custom.
 /// <para>Naming convention: </para>
@@ -415,6 +416,40 @@ public static class MechanicIDs
     public static readonly int Mech_BlobOfBlightTarget = MountBalriorMask | ++mountBalriorCount;
     public static readonly int Mech_BoonsCorruptedGreer = MountBalriorMask | ++mountBalriorCount;
     public static readonly int Mech_EmpoweredGreer = MountBalriorMask | ++mountBalriorCount;
+    public static readonly int Mech_ChorusOfThunder = MountBalriorMask | ++mountBalriorCount;
+    public static readonly int Mech_ChorusOfThunderTarget = MountBalriorMask | ++mountBalriorCount;
+    public static readonly int Mech_DiscordantThunder = MountBalriorMask | ++mountBalriorCount;
+    public static readonly int Mech_HarmoniousThunder = MountBalriorMask | ++mountBalriorCount;
+    public static readonly int Mech_SeismicCrash = MountBalriorMask | ++mountBalriorCount;
+    public static readonly int Mech_SeismicCrashNoStab = MountBalriorMask | ++mountBalriorCount;
+    public static readonly int Mech_SeismicCrashHitBox = MountBalriorMask | ++mountBalriorCount;
+    public static readonly int Mech_SeismicCrashHitBoxKilled = MountBalriorMask | ++mountBalriorCount;
+    public static readonly int Mech_SeismicReposition = MountBalriorMask | ++mountBalriorCount;
+    public static readonly int Mech_SeismicRepositionNoStab = MountBalriorMask | ++mountBalriorCount;
+    public static readonly int Mech_Earthrend = MountBalriorMask | ++mountBalriorCount;
+    public static readonly int Mech_EarthrendNoStab = MountBalriorMask | ++mountBalriorCount;
+    public static readonly int Mech_EarthrendHitBox = MountBalriorMask | ++mountBalriorCount;
+    public static readonly int Mech_EarthrendHitBoxKilled = MountBalriorMask | ++mountBalriorCount;
+    public static readonly int Mech_Fluxlance = MountBalriorMask | ++mountBalriorCount;
+    public static readonly int Mech_FluxlanceFusillade = MountBalriorMask | ++mountBalriorCount;
+    public static readonly int Mech_FluxlanceSalvo = MountBalriorMask | ++mountBalriorCount;
+    public static readonly int Mech_FluxlanceHarmonic = MountBalriorMask | ++mountBalriorCount;
+    public static readonly int Mech_FluxlanceTarget = MountBalriorMask | ++mountBalriorCount;
+    public static readonly int Mech_FluxlanceRedTarget = MountBalriorMask | ++mountBalriorCount;
+    public static readonly int Mech_DecimaTargetOrder = MountBalriorMask | ++mountBalriorCount;
+    public static readonly int Mech_SparkingAuraTier1 = MountBalriorMask | ++mountBalriorCount;
+    public static readonly int Mech_SparkingAuraTier2 = MountBalriorMask | ++mountBalriorCount;
+    public static readonly int Mech_SparkingAuraTier3 = MountBalriorMask | ++mountBalriorCount;
+    public static readonly int Mech_SparkingAuraGalvanic = MountBalriorMask | ++mountBalriorCount;
+    public static readonly int Mech_FulgentFence = MountBalriorMask | ++mountBalriorCount;
+    public static readonly int Mech_FulgentAura = MountBalriorMask | ++mountBalriorCount;
+    public static readonly int Mech_ReverberatingImpact = MountBalriorMask | ++mountBalriorCount;
+    public static readonly int Mech_Earthfall = MountBalriorMask | ++mountBalriorCount;
+    public static readonly int Mech_Sparkwave = MountBalriorMask | ++mountBalriorCount;
+    public static readonly int Mech_ChargedGround = MountBalriorMask | ++mountBalriorCount;
+    public static readonly int Mech_BugCanDanceLost = MountBalriorMask | ++mountBalriorCount;
+    public static readonly int Mech_BugCanDanceKept = MountBalriorMask | ++mountBalriorCount;
+    public static readonly int Mech_DecimaCharged = MountBalriorMask | ++mountBalriorCount;
     #endregion WING 8
     #endregion RAID WINGS
 
@@ -1057,3 +1092,5 @@ public static class MechanicIDs
     public static readonly int Mech_KillingBlowEnemy = WvWMask | ++_wvwCount;
     #endregion WVW
 }
+
+#pragma warning restore CA1823 // Unused field
