@@ -50,7 +50,7 @@ internal class DecimaTheStormsinger : MountBalrior
             new MechanicGroup([
                 new PlayerDstHealthDamageHitMechanic([EarthrendCastAndOuterRingDamageNM, EarthrendCastAndOuterRingDamageCM], Mech_Earthrend, new (Symbols.CircleOpen, Colors.Blue), new("Earthrend.H", "Hit by Earthrend (Outer Doughnut)", "Earthrend Hit"), Sev2)
                     .WithStabilitySubMechanic(
-                        new SubMechanic(new (Symbols.CircleOpen, Colors.DarkBlue), new("Earthrend.CC", "CC by Earthrend (Outer Doughnut)", "Earthrend CC"), Sev0),
+                        new SubMechanic(Mech_EarthrendNoStab, new (Symbols.CircleOpen, Colors.DarkBlue), new("Earthrend.CC", "CC by Earthrend (Outer Doughnut)", "Earthrend CC"), Sev0),
                         false
                     ),
                 new PlayerDstHealthDamageMechanic(EarthrendInnerHitboxDamageNM, Mech_EarthrendHitBox, new (Symbols.CircleCrossOpen, Colors.LightRed), new("Earthrend.Dwn", "Downed by Earthrend (Hitbox)", "Earthrend Downed"), Sev0)
