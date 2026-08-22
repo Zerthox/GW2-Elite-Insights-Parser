@@ -27,8 +27,6 @@ internal class ConsoleResultObject
     public bool WingmanUploadTentative => Controller.WingmanUploadTentative;
     public bool WingmanUploadFailed => Controller.WingmanUploadFailed;
     public bool WingmanUploadRefused => Controller.WingmanUploadRefused;
-    public bool MistWarriorUploadTentative  => Controller.MistWarriorUploadTentative;
-    public bool MistWarriorUploadFailed => Controller.MistWarriorUploadFailed;
 
     public long Elapsed => Controller.Elapsed;
 

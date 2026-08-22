@@ -139,8 +139,6 @@ public static class CustomSettingsManager
             UploadToDPSReports = Properties.Settings.Default.UploadToDPSReports,
             DPSReportUserToken = Properties.Settings.Default.DPSReportUserToken,
             UploadToWingman = Properties.Settings.Default.UploadToWingman,
-            UploadToMistWarrior = Properties.Settings.Default.UploadToMistWarrior,
-            MistWarriorUserToken = Properties.Settings.Default.MistWarriorUserToken,
             SaveOutCSV = Properties.Settings.Default.SaveOutCSV,
             SaveOutHTML = Properties.Settings.Default.SaveOutHTML,
             SaveOutJSON = Properties.Settings.Default.SaveOutJSON,
