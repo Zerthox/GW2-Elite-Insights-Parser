@@ -12,6 +12,7 @@
         <AssemblyTitle>EliteInsights</AssemblyTitle>
         <OutputPath>..\GW2EI.bin\$(Configuration).tst\</OutputPath>
         <Product>GW2 Elite Insights</Product>
+        <RepositoryUrl>https://github.com/baaron4/GW2-Elite-Insights-Parser</RepositoryUrl>
         <Copyright>Copyright ©  2020</Copyright>
         <AppendTargetFrameworkToOutputPath>false</AppendTargetFrameworkToOutputPath>
         <Configurations>Debug;Release;NoRewards;Trace</Configurations>
@@ -34,6 +35,9 @@
     <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='NoRewards|AnyCPU'">
         <DefineConstants>DEBUG</DefineConstants>
         <PlatformTarget>x64</PlatformTarget>
+    </PropertyGroup>
+    <PropertyGroup>
+        <IsPackable>false</IsPackable>
     </PropertyGroup>
     <PropertyGroup>
         <AnalysisMode>AllEnabledByDefault</AnalysisMode>
