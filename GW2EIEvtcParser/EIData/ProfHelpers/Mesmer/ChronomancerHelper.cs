@@ -17,6 +17,7 @@ internal static class ChronomancerHelper
     [
         new BuffGainCastFinder(ContinuumSplit, TimeAnchored),
         new BuffLossCastFinder(ContinuumShift, TimeAnchored),
+        /*
         new EffectCastFinder(SplitSecond, EffectGUIDs.ChronomancerSplitSecond)
             .UsingSecondaryEffectSameSrcChecker(EffectGUIDs.ChronomancerSeizeTheMomentShatter)
             .UsingSrcSpecChecker(Spec.Chronomancer),
@@ -26,6 +27,7 @@ internal static class ChronomancerHelper
         new EffectCastFinder(TimeSink, EffectGUIDs.ChronomancerTimeSink)
             .UsingSecondaryEffectSameSrcChecker(EffectGUIDs.ChronomancerSeizeTheMomentShatter)
             .UsingSrcSpecChecker(Spec.Chronomancer),
+        */
         new DamageCastFinder(TimeBombDamage, TimeBombDamage),
     ];
 
@@ -116,6 +118,81 @@ internal static class ChronomancerHelper
     internal static bool IsKnownMinionID(int id)
     {
         return NonCloneMinions.Contains(id);
+    }
+
+    internal static List<CastEvent> ComputeChronomancerShatters(AgentItem player, CombatData combatData, SkillData skillData, IReadOnlyList<AgentItem> clones)
+    {
+        var res = new List<CastEvent>();
+        if (combatData.TryGetEffectEventsBySrcWithGUIDs(player, [EffectGUIDs.ChronomancerSplitSecond, EffectGUIDs.ChronomancerRewinder, EffectGUIDs.ChronomancerTimeSink], out var shatters))
+        {
+            if (!combatData.TryGetEffectEventsBySrcWithGUID(player, EffectGUIDs.MesmerThePrestigeDisappear2AndShatterAroundClonesAndChrono, out var chronoShatters))
+            {
+                return res;
+            }
+            if (!combatData.TryGetEffectEventsBySrcWithGUID(player, EffectGUIDs.ChronomancerSeizeTheMomentShatter, out var boonGivingShatters))
+            {
+                boonGivingShatters = [];
+            }
+            var skillDict = new Dictionary<GUID, SkillItem>()
+            {
+                { EffectGUIDs.ChronomancerSplitSecond, skillData.Get(SplitSecondOrSplitSecondAmmo)},
+                { EffectGUIDs.ChronomancerRewinder, skillData.Get(Rewinder)},
+                { EffectGUIDs.ChronomancerTimeSink, skillData.Get(TimeSink)},
+            };
+            skillData.NotAccurate.UnionWith([SplitSecondOrSplitSecondAmmo, SplitSecond, SplitSecondAmmo, Rewinder, TimeSink]);
+            shatters.SortByTime();
+            shatters.Reverse();
+            var pClones = clones.Where(player.IsMasterOf);
+            var pClonesDead = pClones.Select(x => combatData.GetDeadEvents(x).LastOrDefault()).Where(x => x != null).ToList();
+            pClonesDead.Sort((x, y) => x!.Time.CompareTo(y!.Time));
+            foreach (var shatter in shatters)
+            {
+                var boonGivingShattersInFrame = boonGivingShatters
+                    .Where(x => Math.Abs(x.Time - shatter.Time) < ServerDelayConstant)
+                    .ToList();
+                var skill = skillDict[shatter.GUIDEvent.GUID];
+                if (skill.ID == SplitSecondOrSplitSecondAmmo)
+                {
+                    if (combatData.GetDamageData(SplitSecondAmmo).Any(x => x.CreditedFrom.Is(player) && Math.Abs(x.Time - shatter.Time) < 2000))
+                    {
+                        skill = skillData.Get(SplitSecondAmmo);
+                    } 
+                    else if (combatData.GetDamageData(SplitSecond).Any(x => x.CreditedFrom.Is(player) && Math.Abs(x.Time - shatter.Time) < 2000))
+                    {
+                        skill = skillData.Get(SplitSecond);
+                    }
+                }
+                if (boonGivingShattersInFrame.Any(x =>
+                        (x.Position.XY() - shatter.Position.XY()).LengthSquared() < 1e-6)
+                    )
+                {
+                    res.Add(new InstantCastEvent(shatter.Time, skill, shatter.Src));
+                } 
+                else
+                {
+                    if (boonGivingShattersInFrame.Count > 0)
+                    {
+                        continue;
+                    }
+                    var deadClone = pClonesDead.LastOrDefault(x => x!.Time >= shatter.Time && x!.Time - shatter.Time < 2 * ServerDelayConstant);
+                    if (deadClone == null)
+                    {
+                        if (chronoShatters.Any(x =>
+                                Math.Abs(x.Time - shatter.Time) < ServerDelayConstant &&
+                                (x.Position.XY() - shatter.Position.XY()).LengthSquared() < 1e-6)
+                            )
+                        {
+                            res.Add(new InstantCastEvent(shatter.Time, skill, shatter.Src));
+                        }
+                    }
+                    else
+                    {
+                        pClonesDead.Remove(deadClone);
+                    }
+                }
+            }
+        }
+        return res;
     }
 
     internal static void ComputeProfessionCombatReplayActors(PlayerActor player, ParsedEvtcLog log, CombatReplay replay)
