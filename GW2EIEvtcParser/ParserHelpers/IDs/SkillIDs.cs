@@ -79,6 +79,8 @@ public static class SkillIDs
     public const long UraBloodstoneShardPickUp = -60;
     public const long FlameRushOrFlameSurge = -61;
     public const long EchoOfTruthOrVoiceOfTruth = -62;
+    public const long MindWrackOrMindWrackAmmo = -63;
+    public const long SplitSecondOrSplitSecondAmmo = -64;
     #endregion
     #region ArcDPS Hardcoded
     internal const long ArcDPSDodge = 65001;
@@ -3352,6 +3354,7 @@ public static class SkillIDs
     public const long DarkSaviorHealing = 56922;
     public const long SicEmPvPBuff = 56923;
     public const long PitfallPreparedBuff = 56924;
+    public const long SplitSecondAmmo = 56925;
     public const long Rewinder = 56928;
     public const long SplitSecond = 56930;
     public const long ShadowPortalOpenedBuff = 57031;

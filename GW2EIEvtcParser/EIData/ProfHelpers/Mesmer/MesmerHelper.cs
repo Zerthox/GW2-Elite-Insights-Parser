@@ -47,10 +47,21 @@ internal static class MesmerHelper
             .UsingChecker((evt, combatData, agentData, skillData) => !agentData.HasSpawnedMinion(MinionID.CloneStaff, evt.Dst, evt.Time, 30))
             .UsingNotAccurate(),
         // Shatters
+        new EffectCastFinder(MindWrackOrMindWrackAmmo, EffectGUIDs.MesmerDistortionOrMindWrack)
+            .UsingSrcSpecsChecker([Spec.Mirage, Spec.Mesmer])
+            .UsingNoSecondaryEffectSameSrcCheckerOnSamePosition(EffectGUIDs.MesmerThePrestigeDisappear2AndShatterAroundClonesAndChrono)
+            .UsingChecker((evt, combatData, agentData, skillData) => !combatData.HasGainedBuff(DistortionBuff, evt.Src, evt.Time))
+            .UsingChecker((evt, combatData, agentData, skillData) => !combatData.GetDamageData(MindWrack).Any(x => x.CreditedFrom.Is(evt.Src) && Math.Abs(x.Time - evt.Time) < 2000) && !combatData.GetDamageData(MindWrackAmmo).Any(x => x.CreditedFrom.Is(evt.Src) && Math.Abs(x.Time - evt.Time) < 2000)),
         new EffectCastFinder(MindWrack, EffectGUIDs.MesmerDistortionOrMindWrack)
             .UsingSrcSpecsChecker([Spec.Mirage, Spec.Mesmer])
             .UsingNoSecondaryEffectSameSrcCheckerOnSamePosition(EffectGUIDs.MesmerThePrestigeDisappear2AndShatterAroundClonesAndChrono)
-            .UsingChecker((evt, combatData, agentData, skillData) => !combatData.HasGainedBuff(DistortionBuff, evt.Src, evt.Time)),
+            .UsingChecker((evt, combatData, agentData, skillData) => !combatData.HasGainedBuff(DistortionBuff, evt.Src, evt.Time))
+            .UsingChecker((evt, combatData, agentData, skillData) => combatData.GetDamageData(MindWrack).Any(x => x.CreditedFrom.Is(evt.Src) && Math.Abs(x.Time - evt.Time) < 2000)),
+        new EffectCastFinder(MindWrackAmmo, EffectGUIDs.MesmerDistortionOrMindWrack)
+            .UsingSrcSpecsChecker([Spec.Mirage, Spec.Mesmer])
+            .UsingNoSecondaryEffectSameSrcCheckerOnSamePosition(EffectGUIDs.MesmerThePrestigeDisappear2AndShatterAroundClonesAndChrono)
+            .UsingChecker((evt, combatData, agentData, skillData) => !combatData.HasGainedBuff(DistortionBuff, evt.Src, evt.Time))
+            .UsingChecker((evt, combatData, agentData, skillData) => combatData.GetDamageData(MindWrackAmmo).Any(x => x.CreditedFrom.Is(evt.Src) && Math.Abs(x.Time - evt.Time) < 2000)),
         new EffectCastFinder(CryOfFrustration, EffectGUIDs.MesmerCryOfFrustration)
             .UsingSrcSpecsChecker([Spec.Mirage, Spec.Mesmer])
             .UsingNoSecondaryEffectSameSrcCheckerOnSamePosition(EffectGUIDs.MesmerThePrestigeDisappear2AndShatterAroundClonesAndChrono),
