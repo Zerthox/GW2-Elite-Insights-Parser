@@ -450,6 +450,39 @@ public static class MechanicIDs
     public static readonly int Mech_BugCanDanceLost = MountBalriorMask | ++mountBalriorCount;
     public static readonly int Mech_BugCanDanceKept = MountBalriorMask | ++mountBalriorCount;
     public static readonly int Mech_DecimaCharged = MountBalriorMask | ++mountBalriorCount;
+    public static readonly int Mech_SulfuricEruption = MountBalriorMask | ++mountBalriorCount;
+    public static readonly int Mech_EruptionVent = MountBalriorMask | ++mountBalriorCount;
+    public static readonly int Mech_SulfuricGeyserTarget = MountBalriorMask | ++mountBalriorCount;
+    public static readonly int Mech_SulfuricGeyserCrustDispel = MountBalriorMask | ++mountBalriorCount;
+    public static readonly int Mech_HopscotchLost = MountBalriorMask | ++mountBalriorCount;
+    public static readonly int Mech_HopscotchKept = MountBalriorMask | ++mountBalriorCount;
+    public static readonly int Mech_CreateTitanspawnGeyser = MountBalriorMask | ++mountBalriorCount;
+    public static readonly int Mech_CreateTitanspawnGeyserNoStab = MountBalriorMask | ++mountBalriorCount;
+    public static readonly int Mech_TitanspawnGeyserCrustDispel = MountBalriorMask | ++mountBalriorCount;
+    public static readonly int Mech_TitanspawnGeyserBreakbarDamage = MountBalriorMask | ++mountBalriorCount;
+    public static readonly int Mech_ToxicGeyser = MountBalriorMask | ++mountBalriorCount;
+    public static readonly int Mech_ToxicGeyserCrustDispel = MountBalriorMask | ++mountBalriorCount;
+    public static readonly int Mech_ToxicGeyserBreakbarDamage = MountBalriorMask | ++mountBalriorCount;
+    public static readonly int Mech_ScaldingAura = MountBalriorMask | ++mountBalriorCount;
+    public static readonly int Mech_SulfuricAcid = MountBalriorMask | ++mountBalriorCount;
+    public static readonly int Mech_SulfuricFroth = MountBalriorMask | ++mountBalriorCount;
+    public static readonly int Mech_SteamPrison = MountBalriorMask | ++mountBalriorCount;
+    public static readonly int Mech_SteamPrisonTarget = MountBalriorMask | ++mountBalriorCount;
+    public static readonly int Mech_PressureBlastTarget = MountBalriorMask | ++mountBalriorCount;
+    public static readonly int Mech_PressureBlastBubble = MountBalriorMask | ++mountBalriorCount;
+    public static readonly int Mech_PressureBlastBubbleRemoved = MountBalriorMask | ++mountBalriorCount;
+    public static readonly int Mech_Deterrence = MountBalriorMask | ++mountBalriorCount;
+    public static readonly int Mech_BloodstoneSaturation = MountBalriorMask | ++mountBalriorCount;
+    public static readonly int Mech_BreakingGround = MountBalriorMask | ++mountBalriorCount;
+    public static readonly int Mech_MantleGrinder = MountBalriorMask | ++mountBalriorCount;
+    public static readonly int Mech_FullSteam = MountBalriorMask | ++mountBalriorCount;
+    public static readonly int Mech_PressureRelease = MountBalriorMask | ++mountBalriorCount;
+    public static readonly int Mech_ForcedEruption = MountBalriorMask | ++mountBalriorCount;
+    public static readonly int Mech_SnearingSnipe = MountBalriorMask | ++mountBalriorCount;
+    public static readonly int Mech_StoneSlamCone = MountBalriorMask | ++mountBalriorCount;
+    public static readonly int Mech_UraReturn = MountBalriorMask | ++mountBalriorCount;
+    public static readonly int Mech_RisingPressure = MountBalriorMask | ++mountBalriorCount;
+    public static readonly int Mech_TitanicResistance = MountBalriorMask | ++mountBalriorCount;
     #endregion WING 8
     #endregion RAID WINGS
 
