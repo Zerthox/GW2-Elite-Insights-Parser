@@ -514,6 +514,10 @@ th:hover img.icon-hover,
     width: 120px;
 }
 
+.mech-cell-time {
+    width: 82px;
+}
+
 .mech-cell {
     width: 200px;
 }
@@ -733,12 +737,12 @@ canvas {
 }
 
 .combat-replay-mechanics-list-container {
-    max-height: 800px;
+    height: 810px;
     max-width: 500px; 
 }
 
 .combat-actor-status-container {
-    max-height: 830px;
+    height: 810px;
     width: 250px;
 }
 

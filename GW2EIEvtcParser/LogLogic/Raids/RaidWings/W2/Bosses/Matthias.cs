@@ -394,7 +394,7 @@ internal class Matthias : SalvationPass
             if (playerPositions.Count > 0)
             {
                 // Get position when you lose the buff
-                var positionsFiltered = playerPositions.Where(x => x.Time >= seg.End - ServerDelayConstant && x.Time <= seg.End + ArcDPSPollingRate);
+                var positionsFiltered = playerPositions.Where(x => x.Time >= seg.End - ServerDelayConstant).Take(3);
                 Vector3 foundPosition = new(0, 0, 0);
                 bool found = false;
 

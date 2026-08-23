@@ -79,6 +79,8 @@ public static class SkillIDs
     public const long UraBloodstoneShardPickUp = -60;
     public const long FlameRushOrFlameSurge = -61;
     public const long EchoOfTruthOrVoiceOfTruth = -62;
+    public const long MindWrackOrMindWrackAmmo = -63;
+    public const long SplitSecondOrSplitSecondAmmo = -64;
     #endregion
     #region ArcDPS Hardcoded
     internal const long ArcDPSDodge = 65001;
@@ -170,6 +172,7 @@ public static class SkillIDs
     public const long Encumbered = 1159;
     public const long Bandage = 1175;
     public const long Quickness = 1187;
+    public const long PetRevive = 1196;
     public const long JacarandasEmbraceMinion = 1286; // Skill casted by Jacaranda's Embrace NPC
     public const long GraspingVinesDamage = 1290;
     public const long AimedShotWvW = 1421;
@@ -3351,6 +3354,7 @@ public static class SkillIDs
     public const long DarkSaviorHealing = 56922;
     public const long SicEmPvPBuff = 56923;
     public const long PitfallPreparedBuff = 56924;
+    public const long SplitSecondAmmo = 56925;
     public const long Rewinder = 56928;
     public const long SplitSecond = 56930;
     public const long ShadowPortalOpenedBuff = 57031;
