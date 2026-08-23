@@ -49,14 +49,14 @@ internal static class MesmerHelper
         // Shatters
         new EffectCastFinder(MindWrack, EffectGUIDs.MesmerDistortionOrMindWrack)
             .UsingSrcSpecsChecker([Spec.Mirage, Spec.Mesmer])
-            .UsingNoSecondaryEffectSameSrcCheckerOnSamePosition(EffectGUIDs.MesmerThePrestigeDisappear2AndNonChronoShatterAroundClones)
+            .UsingNoSecondaryEffectSameSrcCheckerOnSamePosition(EffectGUIDs.MesmerThePrestigeDisappear2AndShatterAroundClonesAndChrono)
             .UsingChecker((evt, combatData, agentData, skillData) => !combatData.HasGainedBuff(DistortionBuff, evt.Src, evt.Time)),
         new EffectCastFinder(CryOfFrustration, EffectGUIDs.MesmerCryOfFrustration)
             .UsingSrcSpecsChecker([Spec.Mirage, Spec.Mesmer])
-            .UsingNoSecondaryEffectSameSrcCheckerOnSamePosition(EffectGUIDs.MesmerThePrestigeDisappear2AndNonChronoShatterAroundClones),
+            .UsingNoSecondaryEffectSameSrcCheckerOnSamePosition(EffectGUIDs.MesmerThePrestigeDisappear2AndShatterAroundClonesAndChrono),
         new EffectCastFinder(Diversion, EffectGUIDs.MesmerDiversion)
             .UsingSrcSpecsChecker([Spec.Mirage, Spec.Mesmer])
-            .UsingNoSecondaryEffectSameSrcCheckerOnSamePosition(EffectGUIDs.MesmerThePrestigeDisappear2AndNonChronoShatterAroundClones),
+            .UsingNoSecondaryEffectSameSrcCheckerOnSamePosition(EffectGUIDs.MesmerThePrestigeDisappear2AndShatterAroundClonesAndChrono),
         new EffectCastFinder(DistortionSkill, EffectGUIDs.MesmerDistortionOrMindWrack)
             .UsingSrcSpecsChecker([Spec.Mirage, Spec.Mesmer])
             .UsingChecker((evt, combatData, agentData, skillData) => combatData.HasGainedBuff(DistortionBuff, evt.Src, evt.Time))
