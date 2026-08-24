@@ -29,6 +29,12 @@ internal static class MesmerHelper
             .UsingOrigin(EIData.InstantCastFinder.InstantCastOrigin.Trait),
         new EffectCastFinder(Feedback, EffectGUIDs.MesmerFeedback)
             .UsingSrcBaseSpecChecker(Spec.Mesmer),
+        new EffectCastFinder(ChaosArmor, EffectGUIDs.MesmerChaosArmor)
+            .UsingSecondaryEffectSameSrcChecker(EffectGUIDs.MesmerChaosArmorGround)
+            .UsingSrcBaseSpecChecker(Spec.Mesmer),
+        new EffectCastFinder(MirrorImages, EffectGUIDs.MesmerIllusionOfLife2AndMirrorImages)
+            .UsingSecondaryEffectSameSrcChecker(EffectGUIDs.MesmerTrail)
+            .UsingSrcBaseSpecChecker(Spec.Mesmer),
         // identify swap by buff remove
         // identify phase retreat by spawned staff clone
         // fallback to blink or phase retreat

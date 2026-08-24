@@ -776,6 +776,7 @@ public static class SkillIDs
     public const long PortalWeaving = 10198;
     public const long PortalExeunt = 10199;
     public const long Blink = 10200;
+    public const long MirrorImages = 10202;
     public const long NullField = 10203;
     public const long MantraOfDistraction = 10204;
     public const long PowerLock = 10206;
@@ -823,6 +824,7 @@ public static class SkillIDs
     public const long StabSpearClone = 10319;
     public const long JabSpearClone = 10320;
     public const long PhantasmalWhalersVolley = 10330;
+    public const long ChaosArmor = 10331;
     public const long ChaosAura = 10332;
     public const long Blur = 10335;
     public const long Swap = 10337;
