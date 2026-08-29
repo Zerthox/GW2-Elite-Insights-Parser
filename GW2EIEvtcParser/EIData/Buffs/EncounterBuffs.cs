@@ -230,8 +230,8 @@ internal static class EncounterBuffs
             new Buff("Bloodstone Blessed", BloodstoneBlessed, Source.EncounterSpecific, BuffClassification.Other, BuffImages.BloodstoneBlessed),
             new Buff("Void Zone", VoidZone, Source.EncounterSpecific, BuffClassification.Other, BuffImages.VoidZone),
             new Buff("Gravity Well (Xera)", GravityWellXera, Source.EncounterSpecific, BuffClassification.Other, SkillImages.MonsterSkill),
-            new Buff("Hero's Departure", HeroesDeparture, Source.EncounterSpecific, BuffClassification.Other, BuffImages.Determined),
-            new Buff("Hero's Return", HeroesReturn, Source.EncounterSpecific, BuffClassification.Other, BuffImages.Determined),
+            new Buff("Hero's Departure", HerosDeparture, Source.EncounterSpecific, BuffClassification.Other, BuffImages.Determined),
+            new Buff("Hero's Return", HerosReturn, Source.EncounterSpecific, BuffClassification.Other, BuffImages.Determined),
             //////////////////////////////////////////////
             // Cairn
             new Buff("Shared Agony", SharedAgony, Source.EncounterSpecific, BuffClassification.Debuff, BuffImages.SharedAgony),

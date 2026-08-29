@@ -2217,7 +2217,7 @@ public static class SkillIDs
     public const long PortalWeavingWhiteMantleWatchwork = 34978;
     public const long Unbreakable = 34979;
     public const long RadiantAttunementPhantasm = 34992;
-    public const long HeroesDeparture = 34997;
+    public const long HerosDeparture = 34997;
     public const long InterventionInvulnerabilityBuff = 35000;
     public const long Madness = 35006;
     public const long ConfoundingFrenzy = 35009;
@@ -2232,7 +2232,7 @@ public static class SkillIDs
     public const long PhantasmalBlades1 = 35064;
     public const long EscortHealingCleanse = 35073;
     public const long GainingPower = 35075;
-    public const long HeroesReturn = 35076;
+    public const long HerosReturn = 35076;
     public const long HailOfFury = 35077;
     public const long BendingChaos = 35084;
     public const long TowerDrop = 35086;

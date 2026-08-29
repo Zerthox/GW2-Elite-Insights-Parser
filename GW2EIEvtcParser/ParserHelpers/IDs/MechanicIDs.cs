@@ -190,8 +190,8 @@ public static class MechanicIDs
     public static readonly int Mech_TwistingChaos = StrongholdOfTheFaithfulMask | ++strongholdOfTheFaithfulCount;
     public static readonly int Mech_InterventionCast = StrongholdOfTheFaithfulMask | ++strongholdOfTheFaithfulCount;
     public static readonly int Mech_GravityWellXera = StrongholdOfTheFaithfulMask | ++strongholdOfTheFaithfulCount;
-    public static readonly int Mech_HeroesDeparture = StrongholdOfTheFaithfulMask | ++strongholdOfTheFaithfulCount;
-    public static readonly int Mech_HeroesReturn = StrongholdOfTheFaithfulMask | ++strongholdOfTheFaithfulCount;
+    public static readonly int Mech_HerosDeparture = StrongholdOfTheFaithfulMask | ++strongholdOfTheFaithfulCount;
+    public static readonly int Mech_HerosReturn = StrongholdOfTheFaithfulMask | ++strongholdOfTheFaithfulCount;
     #endregion WING 3
     #region WING 4
     private static int bastionOfThePenitentCount = 0;

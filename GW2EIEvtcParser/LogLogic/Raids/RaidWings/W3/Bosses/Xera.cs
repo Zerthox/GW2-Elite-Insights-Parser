@@ -43,8 +43,8 @@ internal class Xera : StrongholdOfTheFaithful
             new PlayerDstBuffApplyMechanic(InterventionSkillOwnerBuff, Mech_InterventionCast, new (Symbols.Square,Colors.Blue), new("Shield", "Intervention (got Special Action Key)","Shield"), Sev0),
             new PlayerDstBuffApplyMechanic(GravityWellXera, Mech_GravityWellXera, new (Symbols.CircleXOpen,Colors.Magenta), new("Gravity Half", "Half-platform Gravity Well","Gravity Well"), Sev0, 4000),
             new MechanicGroup([
-                new PlayerDstBuffApplyMechanic(HeroesDeparture, Mech_HeroesDeparture, new (Symbols.Circle,Colors.DarkGreen), new("TP Out", "Hero's Departure (Teleport to Platform)","TP"), Sev1),
-                new PlayerDstBuffApplyMechanic(HeroesReturn, Mech_HeroesReturn, new (Symbols.Circle,Colors.Green), new("TP Back", "Hero's Return (Teleport back)","TP back"), Sev1),
+                new PlayerDstBuffApplyMechanic(HerosDeparture, Mech_HerosDeparture, new (Symbols.Circle,Colors.DarkGreen), new("TP Out", "Hero's Departure (Teleport to Platform)","TP"), Sev1),
+                new PlayerDstBuffApplyMechanic(HerosReturn, Mech_HerosReturn, new (Symbols.Circle,Colors.Green), new("TP Back", "Hero's Return (Teleport back)","TP back"), Sev1),
             ]),
             /*new Mechanic(Intervention, "Intervention", ParseEnum.BossIDS.Xera, new (Symbols.Hourglass,"rgb(128,0,128)"), new("Bubble",0),*/
             //new Mechanic(Disruption, "Disruption", ParseEnum.BossIDS.Xera, new (Symbols.Square,Colors.DarkGreen), new("TP",0), 
