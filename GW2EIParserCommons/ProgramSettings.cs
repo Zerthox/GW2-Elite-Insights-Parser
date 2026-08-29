@@ -11,8 +11,6 @@ public class ProgramSettings
     public bool UploadToDPSReports { get; set; } = false;
     public string DPSReportUserToken { get; set; }
     public bool UploadToWingman { get; set; } = false;
-    public bool UploadToMistWarrior { get; set; } = false;
-    public string MistWarriorUserToken { get; set; }
     // Format
     public bool SaveOutCSV { get; set; } = false;
     public bool SaveOutHTML { get; set; } = true;
@@ -61,7 +59,7 @@ public class ProgramSettings
     public int GetMaxParallelRunning()
     {
         int count;
-        if (SendEmbedToWebhook || UploadToDPSReports || UploadToWingman || UploadToMistWarrior)
+        if (SendEmbedToWebhook || UploadToDPSReports || UploadToWingman)
         {
             count = Math.Max(Environment.ProcessorCount / 2, 1);
         }
