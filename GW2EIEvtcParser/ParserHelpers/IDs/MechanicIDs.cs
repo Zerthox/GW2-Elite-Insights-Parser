@@ -257,6 +257,25 @@ public static class MechanicIDs
     public static readonly int Mech_UnnaturalSignet = BastionOfThePenitentMask | ++bastionOfThePenitentCount;
     #endregion WING 4 
     #region WING 5
+    private static int hallOfChainsCount = 0;
+    public static readonly int Mech_FracturedSpirit = HallOfChainsMask | ++hallOfChainsCount;
+    public static readonly int Mech_PureOblivions = HallOfChainsMask | ++hallOfChainsCount;
+    public static readonly int Mech_InnerVortex = HallOfChainsMask | ++hallOfChainsCount;
+    public static readonly int Mech_OuterVortex = HallOfChainsMask | ++hallOfChainsCount;
+    public static readonly int Mech_NecroDancerLost = HallOfChainsMask | ++hallOfChainsCount;
+    public static readonly int Mech_NecroDancerKept = HallOfChainsMask | ++hallOfChainsCount;
+    public static readonly int Mech_QuadSlash = HallOfChainsMask | ++hallOfChainsCount;
+    public static readonly int Mech_DeathBloom = HallOfChainsMask | ++hallOfChainsCount;
+    public static readonly int Mech_SpinningSlash = HallOfChainsMask | ++hallOfChainsCount;
+    public static readonly int Mech_SHFixation = HallOfChainsMask | ++hallOfChainsCount;
+    public static readonly int Mech_Necrosis = HallOfChainsMask | ++hallOfChainsCount;
+    public static readonly int Mech_CorruptTheLiving = HallOfChainsMask | ++hallOfChainsCount;
+    public static readonly int Mech_WurmSpit = HallOfChainsMask | ++hallOfChainsCount;
+    public static readonly int Mech_HowlingDeathCast = HallOfChainsMask | ++hallOfChainsCount;
+    public static readonly int Mech_HowlingDeathSuccess = HallOfChainsMask | ++hallOfChainsCount;
+    public static readonly int Mech_HowlingDeathFail = HallOfChainsMask | ++hallOfChainsCount;
+    public static readonly int Mech_SoulRift = HallOfChainsMask | ++hallOfChainsCount;
+    public static readonly int Mech_ImmobilizedTormentedDead = HallOfChainsMask | ++hallOfChainsCount;
     #endregion WING 5
     #region WING 6
     private static int mythwrightGambitCount = 0;
