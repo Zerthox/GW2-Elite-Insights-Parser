@@ -158,12 +158,12 @@ internal class SoullessHorror : HallOfChains
         int i = 1;
         foreach (CastEvent c in howling)
         {
-            var preBreakbarPhase = new SubPhasePhaseData(phaseStart, Math.Min(c.Time, end), new("Pre-Breakbar " + i);
+            var preBreakbarPhase = new SubPhasePhaseData(phaseStart, Math.Min(c.Time, end), "Pre-Breakbar " + i);
             preBreakbarPhase.AddTarget(soullessHorror, log);
             preBreakbarPhase.AddTargets(tormentedDeads, log, PhaseData.TargetPriority.NonBlocking);
             preBreakbarPhase.AddParentPhase(encounterPhase);
             phases.Add(preBreakbarPhase);
-            var howlingDeathPhase = new SubPhasePhaseData(Math.Min(c.Time, end), Math.Min(c.EndTime, end), new("Howling Death " + (i++));
+            var howlingDeathPhase = new SubPhasePhaseData(Math.Min(c.Time, end), Math.Min(c.EndTime, end), "Howling Death " + (i++));
             howlingDeathPhase.AddTarget(soullessHorror, log);
             howlingDeathPhase.AddTargets(tormentedDeads, log, PhaseData.TargetPriority.NonBlocking);
             howlingDeathPhase.AddParentPhase(encounterPhase);

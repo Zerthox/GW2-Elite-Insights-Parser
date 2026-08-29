@@ -110,7 +110,7 @@ internal class River : HallOfChains
 
     internal override void EIEvtcParse(ulong gw2Build, EvtcVersionEvent evtcVersion, LogData logData, AgentData agentData, List<CombatItem> combatData, IReadOnlyDictionary<uint, ExtensionHandler> extensions)
     {
-        agentData.AddCustomNPCAgent(logData.LogStart, logData.LogEnd, "River of Souls"), Spec.Gadget, TargetID.DummyTarget, true);
+        agentData.AddCustomNPCAgent(logData.LogStart, logData.LogEnd, "River of Souls", Spec.Gadget, TargetID.DummyTarget, true);
         foreach (var desmina in agentData.GetStableSpeciesByID(TargetID.Desmina))
         {
             var positions = combatData.Where(x => x.IsPosition && x.SrcMatchesAgent(desmina)).Take(5).Select(x => new PositionEvent(x, agentData).GetParametricPoint3D());
