@@ -21,12 +21,12 @@ internal class River : HallOfChains
 {
     internal readonly MechanicGroup Mechanics = new([
 
-            new PlayerDstHealthDamageHitMechanic(BombShellRiverOfSouls, new (Symbols.Circle,Colors.Orange), "Bomb Hit","Hit by Hollowed Bomber Exlosion", "Hit by Bomb", Sev0, 0 ),
-            new PlayerDstHealthDamageHitMechanic(SoullessTorrent, new (Symbols.Square,Colors.Orange), "Stun Bomb", "Stunned by Soulless Torrent (Mini Bomb)", "Stun Bomb", Sev0)
+            new PlayerDstHealthDamageHitMechanic(BombShellRiverOfSouls, new (Symbols.Circle,Colors.Orange), new("Bomb Hit","Hit by Hollowed Bomber Exlosion", "Hit by Bomb"), Sev0),
+            new PlayerDstHealthDamageHitMechanic(SoullessTorrent, new (Symbols.Square,Colors.Orange), new("Stun Bomb", "Stunned by Soulless Torrent (Mini Bomb)", "Stun Bomb"), Sev0)
                 .UsingBuffChecker(Stability, false),
-            new EnemySrcHealthDamageHitMechanic(BombShellRiverOfSouls, new (Symbols.Circle, Colors.LightOrange), "Bomb Hit Desmina", "Hollowed Bomber hit Desmina", "Bomb Desmina", Sev0)
+            new EnemySrcHealthDamageHitMechanic(BombShellRiverOfSouls, new (Symbols.Circle, Colors.LightOrange), new("Bomb Hit Desmina", "Hollowed Bomber hit Desmina", "Bomb Desmina"), Sev0)
                 .UsingChecker((de, log) => de.To.IsSpecies(TargetID.Desmina)),
-            new EnemySrcHealthDamageHitMechanic(EnervatorDamageSkillToDesmina, new (Symbols.TriangleDown, Colors.GreenishYellow), "Tether Desmina", "Enervator tethers and damages Desmina", "Enervator Tether", Sev0)
+            new EnemySrcHealthDamageHitMechanic(EnervatorDamageSkillToDesmina, new (Symbols.TriangleDown, Colors.GreenishYellow), new("Tether Desmina", "Enervator tethers and damages Desmina", "Enervator Tether"), Sev0)
                 .UsingChecker((de, log) => de.To.IsSpecies(TargetID.Desmina)),
         ]);
     public River(int triggerID) : base(triggerID)
@@ -110,7 +110,7 @@ internal class River : HallOfChains
 
     internal override void EIEvtcParse(ulong gw2Build, EvtcVersionEvent evtcVersion, LogData logData, AgentData agentData, List<CombatItem> combatData, IReadOnlyDictionary<uint, ExtensionHandler> extensions)
     {
-        agentData.AddCustomNPCAgent(logData.LogStart, logData.LogEnd, "River of Souls", Spec.Gadget, TargetID.DummyTarget, true);
+        agentData.AddCustomNPCAgent(logData.LogStart, logData.LogEnd, "River of Souls"), Spec.Gadget, TargetID.DummyTarget, true);
         foreach (var desmina in agentData.GetStableSpeciesByID(TargetID.Desmina))
         {
             var positions = combatData.Where(x => x.IsPosition && x.SrcMatchesAgent(desmina)).Take(5).Select(x => new PositionEvent(x, agentData).GetParametricPoint3D());

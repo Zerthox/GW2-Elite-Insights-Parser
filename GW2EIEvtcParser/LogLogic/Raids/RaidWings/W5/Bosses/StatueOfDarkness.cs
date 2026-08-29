@@ -19,18 +19,18 @@ internal class StatueOfDarkness : HallOfChains
 {
     internal readonly MechanicGroup Mechanics = new([
 
-            new PlayerDstBuffApplyMechanic(Fear, new (Symbols.StarSquare,Colors.Black), "Feared", "Feared by Eye Teleport Skill","Feared", Sev0),
+            new PlayerDstBuffApplyMechanic(Fear, new (Symbols.StarSquare,Colors.Black), new("Feared", "Feared by Eye Teleport Skill","Feared"), Sev0),
             new MechanicGroup([
-                new PlayerDstBuffApplyMechanic(LightCarrier, new (Symbols.CircleOpen,Colors.Yellow), "Light Orb", "Light Carrier (picked up a light orb)","Picked up orb", Sev1),
-                new PlayerCastStartMechanic(Flare, new (Symbols.Circle,Colors.Green), "Detonate", "Flare (detonate light orb to incapacitate eye)","Detonate orb", Sev0)
+                new PlayerDstBuffApplyMechanic(LightCarrier, new (Symbols.CircleOpen,Colors.Yellow), new("Light Orb", "Light Carrier (picked up a light orb)","Picked up orb"), Sev1),
+                new PlayerCastStartMechanic(Flare, new (Symbols.Circle,Colors.Green), new("Detonate", "Flare (detonate light orb to incapacitate eye)","Detonate orb"), Sev0)
                     .UsingChecker((evt, log) => !evt.IsInterrupted),
             ]),
-            new PlayerDstHealthDamageHitMechanic(PiercingShadow, new (Symbols.HexagramOpen,Colors.Blue), "Spin.SoD", "Piercing Shadow (damaging spin to all players in sight)","Eye Spin", Sev1),
-            new PlayerDstHealthDamageHitMechanic(DeepAbyss, new (Symbols.TriangleRightOpen,Colors.Red), "Beam", "Deep Abyss (ticking eye beam)","Eye Beam", Sev1),
+            new PlayerDstHealthDamageHitMechanic(PiercingShadow, new (Symbols.HexagramOpen,Colors.Blue), new("Spin.SoD", "Piercing Shadow (damaging spin to all players in sight)","Eye Spin"), Sev1),
+            new PlayerDstHealthDamageHitMechanic(DeepAbyss, new (Symbols.TriangleRightOpen,Colors.Red), new("Beam", "Deep Abyss (ticking eye beam)","Eye Beam"), Sev1),
             new MechanicGroup([
-                new PlayerSrcBuffApplyMechanic([Daze, Fear, Knockdown], new (Symbols.TriangleUp,Colors.Red), "Hard CC Fate", "Applied Daze/Fear/Knockdown on Eye of Fate","CC Fate", Sev0, 50)
+                new PlayerSrcBuffApplyMechanic([Daze, Fear, Knockdown], new (Symbols.TriangleUp,Colors.Red), new("Hard CC Fate", "Applied Daze/Fear/Knockdown on Eye of Fate","CC Fate"), Sev0, 50)
                     .UsingChecker((ba, log) => ba.To.IsSpecies(TargetID.EyeOfFate)),
-                new PlayerSrcBuffApplyMechanic([Daze, Fear, Knockdown], new (Symbols.Square,Colors.Red), "Hard CC Judge", "Applied Daze/Fear/Knockdown on Eye of Judgement","CC Judge", Sev0, 50)
+                new PlayerSrcBuffApplyMechanic([Daze, Fear, Knockdown], new (Symbols.Square,Colors.Red), new("Hard CC Judge", "Applied Daze/Fear/Knockdown on Eye of Judgement","CC Judge"), Sev0, 50)
                     .UsingChecker((ba, log) => ba.To.IsSpecies(TargetID.EyeOfJudgement)),
             ]),
         //47857 <- teleport + fear skill? 
