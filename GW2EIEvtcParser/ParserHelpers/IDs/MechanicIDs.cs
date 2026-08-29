@@ -296,6 +296,29 @@ public static class MechanicIDs
     public static readonly int Mech_DeepAbyss = HallOfChainsMask | ++hallOfChainsCount;
     public static readonly int Mech_HardCCFate = HallOfChainsMask | ++hallOfChainsCount;
     public static readonly int Mech_HardCCJudge = HallOfChainsMask | ++hallOfChainsCount;
+    public static readonly int Mech_HatefulEphemera = HallOfChainsMask | ++hallOfChainsCount;
+    public static readonly int Mech_ArcingAfflictionHit = HallOfChainsMask | ++hallOfChainsCount;
+    public static readonly int Mech_ArcingAfflictionApply = HallOfChainsMask | ++hallOfChainsCount;
+    public static readonly int Mech_ArcingAfflictionTrigger = HallOfChainsMask | ++hallOfChainsCount;
+    public static readonly int Mech_ConeSlash = HallOfChainsMask | ++hallOfChainsCount;
+    public static readonly int Mech_CullDamage = HallOfChainsMask | ++hallOfChainsCount;
+    public static readonly int Mech_PutridBomb = HallOfChainsMask | ++hallOfChainsCount;
+    public static readonly int Mech_CataclysmicCycle = HallOfChainsMask | ++hallOfChainsCount;
+    public static readonly int Mech_DeathMark = HallOfChainsMask | ++hallOfChainsCount;
+    public static readonly int Mech_GreaterDeathMark = HallOfChainsMask | ++hallOfChainsCount;
+    public static readonly int Mech_RendingSwipe = HallOfChainsMask | ++hallOfChainsCount;
+    public static readonly int Mech_DhuumShacklesApply = HallOfChainsMask | ++hallOfChainsCount;
+    public static readonly int Mech_DhuumShacklesDamage = HallOfChainsMask | ++hallOfChainsCount;
+    public static readonly int Mech_DhuumSealInteract = HallOfChainsMask | ++hallOfChainsCount;
+    public static readonly int Mech_DhuumSealInteracted = HallOfChainsMask | ++hallOfChainsCount;
+    public static readonly int Mech_DhuumSealInteractInterrupted = HallOfChainsMask | ++hallOfChainsCount;
+    public static readonly int Mech_DhuumSuperspeedOrbs = HallOfChainsMask | ++hallOfChainsCount;
+    public static readonly int Mech_EchoPickup = HallOfChainsMask | ++hallOfChainsCount;
+    public static readonly int Mech_EchoFreed = HallOfChainsMask | ++hallOfChainsCount;
+    public static readonly int Mech_EchoBreakbarDamage = HallOfChainsMask | ++hallOfChainsCount;
+    public static readonly int Mech_EchoStrongSoftCC = HallOfChainsMask | ++hallOfChainsCount;
+    public static readonly int Mech_EchoWeakSoftCC = HallOfChainsMask | ++hallOfChainsCount;
+    public static readonly int Mech_MessengerFixation = HallOfChainsMask | ++hallOfChainsCount;
     #endregion WING 5
     #region WING 6
     private static int mythwrightGambitCount = 0;
