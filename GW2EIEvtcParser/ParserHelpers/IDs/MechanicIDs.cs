@@ -280,6 +280,22 @@ public static class MechanicIDs
     public static readonly int Mech_SoullessTorrent = HallOfChainsMask | ++hallOfChainsCount;
     public static readonly int Mech_BombShellRiverOfSoulsOnDesmina = HallOfChainsMask | ++hallOfChainsCount;
     public static readonly int Mech_EnervatorDamageDesmina = HallOfChainsMask | ++hallOfChainsCount;
+    public static readonly int Mech_KingsWrathCone = HallOfChainsMask | ++hallOfChainsCount;
+    public static readonly int Mech_KingsWrathConeShards = HallOfChainsMask | ++hallOfChainsCount;
+    public static readonly int Mech_NumbingBreach = HallOfChainsMask | ++hallOfChainsCount;
+    public static readonly int Mech_FrozenWind = HallOfChainsMask | ++hallOfChainsCount;
+    public static readonly int Mech_Glaciate = HallOfChainsMask | ++hallOfChainsCount;
+    public static readonly int Mech_IceBreaker = HallOfChainsMask | ++hallOfChainsCount;
+    public static readonly int Mech_HungeringMiasma = HallOfChainsMask | ++hallOfChainsCount;
+    public static readonly int Mech_LightOrbCollect = HallOfChainsMask | ++hallOfChainsCount;
+    public static readonly int Mech_LightOrbThrown = HallOfChainsMask | ++hallOfChainsCount;
+    public static readonly int Mech_FearedByEyes = HallOfChainsMask | ++hallOfChainsCount;
+    public static readonly int Mech_LightCarrier = HallOfChainsMask | ++hallOfChainsCount;
+    public static readonly int Mech_Flare = HallOfChainsMask | ++hallOfChainsCount;
+    public static readonly int Mech_PiercingShadow = HallOfChainsMask | ++hallOfChainsCount;
+    public static readonly int Mech_DeepAbyss = HallOfChainsMask | ++hallOfChainsCount;
+    public static readonly int Mech_HardCCFate = HallOfChainsMask | ++hallOfChainsCount;
+    public static readonly int Mech_HardCCJudge = HallOfChainsMask | ++hallOfChainsCount;
     #endregion WING 5
     #region WING 6
     private static int mythwrightGambitCount = 0;
