@@ -16,8 +16,8 @@ internal abstract class HallOfChains : RaidWingLogic
     public HallOfChains(int triggerID) : base(triggerID)
     {
         MechanicList.Add(new MechanicGroup([
-                new PlayerDstBuffApplyMechanic(FracturedSpirit, new (Symbols.Square,Colors.Green), new("Orb CD", "Applied when taking green","Green port"), Sev2),
-                new PlayerDstBuffApplyMechanic(SourcePureOblivionBuff, new (Symbols.HexagonOpen, Colors.Black), new("10%", "Lifted by Pure Oblivion", "Pure Oblivion (10%)"), Sev0),
+                new PlayerDstBuffApplyMechanic(FracturedSpirit, Mech_FracturedSpirit, new (Symbols.Square,Colors.Green), new("Orb CD", "Applied when taking green","Green port"), Sev2),
+                new PlayerDstBuffApplyMechanic(SourcePureOblivionBuff, Mech_PureOblivions, new (Symbols.HexagonOpen, Colors.Black), new("10%", "Lifted by Pure Oblivion", "Pure Oblivion (10%)"), Sev0),
             ]));
         LogCategoryInformation.SubCategory = SubLogCategory.HallOfChains;
         LogID |= LogIDs.RaidWingMasks.HallOfChainsMask;
