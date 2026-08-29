@@ -26,7 +26,7 @@ internal class River : HallOfChains
                 .UsingBuffChecker(Stability, false),
             new EnemySrcHealthDamageHitMechanic(BombShellRiverOfSouls, Mech_BombShellRiverOfSoulsOnDesmina, new (Symbols.Circle, Colors.LightOrange), new("Bomb Hit Desmina", "Hollowed Bomber hit Desmina", "Bomb Desmina"), Sev0)
                 .UsingChecker((de, log) => de.To.IsSpecies(TargetID.Desmina)),
-            new EnemySrcHealthDamageHitMechanic(EnervatorDamageSkillToDesmina, Mech_EnerbatorDamageDesmina, new (Symbols.TriangleDown, Colors.GreenishYellow), new("Tether Desmina", "Enervator tethers and damages Desmina", "Enervator Tether"), Sev0)
+            new EnemySrcHealthDamageHitMechanic(EnervatorDamageSkillToDesmina, Mech_EnervatorDamageDesmina, new (Symbols.TriangleDown, Colors.GreenishYellow), new("Tether Desmina", "Enervator tethers and damages Desmina", "Enervator Tether"), Sev0)
                 .UsingChecker((de, log) => de.To.IsSpecies(TargetID.Desmina)),
         ]);
     public River(int triggerID) : base(triggerID)
