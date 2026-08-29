@@ -276,6 +276,10 @@ public static class MechanicIDs
     public static readonly int Mech_HowlingDeathFail = HallOfChainsMask | ++hallOfChainsCount;
     public static readonly int Mech_SoulRift = HallOfChainsMask | ++hallOfChainsCount;
     public static readonly int Mech_ImmobilizedTormentedDead = HallOfChainsMask | ++hallOfChainsCount;
+    public static readonly int Mech_BombShellRiverOfSouls= HallOfChainsMask | ++hallOfChainsCount;
+    public static readonly int Mech_SoullessTorrent = HallOfChainsMask | ++hallOfChainsCount;
+    public static readonly int Mech_BombShellRiverOfSoulsOnDesmina = HallOfChainsMask | ++hallOfChainsCount;
+    public static readonly int Mech_EnerbatorDamageDesmina = HallOfChainsMask | ++hallOfChainsCount;
     #endregion WING 5
     #region WING 6
     private static int mythwrightGambitCount = 0;

@@ -21,12 +21,12 @@ internal class River : HallOfChains
 {
     internal readonly MechanicGroup Mechanics = new([
 
-            new PlayerDstHealthDamageHitMechanic(BombShellRiverOfSouls, new (Symbols.Circle,Colors.Orange), new("Bomb Hit","Hit by Hollowed Bomber Exlosion", "Hit by Bomb"), Sev0),
-            new PlayerDstHealthDamageHitMechanic(SoullessTorrent, new (Symbols.Square,Colors.Orange), new("Stun Bomb", "Stunned by Soulless Torrent (Mini Bomb)", "Stun Bomb"), Sev0)
+            new PlayerDstHealthDamageHitMechanic(BombShellRiverOfSouls, Mech_BombShellRiverOfSouls, new (Symbols.Circle,Colors.Orange), new("Bomb Hit","Hit by Hollowed Bomber Exlosion", "Hit by Bomb"), Sev0),
+            new PlayerDstHealthDamageHitMechanic(SoullessTorrent, Mech_SoullessTorrent, new (Symbols.Square,Colors.Orange), new("Stun Bomb", "Stunned by Soulless Torrent (Mini Bomb)", "Stun Bomb"), Sev0)
                 .UsingBuffChecker(Stability, false),
-            new EnemySrcHealthDamageHitMechanic(BombShellRiverOfSouls, new (Symbols.Circle, Colors.LightOrange), new("Bomb Hit Desmina", "Hollowed Bomber hit Desmina", "Bomb Desmina"), Sev0)
+            new EnemySrcHealthDamageHitMechanic(BombShellRiverOfSouls, Mech_BombShellRiverOfSoulsOnDesmina, new (Symbols.Circle, Colors.LightOrange), new("Bomb Hit Desmina", "Hollowed Bomber hit Desmina", "Bomb Desmina"), Sev0)
                 .UsingChecker((de, log) => de.To.IsSpecies(TargetID.Desmina)),
-            new EnemySrcHealthDamageHitMechanic(EnervatorDamageSkillToDesmina, new (Symbols.TriangleDown, Colors.GreenishYellow), new("Tether Desmina", "Enervator tethers and damages Desmina", "Enervator Tether"), Sev0)
+            new EnemySrcHealthDamageHitMechanic(EnervatorDamageSkillToDesmina, Mech_EnerbatorDamageDesmina, new (Symbols.TriangleDown, Colors.GreenishYellow), new("Tether Desmina", "Enervator tethers and damages Desmina", "Enervator Tether"), Sev0)
                 .UsingChecker((de, log) => de.To.IsSpecies(TargetID.Desmina)),
         ]);
     public River(int triggerID) : base(triggerID)
