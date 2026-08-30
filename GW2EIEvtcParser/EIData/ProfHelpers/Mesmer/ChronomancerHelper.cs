@@ -139,11 +139,21 @@ internal static class ChronomancerHelper
                 { EffectGUIDs.ChronomancerRewinder, skillData.Get(Rewinder)},
                 { EffectGUIDs.ChronomancerTimeSink, skillData.Get(TimeSink)},
             };
+            HashSet<long> shatterSkillIDs = [SplitSecond, SplitSecondAmmo, Rewinder, TimeSink, DistortionSkill, ContinuumSplit];
             skillData.NotAccurate.UnionWith([SplitSecondOrSplitSecondAmmo, SplitSecond, SplitSecondAmmo, Rewinder, TimeSink]);
             shatters.SortByTime();
             shatters.Reverse();
             var pClones = clones.Where(player.IsMasterOf);
-            var pClonesDead = pClones.Select(x => combatData.GetDeadEvents(x).LastOrDefault()).Where(x => x != null).ToList();
+            var pClonesDead = pClones
+                .Where(x => {
+                    var killingBlows = combatData.GetDamageTakenData(x)
+                        .Where(y => y.HasKilled)
+                        .ToList();
+                    return killingBlows.Count == 0 || killingBlows.Any(y => shatterSkillIDs.Contains(y.SkillID));
+                })
+                .Select(x => combatData.GetDeadEvents(x).LastOrDefault())
+                .Where(x => x != null)
+                .ToList();
             pClonesDead.Sort((x, y) => x!.Time.CompareTo(y!.Time));
             foreach (var shatter in shatters)
             {
