@@ -28,7 +28,7 @@ internal class Arkk : ShatteredObservatory
                 [
                     new PlayerDstHealthDamageHitMechanic(SolarFury, Mech_SolarFury, new (Symbols.Circle,Colors.LightRed), new("Ball", "Stood in Red Overhead Ball Field","Red Ball Aoe"), Sev0),
                     new PlayerDstHealthDamageHitMechanic(SolarDischarge, Mech_SolarDischarge, new (Symbols.CircleOpen,Colors.Red), new("Shockwave", "Knockback shockwave after Overhead Balls","Shockwave"), Sev0),
-                    new PlayerDstHealthDamageHitMechanic(SolarStomp, Mech_SolarDischarge, new (Symbols.TriangleUp,Colors.Magenta), new("Stomp", "Solar Stomp (Evading Stomp)","Evading Jump"), Sev1),
+                    new PlayerDstHealthDamageHitMechanic(SolarStomp, Mech_SolarStomp, new (Symbols.TriangleUp,Colors.Magenta), new("Stomp", "Solar Stomp (Evading Stomp)","Evading Jump"), Sev1),
                 ]
             ),
             new MechanicGroup([
