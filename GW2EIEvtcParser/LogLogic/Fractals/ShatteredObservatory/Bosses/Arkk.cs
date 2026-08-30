@@ -64,6 +64,7 @@ internal class Arkk : ShatteredObservatory
                 new PlayerDstHealthDamageHitMechanic(SpinningCut, Mech_SpinningCut, new (Symbols.StarSquareOpen,Colors.LightPurple), new("Daze", "Spinning Cut (3rd Gladiator Auto->Daze)","Gladiator Daze"), Sev1), //
             ]),
         ]);
+
     public Arkk(int triggerID) : base(triggerID)
     {
         MechanicList.Add(Mechanics);
@@ -77,9 +78,7 @@ internal class Arkk : ShatteredObservatory
     {
         var crMap = new CombatReplayMap(
                         (914, 914),
-                        (-19231, -18137, -16591, -15677)/*,
-                        (-6144, -6144, 9216, 9216),
-                        (11804, 4414, 12444, 5054)*/);
+                        (-19291, -18274, -16571, -15554));
         AddArenaDecorationsPerEncounter(log, arenaDecorations, LogID, CombatReplayArkk, crMap, parentMap);
         return crMap;
     }
