@@ -641,6 +641,7 @@ public static class SpeciesIDs
         DOC = 16657,
         CHOP = 16552,
         ProjectionArkk = 17613,
+        ReactorArkk = 17823, // gadget
         // - Ai
         Parent_AiKeeperOfThePeak = ParentAiKeeperOfThePeak,
         AiKeeperOfThePeak = 23254,

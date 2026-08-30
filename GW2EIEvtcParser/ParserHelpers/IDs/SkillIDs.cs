@@ -2526,6 +2526,7 @@ public static class SkillIDs
     public const long HorizonStrikeSkorvald = 39458;
     public const long TeleportLunge = 39469;
     public const long Obliterate = 39470;
+    public const long ReactorBeamArkk = 39473;
     public const long BloomExplode = 39491;
     public const long OystersWithSpicySauce = 39500;
     public const long HorizonStrikeSkorvald1 = 39507;
