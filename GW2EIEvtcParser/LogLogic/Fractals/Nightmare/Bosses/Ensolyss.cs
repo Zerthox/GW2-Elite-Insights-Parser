@@ -40,7 +40,7 @@ internal class Ensolyss : Nightmare
                 ]
             ),
             new EnemyCastStartMechanic([ NightmareDevastation1, NightmareDevastation2 ], Mech_NightmareDevastationEnsolyss, new (Symbols.SquareOpen,Colors.Blue), new("Bubble.E", "Nightmare Devastation (bubble attack)","Bubble"), Sev0),
-            new PlayerDstHealthDamageHitMechanic(TailLashEnsolyss, Mech_TailLashSiax, new (Symbols.TriangleLeft,Colors.Yellow), new("Tail.E", "Tail Lash Ensolyss (half circle Knockback)","Tail Lash (Ensolyss)"), Sev1),
+            new PlayerDstHealthDamageHitMechanic(TailLashEnsolyss, Mech_TailLashEnsolyss, new (Symbols.TriangleLeft,Colors.Yellow), new("Tail.E", "Tail Lash Ensolyss (half circle Knockback)","Tail Lash (Ensolyss)"), Sev1),
             new PlayerDstHealthDamageHitMechanic(RampageEnsolyss, Mech_RampageEnsolyss, new (Symbols.BowtieOpen,Colors.Red), new("Rampage", "Rampage (asterisk shaped Arrow attack)","Rampage"), Sev0, 150),
             new PlayerDstHealthDamageHitMechanic(CausticGrasp, Mech_CausticGraspEnsolyss, new (Symbols.StarDiamond,Colors.LightOrange), new("Pull.E", "Caustic Grasp (Arena Wide Pull)","Pull"), Sev0),
             new PlayerDstHealthDamageHitMechanic(TormentingBlast, Mech_TormentingBlastEnsolyss, new (Symbols.Diamond,Colors.Yellow), new("Quarter", "Tormenting Blast (Two Quarter Circle attacks)","Quarter circle"), Sev1),

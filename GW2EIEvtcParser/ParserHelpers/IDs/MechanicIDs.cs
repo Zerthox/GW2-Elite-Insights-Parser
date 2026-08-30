@@ -276,7 +276,7 @@ public static class MechanicIDs
     public static readonly int Mech_HowlingDeathFail = HallOfChainsMask | ++hallOfChainsCount;
     public static readonly int Mech_SoulRift = HallOfChainsMask | ++hallOfChainsCount;
     public static readonly int Mech_ImmobilizedTormentedDead = HallOfChainsMask | ++hallOfChainsCount;
-    public static readonly int Mech_BombShellRiverOfSouls= HallOfChainsMask | ++hallOfChainsCount;
+    public static readonly int Mech_BombShellRiverOfSouls = HallOfChainsMask | ++hallOfChainsCount;
     public static readonly int Mech_SoullessTorrent = HallOfChainsMask | ++hallOfChainsCount;
     public static readonly int Mech_BombShellRiverOfSoulsOnDesmina = HallOfChainsMask | ++hallOfChainsCount;
     public static readonly int Mech_EnervatorDamageDesmina = HallOfChainsMask | ++hallOfChainsCount;
