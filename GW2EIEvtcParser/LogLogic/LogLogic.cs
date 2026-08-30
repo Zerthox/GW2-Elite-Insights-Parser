@@ -120,12 +120,12 @@ public abstract class LogLogic
                 ),
                 new MechanicGroup(
                     [
-                        new PlayerDstCrowdControlMechanic(SkillIDs.ArcDPSGenericKnockdown, Mech_PlayerSpawn, new (Symbols.StarTriangleUp, Colors.Brown), new("Knck.Dwn", "Knocked Down"), Sev4),
-                        new PlayerDstCrowdControlMechanic(SkillIDs.ArcDPSGenericKnockbackPull, Mech_PlayerSpawn, new (Symbols.StarTriangleUp, Colors.DarkGreen), new("Knck.Pll", "Knocked Back or Pulled", "Knocked Back/Pulled"), Sev4),
-                        new PlayerDstCrowdControlMechanic(SkillIDs.ArcDPSGenericFloat, Mech_PlayerSpawn, new (Symbols.StarTriangleUp, Colors.LightBlue), new("Flt", "Float"), Sev4),
-                        new PlayerDstCrowdControlMechanic(SkillIDs.ArcDPSGenericLaunch, Mech_PlayerSpawn, new (Symbols.StarTriangleUp, Colors.DarkPurple), new("Lnch", "Launched"), Sev4),
-                        new PlayerDstCrowdControlMechanic([SkillIDs.ArcDPSGenericLockOut, SkillIDs.ArcDPSGenericStagger, SkillIDs.ArcDPSGenericFear], Mech_PlayerSpawn, new (Symbols.StarTriangleUp, Colors.LightPurple), new("Lckt", "Lockout", "Lockout (Stun, Daze, Petrify, etc...)"), Sev4),
-                        new PlayerDstCrowdControlMechanic([SkillIDs.ArcDPSGenericWaterFloatSink, SkillIDs.ArcDPSGenericFloatWater, SkillIDs.ArcDPSGenericSink], Mech_PlayerSpawn, new (Symbols.StarTriangleUp, Colors.DarkBlue), new("Wtr.Flt.Snk", "Float or Sinked in Water", "Float or Sinked"), Sev4),
+                        new PlayerDstCrowdControlMechanic(SkillIDs.ArcDPSGenericKnockdown, Mech_PlayerKD, new (Symbols.StarTriangleUp, Colors.Brown), new("Knck.Dwn", "Knocked Down"), Sev4),
+                        new PlayerDstCrowdControlMechanic(SkillIDs.ArcDPSGenericKnockbackPull, Mech_PlayerKBP, new (Symbols.StarTriangleUp, Colors.DarkGreen), new("Knck.Pll", "Knocked Back or Pulled", "Knocked Back/Pulled"), Sev4),
+                        new PlayerDstCrowdControlMechanic(SkillIDs.ArcDPSGenericFloat, Mech_PlayerFloat, new (Symbols.StarTriangleUp, Colors.LightBlue), new("Flt", "Float"), Sev4),
+                        new PlayerDstCrowdControlMechanic(SkillIDs.ArcDPSGenericLaunch, Mech_PlayerLaunch, new (Symbols.StarTriangleUp, Colors.DarkPurple), new("Lnch", "Launched"), Sev4),
+                        new PlayerDstCrowdControlMechanic([SkillIDs.ArcDPSGenericLockOut, SkillIDs.ArcDPSGenericStagger, SkillIDs.ArcDPSGenericFear], Mech_PlayerLockOut, new (Symbols.StarTriangleUp, Colors.LightPurple), new("Lckt", "Lockout", "Lockout (Stun, Daze, Petrify, etc...)"), Sev4),
+                        new PlayerDstCrowdControlMechanic([SkillIDs.ArcDPSGenericWaterFloatSink, SkillIDs.ArcDPSGenericFloatWater, SkillIDs.ArcDPSGenericSink], Mech_PlayerFloatSinkWater, new (Symbols.StarTriangleUp, Colors.DarkBlue), new("Wtr.Flt.Snk", "Float or Sinked in Water", "Float or Sinked"), Sev4),
                     ]
                 ),
             ])
