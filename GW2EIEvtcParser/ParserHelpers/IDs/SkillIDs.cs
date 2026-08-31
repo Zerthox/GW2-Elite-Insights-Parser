@@ -2501,6 +2501,7 @@ public static class SkillIDs
     public const long FixatedBloom1 = 39131;
     public const long WaveOfMutilation = 39133;
     public const long HypernovaLaunchSAK = 39157;
+    public const long POV_TimePocket = 39159;
     public const long TawShot1 = 39160;
     public const long CranialCascadeSkorvald = 39220;
     public const long SupernovaSkorvaldCM = 39225;
