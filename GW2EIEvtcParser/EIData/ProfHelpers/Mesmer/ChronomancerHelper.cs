@@ -147,10 +147,10 @@ internal static class ChronomancerHelper
                 .Where(player.IsMasterOf)
                 .ToList();
             var cloneKillingBlowsDict = pClones
-                .Select(x => combatData.GetDamageTakenData(x)
-                    .Where(y => y.HasKilled).ToList())
-                .Where(x => x.Count > 0)
-                .ToDictionary(x => x.First().From, x => x);
+                .Select(clone => (clone, combatData.GetDamageTakenData(clone)
+                    .Where(y => y.HasKilled).ToList()))
+                .Where(x => x.Item2.Count > 0)
+                .ToDictionary(x => x.clone, x => x.Item2);
             // We keep clones with dead events but without killing blows or killing blows with relevant skill ids
             var pClonesDead = pClones
                 .Where(x => !cloneKillingBlowsDict.TryGetValue(x, out var killingBlows) || killingBlows.Any(y => shatterSkillIDs.Contains(y.SkillID)))
