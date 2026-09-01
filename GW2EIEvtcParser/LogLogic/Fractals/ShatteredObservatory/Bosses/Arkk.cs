@@ -2,7 +2,6 @@
 using GW2EIEvtcParser.Exceptions;
 using GW2EIEvtcParser.ParsedData;
 using GW2EIEvtcParser.ParserHelpers;
-using static GW2EIEvtcParser.EIData.Mechanic;
 using static GW2EIEvtcParser.LogLogic.LogLogicPhaseUtils;
 using static GW2EIEvtcParser.LogLogic.LogLogicTimeUtils;
 using static GW2EIEvtcParser.LogLogic.LogLogicUtils;
@@ -10,7 +9,7 @@ using static GW2EIEvtcParser.ParserHelper;
 using static GW2EIEvtcParser.ParserHelpers.LogImages;
 using static GW2EIEvtcParser.SkillIDs;
 using static GW2EIEvtcParser.SpeciesIDs;
-using static GW2EIEvtcParser.EIData.Mechanic.MechanicSeverity; 
+using static GW2EIEvtcParser.EIData.Mechanic.MechanicSeverity;
 using static GW2EIEvtcParser.MechanicIDs;
 
 namespace GW2EIEvtcParser.LogLogic;
@@ -65,6 +64,7 @@ internal class Arkk : ShatteredObservatory
                 new PlayerDstHealthDamageHitMechanic(SpinningCut, Mech_SpinningCut, new (Symbols.StarSquareOpen,Colors.LightPurple), new("Daze", "Spinning Cut (3rd Gladiator Auto->Daze)","Gladiator Daze"), Sev1), //
             ]),
         ]);
+
     public Arkk(int triggerID) : base(triggerID)
     {
         MechanicList.Add(Mechanics);
@@ -78,16 +78,14 @@ internal class Arkk : ShatteredObservatory
     {
         var crMap = new CombatReplayMap(
                         (914, 914),
-                        (-19231, -18137, -16591, -15677)/*,
-                        (-6144, -6144, 9216, 9216),
-                        (11804, 4414, 12444, 5054)*/);
+                        (-19291, -18274, -16571, -15554));
         AddArenaDecorationsPerEncounter(log, arenaDecorations, LogID, CombatReplayArkk, crMap, parentMap);
         return crMap;
     }
 
     internal override IReadOnlyList<TargetID> GetTrashMobsIDs()
     {
-        var trashIDs = new List<TargetID>(9 + base.GetTrashMobsIDs().Count);
+        var trashIDs = new List<TargetID>(10 + base.GetTrashMobsIDs().Count);
         trashIDs.AddRange(base.GetTrashMobsIDs());
         trashIDs.Add(TargetID.FanaticDagger2);
         trashIDs.Add(TargetID.FanaticDagger1);
@@ -98,6 +96,7 @@ internal class Arkk : ShatteredObservatory
         trashIDs.Add(TargetID.DOC);
         trashIDs.Add(TargetID.CHOP);
         trashIDs.Add(TargetID.ProjectionArkk);
+        trashIDs.Add(TargetID.ReactorArkk);
         return trashIDs;
     }
 
@@ -106,7 +105,7 @@ internal class Arkk : ShatteredObservatory
         return LogData.Mode.CMNoName;
     }
 
-    internal override IReadOnlyList<TargetID>  GetTargetsIDs()
+    internal override IReadOnlyList<TargetID> GetTargetsIDs()
     {
         return
         [
@@ -351,22 +350,29 @@ internal class Arkk : ShatteredObservatory
                     }
                 }
                 break;
-                // case (int)TargetID.TemporalAnomalyArkk:
-                //     if (!log.CombatData.HasEffectData)
-                //     {
-                //         foreach (ExitCombatEvent exitCombat in log.CombatData.GetExitCombatEvents(target.AgentItem))
-                //         {
-                //             int start = (int)exitCombat.Time;
-                //             BuffRemoveAllEvent skullRemove = log.CombatData.GetBuffRemoveAllData(CorporealReassignmentBuff).FirstOrDefault(x => x.Time >= exitCombat.Time + ServerDelayConstant);
-                //             int end = Math.Min((int?)skullRemove?.Time ?? int.MaxValue, start + 11000); // cap at 11s spawn to explosion
-                //             ParametricPoint3D anomalyPos = replay.PolledPositions.LastOrDefault(x => x.Time <= exitCombat.Time + ServerDelayConstant);
-                //             if (anomalyPos != null)
-                //             {
-                //                 replay.Decorations.Add(new CircleDecoration(false, 0, 220, (start, end), Colors.LightBlue, 0.4, new PositionConnector(anomalyPos)));
-                //             }
-                //         }
-                //     }
-                //     break;
+            // case (int)TargetID.TemporalAnomalyArkk:
+            //     if (!log.CombatData.HasEffectData)
+            //     {
+            //         foreach (ExitCombatEvent exitCombat in log.CombatData.GetExitCombatEvents(target.AgentItem))
+            //         {
+            //             int start = (int)exitCombat.Time;
+            //             BuffRemoveAllEvent skullRemove = log.CombatData.GetBuffRemoveAllData(CorporealReassignmentBuff).FirstOrDefault(x => x.Time >= exitCombat.Time + ServerDelayConstant);
+            //             int end = Math.Min((int?)skullRemove?.Time ?? int.MaxValue, start + 11000); // cap at 11s spawn to explosion
+            //             ParametricPoint3D anomalyPos = replay.PolledPositions.LastOrDefault(x => x.Time <= exitCombat.Time + ServerDelayConstant);
+            //             if (anomalyPos != null)
+            //             {
+            //                 replay.Decorations.Add(new CircleDecoration(false, 0, 220, (start, end), Colors.LightBlue, 0.4, new PositionConnector(anomalyPos)));
+            //             }
+            //         }
+            //     }
+            //     break;
+            case (int)TargetID.ReactorArkk:
+                {
+                    // reactor beams
+                    var beamEvents = GetBuffApplyRemoveSequence(log.CombatData, ReactorBeamArkk, target, true, true);
+                    replay.Decorations.AddTethers(beamEvents, Colors.SkyBlue, 0.5);
+                    break;
+                }
         }
     }
 

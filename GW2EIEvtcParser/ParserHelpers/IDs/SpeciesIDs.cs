@@ -641,6 +641,8 @@ public static class SpeciesIDs
         DOC = 16657,
         CHOP = 16552,
         ProjectionArkk = 17613,
+        TimePocketArkk = 17709, // spawns before anomaly, creates dome effect
+        ReactorArkk = 17823,
         // - Ai
         Parent_AiKeeperOfThePeak = ParentAiKeeperOfThePeak,
         AiKeeperOfThePeak = 23254,
