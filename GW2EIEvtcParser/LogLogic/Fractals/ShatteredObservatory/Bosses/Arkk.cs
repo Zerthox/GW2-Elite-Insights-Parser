@@ -469,14 +469,14 @@ internal class Arkk : ShatteredObservatory
         }
 
         // disappearing tiles
-        foreach (var reactor in log.AgentData.GetStableSpeciesByID(TargetID.TileArkk))
+        foreach (var tile in log.AgentData.GetStableSpeciesByID(TargetID.TileArkk))
         {
             const uint size = 330;
             var warning = new Token("warning");
             var off = new Token("off");
-            if (reactor.TryGetCurrentPosition(log, reactor.LastAware, out var position))
+            if (tile.TryGetCurrentPosition(log, tile.LastAware, out var position))
             {
-                foreach (var anim in log.CombatData.GetGadgetAnimationData(reactor))
+                foreach (var anim in log.CombatData.GetGadgetAnimationData(tile))
                 {
                     var lifespan = (anim.Time, anim.LoopEnd ?? log.LogData.LogEnd);
                     Color color;
