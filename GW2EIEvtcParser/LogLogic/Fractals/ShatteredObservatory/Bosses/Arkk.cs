@@ -289,7 +289,7 @@ internal class Arkk : ShatteredObservatory
                         var pos = MovementEvent.GetPoint3D(posEvent).XY();
                         if (electrocutedPositions.Any(x => (x - pos).LengthSquared() < InchDistanceThresholdSquared))
                         {
-                            agent.OverrideID(TargetID.ElectroutedAreaArkk, agentData); // animations "zeropose", "areas" (beware collisions)
+                            agent.OverrideID(TargetID.ElectrocutedAreaArkk, agentData); // animations "zeropose", "areas" (beware collisions)
                         }
                     }
                     break;
@@ -444,7 +444,7 @@ internal class Arkk : ShatteredObservatory
         }
 
         // electrocuted areas
-        foreach (var reactor in log.AgentData.GetStableSpeciesByID(TargetID.ElectroutedAreaArkk))
+        foreach (var reactor in log.AgentData.GetStableSpeciesByID(TargetID.ElectrocutedAreaArkk))
         {
             const uint length = 2050;
             const uint width = 650;
